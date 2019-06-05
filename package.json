@@ -75,5 +75,8 @@
   "np": {
     "contents": ".",
     "anyBranch": false
+  },
+  "dependencies": {
+    "indicative-parser": "^1.0.0"
   }
 }

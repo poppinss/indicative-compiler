@@ -1,0 +1,23 @@
+/**
+ * indicative-compiler
+ *
+ * (c) Harminder Virk <virk@adonisjs.com>
+ *
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
+import { ParsedRule } from 'indicative-parser'
+
+export type ConsumerFn<T extends any = any> = (
+  field: string,
+  rules: ParsedRule[],
+  dotPath: string[],
+) => T
+
+export type ArrayWrapper<T extends any = any, U extends any = any> = (
+  index: string,
+  field: string,
+  children: (T | U)[],
+  dotPath: string[],
+) => U
