@@ -39,21 +39,33 @@ export class TreeWalker<T extends any = any, U extends any = any> {
   /**
    * Processes the literal node inside schema tree
    */
-  private _processLiteralNode (field: string, node: SchemaNodeLiteral, dotPath: string[]): T {
-    return this._consumerFn(field, node.rules, dotPath)
+  private _processLiteralNode (
+    field: string,
+    node: SchemaNodeLiteral,
+    dotPath: string[],
+    arrayPath: string[],
+  ): T {
+    const pointer = arrayPath.concat(dotPath).concat(field).join('.')
+    return this._consumerFn(field, node.type, node.rules, dotPath, pointer)
   }
 
   /**
    * Process the object node inside the parsed. All children are parsed recursively
    */
-  private _processObjectNode (field: string, node: SchemaNodeObject, dotPath: string[]): (T | U)[] {
+  private _processObjectNode (
+    field: string,
+    node: SchemaNodeObject,
+    dotPath: string[],
+    arrayPath: string[],
+  ): (T | U)[] {
     let output: ReturnType<ConsumerFn>[] = []
 
     if (node.rules.length) {
-      output.push(this._consumerFn(field, node.rules, dotPath))
+      const pointer = arrayPath.concat(dotPath).concat(field).join('.')
+      output.push(this._consumerFn(field, node.type, node.rules, dotPath, pointer))
     }
 
-    output = output.concat(this.walk(node.children, dotPath.concat(field)))
+    output = output.concat(this.walk(node.children, dotPath.concat(field), arrayPath))
     return output
   }
 
@@ -61,21 +73,30 @@ export class TreeWalker<T extends any = any, U extends any = any> {
    * Process the array node of the schema tree. This method will call the `arrayWrapper`
    * function and passes all array children to it.
    */
-  private _processArrayNode (field: string, node: SchemaNodeArray, dotPath: string[]): (T | U)[] {
+  private _processArrayNode (
+    field: string,
+    node: SchemaNodeArray,
+    dotPath: string[],
+    arrayPath: string[],
+  ): (T | U)[] {
     let output: ReturnType<ConsumerFn>[] = []
 
+    const basePath = arrayPath.concat(dotPath).concat(field)
+
     if (node.rules.length) {
-      output.push(this._consumerFn(field, node.rules, dotPath))
+      const pointer = basePath.join('.')
+      output.push(this._consumerFn(field, node.type, node.rules, dotPath, pointer))
     }
 
     Object.keys(node.each).forEach((index) => {
       let child: (T | U)[] = []
 
       if (node.each[index].rules.length) {
-        child.push(this._consumerFn('::tip::', node.each[index].rules, dotPath))
+        const pointer = basePath.concat(index).join('.')
+        child.push(this._consumerFn('::tip::', 'literal', node.each[index].rules, dotPath, pointer))
       }
 
-      child = child.concat(this.walk(node.each[index].children, []))
+      child = child.concat(this.walk(node.each[index].children, [], basePath.concat(index)))
       output = output.concat(this._arrayWrapper(index, field, child, dotPath))
     })
 
@@ -86,19 +107,19 @@ export class TreeWalker<T extends any = any, U extends any = any> {
    * Walks the schema tree and invokes the `consumerFn` for each node. The output
    * of the consumer is collected and returned back as a flat array
    */
-  public walk (schema: ParsedSchema, dotPath?: string[]): (T | U)[] {
+  public walk (schema: ParsedSchema, dotPath: string[] = [], arrayPath: string[] = []): (T | U)[] {
     return Object.keys(schema).reduce((result: (T | U)[], field) => {
       const node = schema[field]
       if (node.type === 'literal') {
-        result = result.concat(this._processLiteralNode(field, node, dotPath || []))
+        result = result.concat(this._processLiteralNode(field, node, dotPath, arrayPath))
       }
 
       if (node.type === 'object') {
-        result = result.concat(this._processObjectNode(field, node, dotPath || []))
+        result = result.concat(this._processObjectNode(field, node, dotPath, arrayPath))
       }
 
       if (node.type === 'array') {
-        result = result.concat(this._processArrayNode(field, node, dotPath || []))
+        result = result.concat(this._processArrayNode(field, node, dotPath, arrayPath))
       }
 
       return result

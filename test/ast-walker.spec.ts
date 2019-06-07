@@ -18,20 +18,24 @@ test.group('Tree walker', () => {
       age: 'required',
     }
 
-    const stack = new TreeWalker((field, rules, dotPath) => {
-      return { field, rules, dotPath }
+    const stack = new TreeWalker((field, type, rules, dotPath, pointer) => {
+      return { field, type, rules, dotPath, pointer }
     }, () => {}).walk(rulesParser(schema))
 
     assert.deepEqual(stack, [
       {
         field: 'username',
+        type: 'literal',
         rules: [{ name: 'required', args: [] }],
         dotPath: [],
+        pointer: 'username',
       },
       {
         field: 'age',
+        type: 'literal',
         rules: [{ name: 'required', args: [] }],
         dotPath: [],
+        pointer: 'age',
       },
     ])
   })
@@ -42,20 +46,24 @@ test.group('Tree walker', () => {
       age: 'required',
     }
 
-    const stack = new TreeWalker((field, rules, dotPath) => {
-      return { field, rules, dotPath }
+    const stack = new TreeWalker((field, type, rules, dotPath, pointer) => {
+      return { field, type, rules, dotPath, pointer }
     }, () => {}).walk(rulesParser(schema))
 
     assert.deepEqual(stack, [
       {
         field: 'username',
+        type: 'literal',
         rules: [{ name: 'required', args: [] }],
         dotPath: ['user'],
+        pointer: 'user.username',
       },
       {
         field: 'age',
+        type: 'literal',
         rules: [{ name: 'required', args: [] }],
         dotPath: [],
+        pointer: 'age',
       },
     ])
   })
@@ -67,25 +75,31 @@ test.group('Tree walker', () => {
       age: 'required',
     }
 
-    const stack = new TreeWalker((field, rules, dotPath) => {
-      return { field, rules, dotPath }
+    const stack = new TreeWalker((field, type, rules, dotPath, pointer) => {
+      return { field, type, rules, dotPath, pointer }
     }, () => {}).walk(rulesParser(schema))
 
     assert.deepEqual(stack, [
       {
         field: 'user',
+        type: 'object',
         rules: [{ name: 'required', args: [] }],
         dotPath: [],
+        pointer: 'user',
       },
       {
         field: 'username',
+        type: 'literal',
         rules: [{ name: 'required', args: [] }],
         dotPath: ['user'],
+        pointer: 'user.username',
       },
       {
         field: 'age',
+        type: 'literal',
         rules: [{ name: 'required', args: [] }],
         dotPath: [],
+        pointer: 'age',
       },
     ])
   })
@@ -95,8 +109,8 @@ test.group('Tree walker', () => {
       'users.*.username': 'required',
     }
 
-    const stack = new TreeWalker((field, rules, dotPath) => {
-      return { field, rules, dotPath }
+    const stack = new TreeWalker((field, type, rules, dotPath, pointer) => {
+      return { field, type, rules, dotPath, pointer }
     }, (index, field, children, dotPath) => {
       return { index, field, children, dotPath }
     }).walk(rulesParser(schema))
@@ -109,8 +123,10 @@ test.group('Tree walker', () => {
         children: [
           {
             field: 'username',
+            type: 'literal',
             rules: [{ name: 'required', args: [] }],
             dotPath: [],
+            pointer: 'users.*.username',
           },
         ],
       },
@@ -122,8 +138,8 @@ test.group('Tree walker', () => {
       'user.profiles.*.username': 'required',
     }
 
-    const stack = new TreeWalker((field, rules, dotPath) => {
-      return { field, rules, dotPath }
+    const stack = new TreeWalker((field, type, rules, dotPath, pointer) => {
+      return { field, type, rules, dotPath, pointer }
     }, (index, field, children, dotPath) => {
       return { index, field, children, dotPath }
     }).walk(rulesParser(schema))
@@ -136,8 +152,10 @@ test.group('Tree walker', () => {
         children: [
           {
             field: 'username',
+            type: 'literal',
             rules: [{ name: 'required', args: [] }],
             dotPath: [],
+            pointer: 'user.profiles.*.username',
           },
         ],
       },
@@ -151,8 +169,8 @@ test.group('Tree walker', () => {
       'users.*.profile.username': 'required',
     }
 
-    const stack = new TreeWalker((field, rules, dotPath) => {
-      return { field, rules, dotPath }
+    const stack = new TreeWalker((field, type, rules, dotPath, pointer) => {
+      return { field, type, rules, dotPath, pointer }
     }, (index, field, children, dotPath) => {
       return { index, field, children, dotPath }
     }).walk(rulesParser(schema))
@@ -160,8 +178,10 @@ test.group('Tree walker', () => {
     assert.deepEqual(stack, [
       {
         field: 'users',
+        type: 'array',
         rules: [{ name: 'required', args: [] }],
         dotPath: [],
+        pointer: 'users',
       },
       {
         index: '*',
@@ -170,13 +190,17 @@ test.group('Tree walker', () => {
         children: [
           {
             field: 'profile',
+            type: 'object',
             rules: [{ name: 'required', args: [] }],
             dotPath: [],
+            pointer: 'users.*.profile',
           },
           {
             field: 'username',
+            type: 'literal',
             rules: [{ name: 'required', args: [] }],
             dotPath: ['profile'],
+            pointer: 'users.*.profile.username',
           },
         ],
       },
@@ -191,8 +215,8 @@ test.group('Tree walker', () => {
       'users.*.profile.username': 'required',
     }
 
-    const stack = new TreeWalker((field, rules, dotPath) => {
-      return { field, rules, dotPath }
+    const stack = new TreeWalker((field, type, rules, dotPath, pointer) => {
+      return { field, type, rules, dotPath, pointer }
     }, (index, field, children, dotPath) => {
       return { index, field, children, dotPath }
     }).walk(rulesParser(schema))
@@ -200,8 +224,10 @@ test.group('Tree walker', () => {
     assert.deepEqual(stack, [
       {
         field: 'users',
+        type: 'array',
         rules: [{ name: 'required', args: [] }],
         dotPath: [],
+        pointer: 'users',
       },
       {
         index: '0',
@@ -210,8 +236,10 @@ test.group('Tree walker', () => {
         children: [
           {
             field: 'type',
+            type: 'literal',
             rules: [{ name: 'required', args: [] }],
             dotPath: ['profile'],
+            pointer: 'users.0.profile.type',
           },
         ],
       },
@@ -222,13 +250,17 @@ test.group('Tree walker', () => {
         children: [
           {
             field: 'profile',
+            type: 'object',
             rules: [{ name: 'required', args: [] }],
             dotPath: [],
+            pointer: 'users.*.profile',
           },
           {
             field: 'username',
+            type: 'literal',
             rules: [{ name: 'required', args: [] }],
             dotPath: ['profile'],
+            pointer: 'users.*.profile.username',
           },
         ],
       },
@@ -242,8 +274,8 @@ test.group('Tree walker', () => {
       'users.*': 'required',
     }
 
-    const stack = new TreeWalker((field, rules, dotPath) => {
-      return { field, rules, dotPath }
+    const stack = new TreeWalker((field, type, rules, dotPath, pointer) => {
+      return { field, type, rules, dotPath, pointer }
     }, (index, field, children, dotPath) => {
       return { index, field, children, dotPath }
     }).walk(rulesParser(schema))
@@ -251,8 +283,10 @@ test.group('Tree walker', () => {
     assert.deepEqual(stack, [
       {
         field: 'users',
+        type: 'array',
         rules: [{ name: 'required', args: [] }],
         dotPath: [],
+        pointer: 'users',
       },
       {
         index: '0',
@@ -261,8 +295,10 @@ test.group('Tree walker', () => {
         children: [
           {
             field: '::tip::',
+            type: 'literal',
             rules: [{ name: 'required', args: [] }],
             dotPath: [],
+            pointer: 'users.0',
           },
         ],
       },
@@ -273,8 +309,10 @@ test.group('Tree walker', () => {
         children: [
           {
             field: '::tip::',
+            type: 'literal',
             rules: [{ name: 'required', args: [] }],
             dotPath: [],
+            pointer: 'users.*',
           },
         ],
       },
@@ -287,8 +325,8 @@ test.group('Tree walker', () => {
       'users.*.account_status': 'required',
     }
 
-    const stack = new TreeWalker((field, rules, dotPath) => {
-      return { field, rules, dotPath }
+    const stack = new TreeWalker((field, type, rules, dotPath, pointer) => {
+      return { field, type, rules, dotPath, pointer }
     }, (index, field, children, dotPath) => {
       return { index, field, children, dotPath }
     }).walk(rulesParser(schema))
@@ -306,15 +344,19 @@ test.group('Tree walker', () => {
             children: [
               {
                 field: 'username',
+                type: 'literal',
                 rules: [{ name: 'required', args: [] }],
                 dotPath: [],
+                pointer: 'users.*.profiles.*.username',
               },
             ],
           },
           {
             field: 'account_status',
+            type: 'literal',
             rules: [{ name: 'required', args: [] }],
             dotPath: [],
+            pointer: 'users.*.account_status',
           },
         ],
       },
