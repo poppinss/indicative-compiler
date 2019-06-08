@@ -79,10 +79,9 @@
     "anyBranch": false
   },
   "dependencies": {
-    "get-value": "^3.0.1",
     "indicative-parser": "^1.0.0",
     "isobject": "^4.0.0",
-    "lodash.set": "^4.3.2",
-    "set-value": "^3.0.0"
+    "lodash.get": "^4.4.2",
+    "lodash.set": "^4.3.2"
   }
 }

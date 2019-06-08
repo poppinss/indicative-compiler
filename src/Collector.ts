@@ -19,7 +19,7 @@ export class Collector implements CollectorContract {
   public tree: any = {}
   public hasErrors: boolean = false
 
-  constructor (public formatter: ErrorFormatterContract) {
+  constructor (public formatter: ErrorFormatterContract, private _generateTree: boolean) {
   }
 
   /**
@@ -28,7 +28,7 @@ export class Collector implements CollectorContract {
    * one or more errors.
    */
   public setValue (pointer: string, value: any) {
-    if (value === undefined || this.hasErrors) {
+    if (!this._generateTree || value === undefined || this.hasErrors) {
       return
     }
 

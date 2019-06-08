@@ -16,11 +16,15 @@ import {
   ParsedMessages,
 } from 'indicative-parser'
 
-import { ValidationsRunner } from './ValidationsRunner'
-import { ArrayWrapper } from './ArrayWrapper'
 import { TreeWalker } from './TreeWalker'
+import { ArrayWrapper } from './ArrayWrapper'
 import { ValidationDefination } from './contracts'
+import { ValidationsRunner } from './ValidationsRunner'
 
+/**
+ * Compiles rules and messages schema to an array of top level
+ * functions highly optimized for speed.
+ */
 export class Compiler {
   private _parsedSchema: ParsedSchema
   private _parsedMessages: ParsedMessages
@@ -34,6 +38,9 @@ export class Compiler {
     this._parsedMessages = messagesParser(messages)
   }
 
+  /**
+   * Compiles the schema to an array of functions
+   */
   public compile () {
     return new TreeWalker<ValidationsRunner, ArrayWrapper>(
       /**

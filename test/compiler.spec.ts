@@ -32,7 +32,7 @@ test.group('Validations (sync)', () => {
       /**
        * Running validation synchronously
        */
-      const collector = new Collector(new ErrorFormatter())
+      const collector = new Collector(new ErrorFormatter(), true)
       const originalData = cloneDeep(data)
       const root = { tip: data, original: data, pointer: '' }
 
@@ -63,7 +63,7 @@ test.group('Validations (async)', () => {
       /**
        * Running validation synchronously
        */
-      const collector = new Collector(new ErrorFormatter())
+      const collector = new Collector(new ErrorFormatter(), true)
       const originalData = cloneDeep(data)
       const root = { tip: data, original: data, pointer: '' }
 

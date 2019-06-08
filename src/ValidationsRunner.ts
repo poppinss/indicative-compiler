@@ -8,7 +8,7 @@
  */
 
 import { ParsedRule, ParsedRulesMessages } from 'indicative-parser'
-import * as getValue from 'get-value'
+import * as getValue from 'lodash.get'
 import * as isObject from 'isobject'
 import { Collector } from './Collector'
 

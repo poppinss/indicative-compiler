@@ -7,7 +7,7 @@
  * file that was distributed with this source code.
  */
 
-import * as getValue from 'get-value'
+import * as getValue from 'lodash.get'
 
 import { Collector } from './Collector'
 import { ValidationDataRoot } from './contracts'

@@ -14,7 +14,7 @@ import { ErrorFormatter } from '../test-helpers/ErrorFormatter'
 test.group('Collector', () => {
   test('collect values for a data pointer', (assert) => {
     const formatter = new ErrorFormatter()
-    const collector = new Collector(formatter)
+    const collector = new Collector(formatter, true)
     collector.setValue('username', 'virk')
     collector.setValue('age', 22)
     collector.setValue('email', 'virk@adonisjs.com')
@@ -28,7 +28,7 @@ test.group('Collector', () => {
 
   test('collect nested values for a data pointer', (assert) => {
     const formatter = new ErrorFormatter()
-    const collector = new Collector(formatter)
+    const collector = new Collector(formatter, true)
     collector.setValue('user.username', 'virk')
     collector.setValue('user.age', 22)
     collector.setValue('user.email', 'virk@adonisjs.com')
@@ -44,7 +44,7 @@ test.group('Collector', () => {
 
   test('collect nested values for an array index', (assert) => {
     const formatter = new ErrorFormatter()
-    const collector = new Collector(formatter)
+    const collector = new Collector(formatter, true)
     collector.setValue('users.0.username', 'virk')
     collector.setValue('users.0.age', 22)
     collector.setValue('users.1.email', 'virk@adonisjs.com')
@@ -62,7 +62,7 @@ test.group('Collector', () => {
 
   test('collect array literal values', (assert) => {
     const formatter = new ErrorFormatter()
-    const collector = new Collector(formatter)
+    const collector = new Collector(formatter, true)
     collector.setValue('stock.0', 22)
     collector.setValue('stock.1', 24)
 
@@ -73,7 +73,7 @@ test.group('Collector', () => {
 
   test('report error message to the formatter', (assert) => {
     const formatter = new ErrorFormatter()
-    const collector = new Collector(formatter)
+    const collector = new Collector(formatter, true)
     collector.setError('username', { name: 'required', args: [] }, 'Username is required')
 
     assert.deepEqual(collector.getErrors(), [
@@ -87,7 +87,7 @@ test.group('Collector', () => {
 
   test('invoke message function', (assert) => {
     const formatter = new ErrorFormatter()
-    const collector = new Collector(formatter)
+    const collector = new Collector(formatter, true)
     collector.setError('username', { name: 'required', args: [] }, () => 'Username is required')
 
     assert.deepEqual(collector.getErrors(), [
@@ -101,7 +101,7 @@ test.group('Collector', () => {
 
   test('fallback to default message when message is undefined', (assert) => {
     const formatter = new ErrorFormatter()
-    const collector = new Collector(formatter)
+    const collector = new Collector(formatter, true)
     collector.setError('username', { name: 'required', args: [] })
 
     assert.deepEqual(collector.getErrors(), [
