@@ -1,8 +1,8 @@
-[indicative-compiler](../README.md) > ["src/Collector"](../modules/_src_collector_.md) > [Collector](../classes/_src_collector_.collector.md)
+[indicative-compiler](../README.md) > [indicative-compiler](../modules/indicative_compiler.md) > [Collector](../classes/indicative_compiler.collector.md)
 
 # Class: Collector
 
-Collector collects all the errors and maintains a copy of validated data.
+Collector collects all the errors and creates a copy of validated data (only when `generateTree = true`).
 
 ## Hierarchy
 
@@ -10,26 +10,26 @@ Collector collects all the errors and maintains a copy of validated data.
 
 ## Implements
 
-* [CollectorContract](../interfaces/_src_contracts_.collectorcontract.md)
+* [CollectorContract](../interfaces/indicative_compiler.collectorcontract.md)
 
 ## Index
 
 ### Constructors
 
-* [constructor](_src_collector_.collector.md#constructor)
+* [constructor](indicative_compiler.collector.md#constructor)
 
 ### Properties
 
-* [formatter](_src_collector_.collector.md#formatter)
-* [hasErrors](_src_collector_.collector.md#haserrors)
-* [tree](_src_collector_.collector.md#tree)
+* [formatter](indicative_compiler.collector.md#formatter)
+* [hasErrors](indicative_compiler.collector.md#haserrors)
+* [tree](indicative_compiler.collector.md#tree)
 
 ### Methods
 
-* [getData](_src_collector_.collector.md#getdata)
-* [getErrors](_src_collector_.collector.md#geterrors)
-* [setError](_src_collector_.collector.md#seterror)
-* [setValue](_src_collector_.collector.md#setvalue)
+* [getData](indicative_compiler.collector.md#getdata)
+* [getErrors](indicative_compiler.collector.md#geterrors)
+* [setError](indicative_compiler.collector.md#seterror)
+* [setValue](indicative_compiler.collector.md#setvalue)
 
 ---
 
@@ -39,16 +39,16 @@ Collector collects all the errors and maintains a copy of validated data.
 
 ###  constructor
 
-⊕ **new Collector**(formatter: *[ErrorFormatterContract](../interfaces/_src_contracts_.errorformattercontract.md)*, _generateTree: *`boolean`*): [Collector](_src_collector_.collector.md)
+⊕ **new Collector**(formatter: *[ErrorFormatterContract](../interfaces/indicative_compiler.errorformattercontract.md)*, _generateTree: *`boolean`*): [Collector](indicative_compiler.collector.md)
 
 **Parameters:**
 
 | Name | Type |
 | ------ | ------ |
-| formatter | [ErrorFormatterContract](../interfaces/_src_contracts_.errorformattercontract.md) |
+| formatter | [ErrorFormatterContract](../interfaces/indicative_compiler.errorformattercontract.md) |
 | _generateTree | `boolean` |
 
-**Returns:** [Collector](_src_collector_.collector.md)
+**Returns:** [Collector](indicative_compiler.collector.md)
 
 ___
 
@@ -58,7 +58,7 @@ ___
 
 ###  formatter
 
-**● formatter**: *[ErrorFormatterContract](../interfaces/_src_contracts_.errorformattercontract.md)*
+**● formatter**: *[ErrorFormatterContract](../interfaces/indicative_compiler.errorformattercontract.md)*
 
 ___
 <a id="haserrors"></a>
@@ -106,7 +106,7 @@ ___
 
 ▸ **setError**(pointer: *`string`*, rule: *`ParsedRule`*, message?: *`Message`*): `void`
 
-Consumes an error for a given data pointer and rule.
+Passes error to the error formatter for a given field and rule. Also when the message is undefined, it will create a generic message.
 
 **Parameters:**
 

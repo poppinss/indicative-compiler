@@ -8,7 +8,7 @@
 
 ## Implements
 
-* [ErrorFormatterContract](../interfaces/_src_contracts_.errorformattercontract.md)
+* [ErrorFormatterContract](../interfaces/indicative_compiler.errorformattercontract.md)
 
 ## Index
 

@@ -1,4 +1,4 @@
-[indicative-compiler](../README.md) > ["src/contracts"](../modules/_src_contracts_.md) > [ErrorFormatterContract](../interfaces/_src_contracts_.errorformattercontract.md)
+[indicative-compiler](../README.md) > [indicative-compiler](../modules/indicative_compiler.md) > [ErrorFormatterContract](../interfaces/indicative_compiler.errorformattercontract.md)
 
 # Interface: ErrorFormatterContract
 
@@ -18,8 +18,8 @@ The error formatter to format error messages
 
 ### Methods
 
-* [addError](_src_contracts_.errorformattercontract.md#adderror)
-* [toJSON](_src_contracts_.errorformattercontract.md#tojson)
+* [addError](indicative_compiler.errorformattercontract.md#adderror)
+* [toJSON](indicative_compiler.errorformattercontract.md#tojson)
 
 ---
 

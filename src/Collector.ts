@@ -1,4 +1,8 @@
 /**
+ * @module indicative-compiler
+ */
+
+/**
  * indicative-compiler
  *
  * (c) Harminder Virk <virk@adonisjs.com>
@@ -12,8 +16,8 @@ import { ParsedRule, Message } from 'indicative-parser'
 import { CollectorContract, ErrorFormatterContract } from './contracts'
 
 /**
- * Collector collects all the errors and maintains a copy of validated
- * data.
+ * Collector collects all the errors and creates a copy of validated
+ * data (only when `generateTree = true`).
  */
 export class Collector implements CollectorContract {
   public tree: any = {}
@@ -51,7 +55,8 @@ export class Collector implements CollectorContract {
   }
 
   /**
-   * Consumes an error for a given data pointer and rule.
+   * Passes error to the error formatter for a given field and rule. Also when the
+   * message is undefined, it will create a generic message.
    */
   public setError (pointer: string, rule: ParsedRule, message?: Message) {
     this.hasErrors = true

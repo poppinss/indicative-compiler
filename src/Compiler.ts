@@ -1,3 +1,7 @@
+/**
+ * @module indicative-compiler
+ */
+
 /*
 * indicative-compiler
 *

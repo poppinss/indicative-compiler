@@ -1,4 +1,4 @@
-[indicative-compiler](../README.md) > ["src/Executor"](../modules/_src_executor_.md) > [Executor](../classes/_src_executor_.executor.md)
+[indicative-compiler](../README.md) > [indicative-compiler](../modules/indicative_compiler.md) > [Executor](../classes/indicative_compiler.executor.md)
 
 # Class: Executor
 
@@ -12,11 +12,11 @@ Executor is meant to execute the compiled functions with runtime data.
 
 ### Constructors
 
-* [constructor](_src_executor_.executor.md#constructor)
+* [constructor](indicative_compiler.executor.md#constructor)
 
 ### Methods
 
-* [exec](_src_executor_.executor.md#exec)
+* [exec](indicative_compiler.executor.md#exec)
 
 ---
 
@@ -26,15 +26,15 @@ Executor is meant to execute the compiled functions with runtime data.
 
 ###  constructor
 
-⊕ **new Executor**(_fns: *([ArrayWrapper](_src_arraywrapper_.arraywrapper.md) & [ValidationsRunner](_src_validationsrunner_.validationsrunner.md))[]*): [Executor](_src_executor_.executor.md)
+⊕ **new Executor**(_fns: *([ValidationsRunner](indicative_compiler.validationsrunner.md) \| [ArrayWrapper](indicative_compiler.arraywrapper.md))[]*): [Executor](indicative_compiler.executor.md)
 
 **Parameters:**
 
 | Name | Type |
 | ------ | ------ |
-| _fns | ([ArrayWrapper](_src_arraywrapper_.arraywrapper.md) & [ValidationsRunner](_src_validationsrunner_.validationsrunner.md))[] |
+| _fns | ([ValidationsRunner](indicative_compiler.validationsrunner.md) \| [ArrayWrapper](indicative_compiler.arraywrapper.md))[] |
 
-**Returns:** [Executor](_src_executor_.executor.md)
+**Returns:** [Executor](indicative_compiler.executor.md)
 
 ___
 

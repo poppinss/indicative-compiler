@@ -1,4 +1,8 @@
 /**
+ * @module indicative-compiler
+ */
+
+/**
  * indicative-compiler
  *
  * (c) Harminder Virk <virk@adonisjs.com>
@@ -17,8 +21,13 @@ import { ConsumerFn, ArrayWrapper } from './contracts'
  * The consumer of the code can define a function to consumer the tree nodes and
  * define another function to wrap the children of an array node.
  *
+ * ## Why wrap array children?
+ * Since the length of an array is unknown, until we receive the data at
+ * runtime, we need a parent function (aka wrapper), that can execute
+ * the child validations as per the length of the array.
+ *
  * ```js
- * function consumerFn (field: string, rules: ParsedRule[], dotPath: string[]) {
+ * function consumerFn (field: string, rules: ParsedRule[], dotPath: string[], pointer: string) {
  * }
  *
  * function arrayWrapper (
@@ -60,11 +69,18 @@ export class TreeWalker<T extends any = any, U extends any = any> {
   ): (T | U)[] {
     let output: ReturnType<ConsumerFn>[] = []
 
+    /**
+     * If object itself has rules, then we need to consume that
+     * as well.
+     */
     if (node.rules.length) {
       const pointer = arrayPath.concat(dotPath).concat(field).join('.')
       output.push(this._consumerFn(field, node.type, node.rules, dotPath, pointer))
     }
 
+    /**
+     * Walker over object children
+     */
     output = output.concat(this.walk(node.children, dotPath.concat(field), arrayPath))
     return output
   }
@@ -83,11 +99,20 @@ export class TreeWalker<T extends any = any, U extends any = any> {
 
     const basePath = arrayPath.concat(dotPath).concat(field)
 
+    /**
+     * If array itself has rules, then we need to process that
+     * as well
+     */
     if (node.rules.length) {
       const pointer = basePath.join('.')
       output.push(this._consumerFn(field, node.type, node.rules, dotPath, pointer))
     }
 
+    /**
+     * Processing children for each index. The index of the tree can be a wildcard
+     * `*`, which means we rely on runtime data to know the actual length of
+     * the array.
+     */
     Object.keys(node.each).forEach((index) => {
       let child: (T | U)[] = []
 
@@ -105,7 +130,7 @@ export class TreeWalker<T extends any = any, U extends any = any> {
 
   /**
    * Walks the schema tree and invokes the `consumerFn` for each node. The output
-   * of the consumer is collected and returned back as a flat array
+   * of the consumer is collected and returned back as an array.
    */
   public walk (schema: ParsedSchema, dotPath: string[] = [], arrayPath: string[] = []): (T | U)[] {
     return Object.keys(schema).reduce((result: (T | U)[], field) => {

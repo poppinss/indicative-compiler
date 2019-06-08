@@ -1,27 +1,36 @@
-[indicative-compiler](../README.md) > ["src/contracts"](../modules/_src_contracts_.md)
+[indicative-compiler](../README.md) > [indicative-compiler](../modules/indicative_compiler.md)
 
-# External module: "src/contracts"
+# External module: indicative-compiler
 
 ## Index
 
+### Classes
+
+* [ArrayWrapper](../classes/indicative_compiler.arraywrapper.md)
+* [Collector](../classes/indicative_compiler.collector.md)
+* [Compiler](../classes/indicative_compiler.compiler.md)
+* [Executor](../classes/indicative_compiler.executor.md)
+* [TreeWalker](../classes/indicative_compiler.treewalker.md)
+* [ValidationsRunner](../classes/indicative_compiler.validationsrunner.md)
+
 ### Interfaces
 
-* [CollectorContract](../interfaces/_src_contracts_.collectorcontract.md)
-* [ErrorFormatterContract](../interfaces/_src_contracts_.errorformattercontract.md)
+* [CollectorContract](../interfaces/indicative_compiler.collectorcontract.md)
+* [ErrorFormatterContract](../interfaces/indicative_compiler.errorformattercontract.md)
 
 ### Type aliases
 
-* [ArrayWrapper](_src_contracts_.md#arraywrapper)
-* [ConsumerFn](_src_contracts_.md#consumerfn)
-* [ValidateFunction](_src_contracts_.md#validatefunction)
-* [ValidationDataRoot](_src_contracts_.md#validationdataroot)
-* [ValidationDefination](_src_contracts_.md#validationdefination)
+* [ArrayWrapper](indicative_compiler.md#arraywrapper-1)
+* [ConsumerFn](indicative_compiler.md#consumerfn)
+* [ValidateFunction](indicative_compiler.md#validatefunction)
+* [ValidationDataRoot](indicative_compiler.md#validationdataroot)
+* [ValidationDefination](indicative_compiler.md#validationdefination)
 
 ---
 
 ## Type aliases
 
-<a id="arraywrapper"></a>
+<a id="arraywrapper-1"></a>
 
 ###  ArrayWrapper
 
@@ -50,7 +59,7 @@ ___
 
 **Ƭ ConsumerFn**: *`function`*
 
-Tree node consumer called by the [TreeWalker](../classes/_src_treewalker_.treewalker.md)
+Tree node consumer called by the [TreeWalker](../classes/indicative_compiler.treewalker.md)
 
 #### Type declaration
 ▸(field: *`string`*, type: *"literal" \| "object" \| "array"*, rules: *`ParsedRule`[]*, dotPath: *`string`[]*, pointer: *`string`*): `T`
@@ -77,13 +86,13 @@ ___
 Shape of validation function
 
 #### Type declaration
-▸(data: *[ValidationDataRoot](_src_contracts_.md#validationdataroot)*, field: *`string`*, args: *`any`[]*): `boolean` \| `Promise`<`boolean`>
+▸(data: *[ValidationDataRoot](indicative_compiler.md#validationdataroot)*, field: *`string`*, args: *`any`[]*): `boolean` \| `Promise`<`boolean`>
 
 **Parameters:**
 
 | Name | Type |
 | ------ | ------ |
-| data | [ValidationDataRoot](_src_contracts_.md#validationdataroot) |
+| data | [ValidationDataRoot](indicative_compiler.md#validationdataroot) |
 | field | `string` |
 | args | `any`[] |
 

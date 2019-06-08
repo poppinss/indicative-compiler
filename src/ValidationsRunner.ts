@@ -1,4 +1,8 @@
 /**
+ * @module indicative-compiler
+ */
+
+/**
  * indicative-compiler
  *
  * (c) Harminder Virk <virk@adonisjs.com>
@@ -11,16 +15,11 @@ import { ParsedRule, ParsedRulesMessages } from 'indicative-parser'
 import * as getValue from 'lodash.get'
 import * as isObject from 'isobject'
 import { Collector } from './Collector'
-
-import {
-  ValidationDataRoot,
-  ValidateFunction,
-  ValidationDefination,
-} from './contracts'
+import { ValidationDataRoot, ValidateFunction, ValidationDefination } from './contracts'
 
 /**
- * Validations runner to run a series on validations on a given field
- * based upon the defined rules.
+ * Runs a series of validations on a given field. This class is feeded with the
+ * computed nodes generated via [[TreeWalker]].
  */
 export class ValidationsRunner {
   /**
@@ -31,11 +30,7 @@ export class ValidationsRunner {
   /**
    * Collection of validations to be executed on a given field.
    */
-  private _validations: {
-    async: boolean,
-    rule: ParsedRule,
-    fn: ValidateFunction,
-  }[] = []
+  private _validations: { async: boolean, rule: ParsedRule, fn: ValidateFunction }[] = []
 
   /**
    * Base pointer to this field. When field is inside an
@@ -56,14 +51,14 @@ export class ValidationsRunner {
     private _fieldMessages: ParsedRulesMessages,
     private _genericMessages: ParsedRulesMessages,
   ) {
-    this._pullValidationFunctions(validations, rules)
+    this._computeValidations(validations, rules)
   }
 
   /**
    * Creating a list of validation functions to be executed as per
    * the defined rules.
    */
-  private _pullValidationFunctions (
+  private _computeValidations (
     validations: { [key: string]: ValidationDefination },
     rules: ParsedRule[],
   ) {
@@ -107,25 +102,29 @@ export class ValidationsRunner {
   }
 
   /**
-   * Mutates the `data.tip` property to be the nearest object from the field
-   * under validation. Since, the validations are sequential, we can safely
-   * mutate this field without side-effects.
+   * Returns a fresh data copy by copying some of the values from the actual
+   * data and then mutating the `tip` and `pointer`. The tip and pointer
+   * are mutated so that the validation function receives the closest
+   * object from the pointer, resulting in performant code.
    */
-  private _getDataNode (data: ValidationDataRoot): ValidationDataRoot {
+  private _getDataCopy (data: ValidationDataRoot): ValidationDataRoot {
     const tip = this._dotPath.length ? getValue(data.tip, this._dotPath) : data.tip
 
+    /**
+     * Prefix array pointer and current index, when this field is part
+     * of an array.
+     */
     const pointer = data.arrayPointer ?
       `${data.arrayPointer}.${data.currentIndex}.${this._pointer}`
       : this._pointer
 
-    return {
+    /**
+     * Updating the tip and pointer
+     */
+    return Object.assign({}, data, {
       tip: this._field === '::tip::' ? { [this._field]: tip } : tip,
-      original: data.original,
       pointer: pointer,
-      parentArray: data.parentArray,
-      currentIndex: data.currentIndex,
-      arrayPointer: data.arrayPointer,
-    }
+    })
   }
 
   /**
@@ -165,7 +164,7 @@ export class ValidationsRunner {
     collector: Collector,
     bail: boolean = false,
   ): boolean {
-    const dataCopy = this._getDataNode(data)
+    const dataCopy = this._getDataCopy(data)
 
     /**
      * Skip validations when the parent value of this field is not
@@ -205,7 +204,7 @@ export class ValidationsRunner {
     collector: Collector,
     bail: boolean = false,
   ): Promise<boolean> {
-    const dataCopy = this._getDataNode(data)
+    const dataCopy = this._getDataCopy(data)
 
     /**
      * Skip validations when the parent value of this field is not

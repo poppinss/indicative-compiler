@@ -1,4 +1,8 @@
 /**
+ * @module indicative-compiler
+ */
+
+/**
  * indicative-compiler
  *
  * (c) Harminder Virk <virk@adonisjs.com>
@@ -13,6 +17,10 @@ import { Collector } from './Collector'
 import { ValidationDataRoot } from './contracts'
 import { ValidationsRunner } from './ValidationsRunner'
 
+/**
+ * Wraps the [[ValidationsRunner]] and executes them based upon the length of
+ * an array at runtime.
+ */
 export class ArrayWrapper {
   /**
    * The pointer to read the value of the field inside the data tip

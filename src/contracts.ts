@@ -1,4 +1,8 @@
 /**
+ * @module indicative-compiler
+ */
+
+/**
  * indicative-compiler
  *
  * (c) Harminder Virk <virk@adonisjs.com>

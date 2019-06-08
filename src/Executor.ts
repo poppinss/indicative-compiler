@@ -1,4 +1,8 @@
 /**
+ * @module indicative-compiler
+ */
+
+/**
  * indicative-compiler
  *
  * (c) Harminder Virk <virk@adonisjs.com>
@@ -17,7 +21,7 @@ import { ArrayWrapper } from './ArrayWrapper'
  * data.
  */
 export class Executor {
-  constructor (private _fns: (ArrayWrapper & ValidationsRunner)[]) {
+  constructor (private _fns: (ArrayWrapper | ValidationsRunner)[]) {
   }
 
   /**
@@ -29,8 +33,18 @@ export class Executor {
     bail: boolean,
     removeAdditional: boolean,
   ) {
+    /**
+     * Creating a root data node. The `tip` and `pointer` will be copied
+     * and mutated down the road
+     */
     const root = { tip: data, original: data, pointer: '' }
+
+    /**
+     * Collector to collect errors and a fresh data object with only
+     * validated data (relies on removeAdditional though)
+     */
     const collector = new Collector(new Formatter(), removeAdditional)
+
     let passed: boolean = true
 
     for (let fn of this._fns) {
@@ -45,10 +59,16 @@ export class Executor {
       }
     }
 
+    /**
+     * If passed, return the data
+     */
     if (passed) {
-      return collector.getData()
+      return removeAdditional ? collector.getData() : data
     }
 
+    /**
+     * Otherwise return errors
+     */
     throw collector.getErrors()
   }
 }

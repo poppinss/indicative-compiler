@@ -1,4 +1,8 @@
 /**
+ * @module indicative-compiler
+ */
+
+/**
  * indicative-compiler
  *
  * (c) Harminder Virk <virk@adonisjs.com>
@@ -8,3 +12,5 @@
  */
 
 export { Compiler } from './src/Compiler'
+export { Executor } from './src/Executor'
+export { ValidationDefination, ValidateFunction, ErrorFormatterContract } from './src/contracts'
