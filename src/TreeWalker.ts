@@ -1,5 +1,5 @@
 /**
- * @module indicative-compiler
+ * @module compiler/main
  */
 
 /**

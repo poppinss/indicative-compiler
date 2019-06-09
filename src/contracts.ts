@@ -1,5 +1,5 @@
 /**
- * @module indicative-compiler
+ * @module compiler/main
  */
 
 /**
@@ -64,6 +64,31 @@ export type ValidationDefination = {
   async: boolean,
   compile?: (args: any[]) => any[],
   validate: ValidateFunction,
+}
+
+/**
+ * Shape of sanitizer data root.
+ */
+export type SanitizationDataRoot = Pick<
+  ValidationDataRoot, Exclude<keyof ValidationDataRoot, 'pointer' | 'arrayPointer'>
+>
+
+/**
+ * Shape of sanitization function.
+ */
+export type SanitizeFunction = (
+  data: SanitizationDataRoot,
+  field: string,
+  args: any[],
+  config: unknown,
+) => void
+
+/**
+ * Shape of sanitization defination
+ */
+export type SanitizationDefination = {
+  compile?: (args: any[]) => any[],
+  sanitize: SanitizeFunction,
 }
 
 /**
