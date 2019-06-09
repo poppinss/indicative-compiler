@@ -1,5 +1,5 @@
 /**
- * @module indicative-compiler
+ * @module compiler/main
  */
 
 /**
@@ -11,6 +11,16 @@
  * file that was distributed with this source code.
  */
 
-export { Compiler } from './src/Compiler'
-export { Executor } from './src/Executor'
-export { ValidationDefination, ValidateFunction, ErrorFormatterContract } from './src/contracts'
+export { Compiler as ValidatorCompiler } from './src/Validator/Compiler'
+export { Executor as ValidatorExecutor } from './src/Validator/Executor'
+
+export { Compiler as SanitizerCompiler } from './src/Sanitizer/Compiler'
+export { Executor as SanitizerExecutor } from './src/Sanitizer/Executor'
+
+export {
+  ValidationDefination,
+  ValidateFunction,
+  SanitizeFunction,
+  SanitizationDefination,
+  ErrorFormatterContract,
+} from './src/contracts'
