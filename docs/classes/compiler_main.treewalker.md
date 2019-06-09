@@ -1,4 +1,4 @@
-[indicative-compiler](../README.md) > [indicative-compiler](../modules/indicative_compiler.md) > [TreeWalker](../classes/indicative_compiler.treewalker.md)
+[indicative-compiler](../README.md) > [compiler/main](../modules/compiler_main.md) > [TreeWalker](../classes/compiler_main.treewalker.md)
 
 # Class: TreeWalker
 
@@ -37,11 +37,11 @@ new TreeWalker(consumerFn, arrayWrapper).walk(parsedSchema)
 
 ### Constructors
 
-* [constructor](indicative_compiler.treewalker.md#constructor)
+* [constructor](compiler_main.treewalker.md#constructor)
 
 ### Methods
 
-* [walk](indicative_compiler.treewalker.md#walk)
+* [walk](compiler_main.treewalker.md#walk)
 
 ---
 
@@ -51,16 +51,16 @@ new TreeWalker(consumerFn, arrayWrapper).walk(parsedSchema)
 
 ###  constructor
 
-⊕ **new TreeWalker**(_consumerFn: *[ConsumerFn](../modules/indicative_compiler.md#consumerfn)<`T`>*, _arrayWrapper: *[ArrayWrapper](../modules/indicative_compiler.md#arraywrapper-1)<`T`, `U`>*): [TreeWalker](indicative_compiler.treewalker.md)
+⊕ **new TreeWalker**(_consumerFn: *[ConsumerFn](../modules/compiler_main.md#consumerfn)<`T`>*, _arrayWrapper: *[ArrayWrapper](../modules/compiler_main.md#arraywrapper)<`T`, `U`>*): [TreeWalker](compiler_main.treewalker.md)
 
 **Parameters:**
 
 | Name | Type |
 | ------ | ------ |
-| _consumerFn | [ConsumerFn](../modules/indicative_compiler.md#consumerfn)<`T`> |
-| _arrayWrapper | [ArrayWrapper](../modules/indicative_compiler.md#arraywrapper-1)<`T`, `U`> |
+| _consumerFn | [ConsumerFn](../modules/compiler_main.md#consumerfn)<`T`> |
+| _arrayWrapper | [ArrayWrapper](../modules/compiler_main.md#arraywrapper)<`T`, `U`> |
 
-**Returns:** [TreeWalker](indicative_compiler.treewalker.md)
+**Returns:** [TreeWalker](compiler_main.treewalker.md)
 
 ___
 

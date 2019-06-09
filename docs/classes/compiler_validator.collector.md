@@ -1,4 +1,4 @@
-[indicative-compiler](../README.md) > [indicative-compiler](../modules/indicative_compiler.md) > [Collector](../classes/indicative_compiler.collector.md)
+[indicative-compiler](../README.md) > [compiler/validator](../modules/compiler_validator.md) > [Collector](../classes/compiler_validator.collector.md)
 
 # Class: Collector
 
@@ -10,26 +10,26 @@ Collector collects all the errors and creates a copy of validated data (only whe
 
 ## Implements
 
-* [CollectorContract](../interfaces/indicative_compiler.collectorcontract.md)
+* [CollectorContract](../interfaces/compiler_main.collectorcontract.md)
 
 ## Index
 
 ### Constructors
 
-* [constructor](indicative_compiler.collector.md#constructor)
+* [constructor](compiler_validator.collector.md#constructor)
 
 ### Properties
 
-* [formatter](indicative_compiler.collector.md#formatter)
-* [hasErrors](indicative_compiler.collector.md#haserrors)
-* [tree](indicative_compiler.collector.md#tree)
+* [formatter](compiler_validator.collector.md#formatter)
+* [hasErrors](compiler_validator.collector.md#haserrors)
+* [tree](compiler_validator.collector.md#tree)
 
 ### Methods
 
-* [getData](indicative_compiler.collector.md#getdata)
-* [getErrors](indicative_compiler.collector.md#geterrors)
-* [setError](indicative_compiler.collector.md#seterror)
-* [setValue](indicative_compiler.collector.md#setvalue)
+* [getData](compiler_validator.collector.md#getdata)
+* [getErrors](compiler_validator.collector.md#geterrors)
+* [setError](compiler_validator.collector.md#seterror)
+* [setValue](compiler_validator.collector.md#setvalue)
 
 ---
 
@@ -39,16 +39,16 @@ Collector collects all the errors and creates a copy of validated data (only whe
 
 ###  constructor
 
-⊕ **new Collector**(formatter: *[ErrorFormatterContract](../interfaces/indicative_compiler.errorformattercontract.md)*, _generateTree: *`boolean`*): [Collector](indicative_compiler.collector.md)
+⊕ **new Collector**(formatter: *[ErrorFormatterContract](../interfaces/compiler_main.errorformattercontract.md)*, _generateTree: *`boolean`*): [Collector](compiler_validator.collector.md)
 
 **Parameters:**
 
 | Name | Type |
 | ------ | ------ |
-| formatter | [ErrorFormatterContract](../interfaces/indicative_compiler.errorformattercontract.md) |
+| formatter | [ErrorFormatterContract](../interfaces/compiler_main.errorformattercontract.md) |
 | _generateTree | `boolean` |
 
-**Returns:** [Collector](indicative_compiler.collector.md)
+**Returns:** [Collector](compiler_validator.collector.md)
 
 ___
 
@@ -58,7 +58,7 @@ ___
 
 ###  formatter
 
-**● formatter**: *[ErrorFormatterContract](../interfaces/indicative_compiler.errorformattercontract.md)*
+**● formatter**: *[ErrorFormatterContract](../interfaces/compiler_main.errorformattercontract.md)*
 
 ___
 <a id="haserrors"></a>

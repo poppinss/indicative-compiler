@@ -1,4 +1,4 @@
-[indicative-compiler](../README.md) > [indicative-compiler](../modules/indicative_compiler.md) > [ErrorFormatterContract](../interfaces/indicative_compiler.errorformattercontract.md)
+[indicative-compiler](../README.md) > [compiler/main](../modules/compiler_main.md) > [ErrorFormatterContract](../interfaces/compiler_main.errorformattercontract.md)
 
 # Interface: ErrorFormatterContract
 
@@ -10,16 +10,12 @@ The error formatter to format error messages
 
 **ErrorFormatterContract**
 
-## Implemented by
-
-* [ErrorFormatter](../classes/_test_helpers_errorformatter_.errorformatter.md)
-
 ## Index
 
 ### Methods
 
-* [addError](indicative_compiler.errorformattercontract.md#adderror)
-* [toJSON](indicative_compiler.errorformattercontract.md#tojson)
+* [addError](compiler_main.errorformattercontract.md#adderror)
+* [toJSON](compiler_main.errorformattercontract.md#tojson)
 
 ---
 

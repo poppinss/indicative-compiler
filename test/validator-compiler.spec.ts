@@ -15,7 +15,7 @@ import { ErrorFormatter } from '../test-helpers/ErrorFormatter'
 import * as cloneDeep from 'clone-deep'
 
 const fixtureModules = require('require-all')({
-  dirname: join(__dirname, '../fixtures'),
+  dirname: join(__dirname, '../fixtures/validator'),
   filter: /(.+)\.ts$/,
 })
 const fixtures = Object.keys(fixtureModules).reduce((result: any[], modPath) => {

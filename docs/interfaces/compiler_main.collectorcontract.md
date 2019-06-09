@@ -1,4 +1,4 @@
-[indicative-compiler](../README.md) > [indicative-compiler](../modules/indicative_compiler.md) > [CollectorContract](../interfaces/indicative_compiler.collectorcontract.md)
+[indicative-compiler](../README.md) > [compiler/main](../modules/compiler_main.md) > [CollectorContract](../interfaces/compiler_main.collectorcontract.md)
 
 # Interface: CollectorContract
 
@@ -10,21 +10,21 @@ Runtime collector that creates a fresh copy of validated properties and errors.
 
 ## Implemented by
 
-* [Collector](../classes/indicative_compiler.collector.md)
+* [Collector](../classes/compiler_validator.collector.md)
 
 ## Index
 
 ### Properties
 
-* [formatter](indicative_compiler.collectorcontract.md#formatter)
-* [hasErrors](indicative_compiler.collectorcontract.md#haserrors)
+* [formatter](compiler_main.collectorcontract.md#formatter)
+* [hasErrors](compiler_main.collectorcontract.md#haserrors)
 
 ### Methods
 
-* [getData](indicative_compiler.collectorcontract.md#getdata)
-* [getErrors](indicative_compiler.collectorcontract.md#geterrors)
-* [setError](indicative_compiler.collectorcontract.md#seterror)
-* [setValue](indicative_compiler.collectorcontract.md#setvalue)
+* [getData](compiler_main.collectorcontract.md#getdata)
+* [getErrors](compiler_main.collectorcontract.md#geterrors)
+* [setError](compiler_main.collectorcontract.md#seterror)
+* [setValue](compiler_main.collectorcontract.md#setvalue)
 
 ---
 
@@ -34,7 +34,7 @@ Runtime collector that creates a fresh copy of validated properties and errors.
 
 ###  formatter
 
-**● formatter**: *[ErrorFormatterContract](indicative_compiler.errorformattercontract.md)*
+**● formatter**: *[ErrorFormatterContract](compiler_main.errorformattercontract.md)*
 
 ___
 <a id="haserrors"></a>
@@ -60,9 +60,9 @@ ___
 
 ###  getErrors
 
-▸ **getErrors**(): `ReturnType`<[toJSON](indicative_compiler.errorformattercontract.md#tojson)>
+▸ **getErrors**(): `ReturnType`<[toJSON](compiler_main.errorformattercontract.md#tojson)>
 
-**Returns:** `ReturnType`<[toJSON](indicative_compiler.errorformattercontract.md#tojson)>
+**Returns:** `ReturnType`<[toJSON](compiler_main.errorformattercontract.md#tojson)>
 
 ___
 <a id="seterror"></a>
