@@ -1,6 +1,6 @@
 {
   "name": "indicative-compiler",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Indicative compiler to compile parsed schema into highly optimized functions",
   "scripts": {
     "mrm": "mrm --preset=@adonisjs/mrm-preset",
