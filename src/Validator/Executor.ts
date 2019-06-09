@@ -11,10 +11,10 @@
  * file that was distributed with this source code.
  */
 
-import { ErrorFormatterContract } from './contracts'
 import { Collector } from './Collector'
-import { ValidationsRunner } from './ValidationsRunner'
 import { ArrayWrapper } from './ArrayWrapper'
+import { ValidationsRunner } from './ValidationsRunner'
+import { ErrorFormatterContract } from '../contracts'
 
 /**
  * Executor is meant to execute the compiled functions with runtime
@@ -30,6 +30,7 @@ export class Executor {
   public async exec (
     data: any,
     Formatter: { new (): ErrorFormatterContract },
+    config: unknown,
     bail: boolean,
     removeAdditional: boolean,
   ) {
@@ -49,9 +50,9 @@ export class Executor {
 
     for (let fn of this._fns) {
       if (fn.async) {
-        passed = await fn.execAsync(root, collector, bail)
+        passed = await fn.execAsync(root, collector, config, bail)
       } else {
-        passed = fn.exec(root, collector, bail)
+        passed = fn.exec(root, collector, config, bail)
       }
 
       if (!passed && bail) {

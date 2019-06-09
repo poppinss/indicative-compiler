@@ -13,8 +13,7 @@
 
 import * as getValue from 'lodash.get'
 
-import { Collector } from './Collector'
-import { ValidationDataRoot } from './contracts'
+import { ValidationDataRoot, CollectorContract } from '../contracts'
 import { ValidationsRunner } from './ValidationsRunner'
 
 /**
@@ -75,11 +74,16 @@ export class ArrayWrapper {
   /**
    * Executes all validations for a given index value inside the array.
    */
-  private _executeValidations (data: ValidationDataRoot, collector: Collector, bail: boolean) {
+  private _executeValidations (
+    data: ValidationDataRoot,
+    collector: CollectorContract,
+    config: unknown,
+    bail: boolean,
+  ) {
     let passed: boolean = true
 
     for (let validator of this._childValidators) {
-      passed = validator.exec(data, collector, bail)
+      passed = validator.exec(data, collector, config, bail)
       if (bail && !passed) {
         break
       }
@@ -91,14 +95,19 @@ export class ArrayWrapper {
   /**
    * Same as [[ArrayWrapper._executeValidations]] but async.
    */
-  private async _executeAsyncValidations (data: ValidationDataRoot, collector: Collector, bail: boolean) {
+  private async _executeAsyncValidations (
+    data: ValidationDataRoot,
+    collector: CollectorContract,
+    config: unknown,
+    bail: boolean,
+  ) {
     let passed: boolean = true
 
     for (let validator of this._childValidators) {
       if (validator.async) {
-        passed = await validator.execAsync(data, collector, bail)
+        passed = await validator.execAsync(data, collector, config, bail)
       } else {
-        passed = validator.exec(data, collector, bail)
+        passed = validator.exec(data, collector, config, bail)
       }
 
       if (bail && !passed) {
@@ -112,7 +121,12 @@ export class ArrayWrapper {
   /**
    * Execute series of validations for values inside an array
    */
-  public exec (data: ValidationDataRoot, collector: Collector, bail: boolean = false): boolean {
+  public exec (
+    data: ValidationDataRoot,
+    collector: CollectorContract,
+    config: unknown,
+    bail: boolean = false,
+  ): boolean {
     const dataCopy = this._getDataCopy(data)
     if (!dataCopy) {
       return true
@@ -124,7 +138,7 @@ export class ArrayWrapper {
      */
     if (this._index !== '*') {
       dataCopy.tip = dataCopy.parentArray![dataCopy.currentIndex!]
-      return this._executeValidations(dataCopy, collector, bail)
+      return this._executeValidations(dataCopy, collector, config, bail)
     }
 
     let passed: boolean = true
@@ -138,7 +152,7 @@ export class ArrayWrapper {
       dataCopy.tip = item
       dataCopy.currentIndex = index
 
-      passed = this._executeValidations(dataCopy, collector, bail)
+      passed = this._executeValidations(dataCopy, collector, config, bail)
       if (bail && !passed) {
         break
       }
@@ -154,7 +168,8 @@ export class ArrayWrapper {
    */
   public async execAsync (
     data: ValidationDataRoot,
-    collector: Collector,
+    collector: CollectorContract,
+    config: unknown,
     bail: boolean = false,
   ): Promise<boolean> {
     const dataCopy = this._getDataCopy(data)
@@ -168,7 +183,7 @@ export class ArrayWrapper {
      */
     if (this._index !== '*') {
       dataCopy.tip = dataCopy.parentArray![dataCopy.currentIndex!]
-      return this._executeAsyncValidations(dataCopy, collector, bail)
+      return this._executeAsyncValidations(dataCopy, collector, config, bail)
     }
 
     let passed: boolean = true
@@ -182,7 +197,7 @@ export class ArrayWrapper {
       dataCopy.tip = item
       dataCopy.currentIndex = index
 
-      passed = await this._executeAsyncValidations(dataCopy, collector, bail)
+      passed = await this._executeAsyncValidations(dataCopy, collector, config, bail)
       if (bail && !passed) {
         break
       }

@@ -13,7 +13,7 @@
 
 import * as setValue from 'lodash.set'
 import { ParsedRule, Message } from 'indicative-parser'
-import { CollectorContract, ErrorFormatterContract } from './contracts'
+import { CollectorContract, ErrorFormatterContract } from '../contracts'
 
 /**
  * Collector collects all the errors and creates a copy of validated

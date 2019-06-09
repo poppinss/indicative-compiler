@@ -9,8 +9,8 @@
 
 import * as test from 'japa'
 import { join } from 'path'
-import { Compiler } from '../src/Compiler'
-import { Collector } from '../src/Collector'
+import { Compiler } from '../src/Validator/Compiler'
+import { Collector } from '../src/Validator/Collector'
 import { ErrorFormatter } from '../test-helpers/ErrorFormatter'
 import * as cloneDeep from 'clone-deep'
 
@@ -37,7 +37,7 @@ test.group('Validations (sync)', () => {
       const root = { tip: data, original: data, pointer: '' }
 
       for (let fn of fns) {
-        fn.exec(root, collector)
+        fn.exec(root, collector, {})
       }
 
       module.assertions(assert, collector.getData(), collector.getErrors())
@@ -68,7 +68,7 @@ test.group('Validations (async)', () => {
       const root = { tip: data, original: data, pointer: '' }
 
       for (let fn of fns) {
-        await fn.execAsync(root, collector)
+        await fn.execAsync(root, collector, {})
       }
 
       module.assertions(assert, collector.getData(), collector.getErrors())

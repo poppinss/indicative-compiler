@@ -20,10 +20,10 @@ import {
   ParsedMessages,
 } from 'indicative-parser'
 
-import { TreeWalker } from './TreeWalker'
 import { ArrayWrapper } from './ArrayWrapper'
-import { ValidationDefination } from './contracts'
 import { ValidationsRunner } from './ValidationsRunner'
+import { TreeWalker } from '../TreeWalker'
+import { ValidationDefination } from '../contracts'
 
 /**
  * Compiles rules and messages schema to an array of top level

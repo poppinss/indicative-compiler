@@ -8,8 +8,8 @@
  */
 
 import * as test from 'japa'
-import { Executor } from '../src/Executor'
-import { Compiler } from '../src/Compiler'
+import { Executor } from '../src/Validator/Executor'
+import { Compiler } from '../src/Validator/Compiler'
 import { ErrorFormatter } from '../test-helpers/ErrorFormatter'
 
 test.group('Executor', () => {
@@ -34,7 +34,7 @@ test.group('Executor', () => {
     const executor = new Executor(compiler.compile())
 
     try {
-      await executor.exec({}, ErrorFormatter, false, false)
+      await executor.exec({}, ErrorFormatter, {}, false, false)
     } catch (errors) {
       assert.deepEqual(errors, [
         {
@@ -72,7 +72,7 @@ test.group('Executor', () => {
     const executor = new Executor(compiler.compile())
 
     try {
-      await executor.exec({}, ErrorFormatter, true, false)
+      await executor.exec({}, ErrorFormatter, {}, true, false)
     } catch (errors) {
       assert.deepEqual(errors, [
         {
@@ -112,7 +112,7 @@ test.group('Executor', () => {
     const executor = new Executor(compiler.compile())
 
     try {
-      await executor.exec({}, ErrorFormatter, true, false)
+      await executor.exec({}, ErrorFormatter, {}, true, false)
     } catch (errors) {
       assert.deepEqual(errors, [
         {
@@ -147,7 +147,7 @@ test.group('Executor', () => {
 
     const compiler = new Compiler(schema, {}, validations)
     const executor = new Executor(compiler.compile())
-    const freshData = await executor.exec(data, ErrorFormatter, false, true)
+    const freshData = await executor.exec(data, ErrorFormatter, {}, false, true)
     assert.deepEqual(freshData, { username: 'virk' })
   })
 
@@ -174,7 +174,7 @@ test.group('Executor', () => {
 
     const compiler = new Compiler(schema, {}, validations)
     const executor = new Executor(compiler.compile())
-    const freshData = await executor.exec(data, ErrorFormatter, false, false)
+    const freshData = await executor.exec(data, ErrorFormatter, {}, false, false)
     assert.deepEqual(freshData, { username: 'virk', age: 22 })
   })
 })

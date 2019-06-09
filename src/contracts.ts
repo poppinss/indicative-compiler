@@ -54,6 +54,7 @@ export type ValidateFunction = (
   data: ValidationDataRoot,
   field: string,
   args: any[],
+  config: unknown,
 ) => boolean | Promise<boolean>
 
 /**

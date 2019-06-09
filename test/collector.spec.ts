@@ -8,7 +8,7 @@
  */
 
 import * as test from 'japa'
-import { Collector } from '../src/Collector'
+import { Collector } from '../src/Validator/Collector'
 import { ErrorFormatter } from '../test-helpers/ErrorFormatter'
 
 test.group('Collector', () => {

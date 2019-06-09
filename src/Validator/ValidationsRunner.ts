@@ -14,8 +14,13 @@
 import { ParsedRule, ParsedRulesMessages } from 'indicative-parser'
 import * as getValue from 'lodash.get'
 import * as isObject from 'isobject'
-import { Collector } from './Collector'
-import { ValidationDataRoot, ValidateFunction, ValidationDefination } from './contracts'
+
+import {
+  ValidationDataRoot,
+  ValidateFunction,
+  ValidationDefination,
+  CollectorContract,
+} from '../contracts'
 
 /**
  * Runs a series of validations on a given field. This class is feeded with the
@@ -134,7 +139,7 @@ export class ValidationsRunner {
   private _reportValueToCollector (
     passed: boolean,
     data: ValidationDataRoot,
-    collector: Collector,
+    collector: CollectorContract,
   ) {
     if (!passed || this._type !== 'literal') {
       return
@@ -149,7 +154,7 @@ export class ValidationsRunner {
   private _reportErrorToCollector (
     pointer: string,
     rule: ParsedRule,
-    collector: Collector,
+    collector: CollectorContract,
   ) {
     const message = this._fieldMessages[rule.name] || this._genericMessages[rule.name]
     collector.setError(pointer, rule, message)
@@ -161,7 +166,8 @@ export class ValidationsRunner {
    */
   public exec (
     data: ValidationDataRoot,
-    collector: Collector,
+    collector: CollectorContract,
+    config: unknown,
     bail: boolean = false,
   ): boolean {
     const dataCopy = this._getDataCopy(data)
@@ -181,7 +187,7 @@ export class ValidationsRunner {
      * Sequentially loop over all the validations. We break the loop, when `bail=true`.
      */
     for (let validation of this._validations) {
-      passed = validation.fn(dataCopy, this._field, validation.rule.args) as boolean
+      passed = validation.fn(dataCopy, this._field, validation.rule.args, config) as boolean
 
       if (!passed) {
         this._reportErrorToCollector(dataCopy.pointer, validation.rule, collector)
@@ -201,7 +207,8 @@ export class ValidationsRunner {
    */
   public async execAsync (
     data: ValidationDataRoot,
-    collector: Collector,
+    collector: CollectorContract,
+    config: unknown,
     bail: boolean = false,
   ): Promise<boolean> {
     const dataCopy = this._getDataCopy(data)
@@ -222,9 +229,9 @@ export class ValidationsRunner {
      */
     for (let validation of this._validations) {
       if (validation.async) {
-        passed = await validation.fn(dataCopy, this._field, validation.rule.args)
+        passed = await validation.fn(dataCopy, this._field, validation.rule.args, config)
       } else {
-        passed = validation.fn(dataCopy, this._field, validation.rule.args) as boolean
+        passed = validation.fn(dataCopy, this._field, validation.rule.args, config) as boolean
       }
 
       if (!passed) {
