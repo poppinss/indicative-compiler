@@ -58,7 +58,7 @@ export class Collector implements CollectorContract {
    * Passes error to the error formatter for a given field and rule. Also when the
    * message is undefined, it will create a generic message.
    */
-  public setError (pointer: string, rule: ParsedRule, message?: Message) {
+  public setError (pointer: string, rule: ParsedRule, message?: Message | Error) {
     this.hasErrors = true
 
     message = message || `${rule.name} validation failed on ${pointer}`
@@ -67,6 +67,6 @@ export class Collector implements CollectorContract {
     /**
      * Report error to the formatter
      */
-    this.formatter.addError(pointer, message, rule)
+    this.formatter.addError(message, pointer, rule)
   }
 }

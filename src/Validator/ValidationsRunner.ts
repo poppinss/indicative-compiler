@@ -155,8 +155,9 @@ export class ValidationsRunner {
     pointer: string,
     rule: ParsedRule,
     collector: CollectorContract,
+    exception: Error | null,
   ) {
-    const message = this._fieldMessages[rule.name] || this._genericMessages[rule.name]
+    const message = exception || this._fieldMessages[rule.name] || this._genericMessages[rule.name]
     collector.setError(pointer, rule, message)
   }
 
@@ -187,10 +188,20 @@ export class ValidationsRunner {
      * Sequentially loop over all the validations. We break the loop, when `bail=true`.
      */
     for (let validation of this._validations) {
-      passed = validation.fn(dataCopy, this._field, validation.rule.args, config) as boolean
+      let exception: Error | null = null
+
+      /**
+       * Wrapping the validation function for unexpected errors.
+       */
+      try {
+        passed = validation.fn(dataCopy, this._field, validation.rule.args, config) as boolean
+      } catch (error) {
+        exception = error
+        passed = false
+      }
 
       if (!passed) {
-        this._reportErrorToCollector(dataCopy.pointer, validation.rule, collector)
+        this._reportErrorToCollector(dataCopy.pointer, validation.rule, collector, exception)
         if (bail) {
           break
         }
@@ -228,14 +239,21 @@ export class ValidationsRunner {
      * Sequentially loop over all the validations. We break the loop, when `bail=true`.
      */
     for (let validation of this._validations) {
-      if (validation.async) {
-        passed = await validation.fn(dataCopy, this._field, validation.rule.args, config)
-      } else {
-        passed = validation.fn(dataCopy, this._field, validation.rule.args, config) as boolean
+      let exception: Error | null = null
+
+      try {
+        if (validation.async) {
+          passed = await validation.fn(dataCopy, this._field, validation.rule.args, config)
+        } else {
+          passed = validation.fn(dataCopy, this._field, validation.rule.args, config) as boolean
+        }
+      } catch (error) {
+        passed = false
+        exception = error
       }
 
       if (!passed) {
-        this._reportErrorToCollector(dataCopy.pointer, validation.rule, collector)
+        this._reportErrorToCollector(dataCopy.pointer, validation.rule, collector, exception)
         if (bail) {
           break
         }

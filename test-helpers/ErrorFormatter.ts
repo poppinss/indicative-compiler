@@ -13,7 +13,8 @@ import { ParsedRule } from 'indicative-parser'
 export class ErrorFormatter implements ErrorFormatterContract {
   private _errors: { field: string, message: string, validation: string }[] = []
 
-  public addError (field: string, message: string, rule: ParsedRule) {
+  public addError (error: string | Error, field: string, rule: ParsedRule) {
+    const message = error instanceof Error ? error.message : error
     this._errors.push({ field, message, validation: rule.name })
   }
 

@@ -95,8 +95,8 @@ export type SanitizationDefination = {
  * The error formatter to format error messages
  */
 export interface ErrorFormatterContract<T extends any = any> {
-  addError (field: string, message: string, rule: ParsedRule): void
-  toJSON (): T[]
+  addError (error: string | Error, field: string, rule: ParsedRule): void
+  toJSON (): T[] | null
 }
 
 /**
@@ -109,5 +109,5 @@ export interface CollectorContract {
   getErrors (): ReturnType<ErrorFormatterContract['toJSON']>
   getData (): any
   setValue (pointer: string, value: any): void
-  setError (pointer: string, rule: ParsedRule, message: Message): void
+  setError (pointer: string, rule: ParsedRule, message: Message | Error): void
 }
