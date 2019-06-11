@@ -104,7 +104,7 @@ ___
 
 ###  setError
 
-▸ **setError**(pointer: *`string`*, rule: *`ParsedRule`*, message?: *`Message`*): `void`
+▸ **setError**(pointer: *`string`*, rule: *`ParsedRule`*, message?: *`Message` \| `Error`*): `void`
 
 Passes error to the error formatter for a given field and rule. Also when the message is undefined, it will create a generic message.
 
@@ -114,7 +114,7 @@ Passes error to the error formatter for a given field and rule. Also when the me
 | ------ | ------ |
 | pointer | `string` |
 | rule | `ParsedRule` |
-| `Optional` message | `Message` |
+| `Optional` message | `Message` \| `Error` |
 
 **Returns:** `void`
 

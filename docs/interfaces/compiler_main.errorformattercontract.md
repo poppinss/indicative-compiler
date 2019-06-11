@@ -25,14 +25,14 @@ The error formatter to format error messages
 
 ###  addError
 
-▸ **addError**(field: *`string`*, message: *`string`*, rule: *`ParsedRule`*): `void`
+▸ **addError**(error: *`string` \| `Error`*, field: *`string`*, rule: *`ParsedRule`*): `void`
 
 **Parameters:**
 
 | Name | Type |
 | ------ | ------ |
+| error | `string` \| `Error` |
 | field | `string` |
-| message | `string` |
 | rule | `ParsedRule` |
 
 **Returns:** `void`
@@ -42,9 +42,9 @@ ___
 
 ###  toJSON
 
-▸ **toJSON**(): `T`[]
+▸ **toJSON**(): `T`[] \| `null`
 
-**Returns:** `T`[]
+**Returns:** `T`[] \| `null`
 
 ___
 

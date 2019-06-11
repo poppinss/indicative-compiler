@@ -69,7 +69,7 @@ ___
 
 ###  setError
 
-▸ **setError**(pointer: *`string`*, rule: *`ParsedRule`*, message: *`Message`*): `void`
+▸ **setError**(pointer: *`string`*, rule: *`ParsedRule`*, message: *`Message` \| `Error`*): `void`
 
 **Parameters:**
 
@@ -77,7 +77,7 @@ ___
 | ------ | ------ |
 | pointer | `string` |
 | rule | `ParsedRule` |
-| message | `Message` |
+| message | `Message` \| `Error` |
 
 **Returns:** `void`
 
