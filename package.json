@@ -81,7 +81,7 @@
     "anyBranch": false
   },
   "dependencies": {
-    "indicative-parser": "^1.0.0",
+    "indicative-parser": "^7.0.0",
     "isobject": "^4.0.0",
     "lodash.get": "^4.4.2",
     "lodash.memoize": "^4.1.2",
