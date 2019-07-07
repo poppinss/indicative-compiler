@@ -1,55 +1,47 @@
-[indicative-compiler](../README.md) > [compiler/sanitizer](../modules/compiler_sanitizer.md) > [Compiler](../classes/compiler_sanitizer.compiler.md)
+> **[indicative-compiler](../README.md)**
+
+[Globals](../README.md) / [compiler/sanitizer](../modules/compiler_sanitizer.md) / [Compiler](compiler_sanitizer.compiler.md) /
 
 # Class: Compiler
 
-Compiles rules and messages schema to an array of top level functions highly optimized for speed.
+Compiles rules and messages schema to an array of top level
+functions highly optimized for speed.
 
 ## Hierarchy
 
-**Compiler**
+* **Compiler**
 
-## Index
+### Index
 
-### Constructors
+#### Constructors
 
 * [constructor](compiler_sanitizer.compiler.md#constructor)
 
-### Methods
+#### Methods
 
 * [compile](compiler_sanitizer.compiler.md#compile)
 
----
-
 ## Constructors
-
-<a id="constructor"></a>
 
 ###  constructor
 
-⊕ **new Compiler**(schema: *`Schema`*, _sanitizations: *`object`*): [Compiler](compiler_sanitizer.compiler.md)
+\+ **new Compiler**(`schema`: `Schema`, `_sanitizations`: object): *[Compiler](compiler_sanitizer.compiler.md)*
 
 **Parameters:**
 
-| Name | Type |
-| ------ | ------ |
-| schema | `Schema` |
-| _sanitizations | `object` |
+Name | Type |
+------ | ------ |
+`schema` | `Schema` |
+`_sanitizations` | object |
 
-**Returns:** [Compiler](compiler_sanitizer.compiler.md)
-
-___
+**Returns:** *[Compiler](compiler_sanitizer.compiler.md)*
 
 ## Methods
 
-<a id="compile"></a>
-
 ###  compile
 
-▸ **compile**(): ([SanitizationsRunner](compiler_sanitizer.sanitizationsrunner.md) \| [ArrayWrapper](compiler_sanitizer.arraywrapper.md))[]
+▸ **compile**(): *[SanitizationsRunner](compiler_sanitizer.sanitizationsrunner.md) | [ArrayWrapper](compiler_sanitizer.arraywrapper.md)[]*
 
 Compiles the schema to an array of functions
 
-**Returns:** ([SanitizationsRunner](compiler_sanitizer.sanitizationsrunner.md) \| [ArrayWrapper](compiler_sanitizer.arraywrapper.md))[]
-
-___
-
+**Returns:** *[SanitizationsRunner](compiler_sanitizer.sanitizationsrunner.md) | [ArrayWrapper](compiler_sanitizer.arraywrapper.md)[]*

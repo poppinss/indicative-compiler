@@ -1,101 +1,89 @@
-[indicative-compiler](../README.md) > [compiler/main](../modules/compiler_main.md) > [CollectorContract](../interfaces/compiler_main.collectorcontract.md)
+> **[indicative-compiler](../README.md)**
+
+[Globals](../README.md) / [compiler/main](../modules/compiler_main.md) / [CollectorContract](compiler_main.collectorcontract.md) /
 
 # Interface: CollectorContract
 
-Runtime collector that creates a fresh copy of validated properties and errors.
+Runtime collector that creates a fresh copy of validated
+properties and errors.
 
 ## Hierarchy
 
-**CollectorContract**
+* **CollectorContract**
 
 ## Implemented by
 
 * [Collector](../classes/compiler_validator.collector.md)
 
-## Index
+### Index
 
-### Properties
+#### Properties
 
 * [formatter](compiler_main.collectorcontract.md#formatter)
 * [hasErrors](compiler_main.collectorcontract.md#haserrors)
 
-### Methods
+#### Methods
 
 * [getData](compiler_main.collectorcontract.md#getdata)
 * [getErrors](compiler_main.collectorcontract.md#geterrors)
 * [setError](compiler_main.collectorcontract.md#seterror)
 * [setValue](compiler_main.collectorcontract.md#setvalue)
 
----
-
 ## Properties
-
-<a id="formatter"></a>
 
 ###  formatter
 
-**● formatter**: *[ErrorFormatterContract](compiler_main.errorformattercontract.md)*
+• **formatter**: *[ErrorFormatterContract](compiler_main.errorformattercontract.md)*
 
 ___
-<a id="haserrors"></a>
 
 ###  hasErrors
 
-**● hasErrors**: *`boolean`*
-
-___
+• **hasErrors**: *boolean*
 
 ## Methods
 
-<a id="getdata"></a>
-
 ###  getData
 
-▸ **getData**(): `any`
+▸ **getData**(): *any*
 
-**Returns:** `any`
+**Returns:** *any*
 
 ___
-<a id="geterrors"></a>
 
 ###  getErrors
 
-▸ **getErrors**(): `ReturnType`<[toJSON](compiler_main.errorformattercontract.md#tojson)>
+▸ **getErrors**(): *`ReturnType<toJSON>`*
 
-**Returns:** `ReturnType`<[toJSON](compiler_main.errorformattercontract.md#tojson)>
+**Returns:** *`ReturnType<toJSON>`*
 
 ___
-<a id="seterror"></a>
 
 ###  setError
 
-▸ **setError**(pointer: *`string`*, rule: *`ParsedRule`*, message: *`Message` \| `Error`*): `void`
+▸ **setError**(`pointer`: string, `rule`: `ParsedRule`, `message`: `Message` | `Error`): *void*
 
 **Parameters:**
 
-| Name | Type |
-| ------ | ------ |
-| pointer | `string` |
-| rule | `ParsedRule` |
-| message | `Message` \| `Error` |
+Name | Type |
+------ | ------ |
+`pointer` | string |
+`rule` | `ParsedRule` |
+`message` | `Message` \| `Error` |
 
-**Returns:** `void`
+**Returns:** *void*
 
 ___
-<a id="setvalue"></a>
 
 ###  setValue
 
-▸ **setValue**(pointer: *`string`*, value: *`any`*): `void`
+▸ **setValue**(`pointer`: string, `value`: any): *void*
 
 **Parameters:**
 
-| Name | Type |
-| ------ | ------ |
-| pointer | `string` |
-| value | `any` |
+Name | Type |
+------ | ------ |
+`pointer` | string |
+`value` | any |
 
-**Returns:** `void`
-
-___
-
+**Returns:** *void*

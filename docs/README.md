@@ -1,13 +1,11 @@
+> **[indicative-compiler](README.md)**
 
-#  indicative-compiler
+[Globals](README.md) /
 
-## Index
+### Index
 
-### External modules
+#### External modules
 
 * [compiler/main](modules/compiler_main.md)
 * [compiler/sanitizer](modules/compiler_sanitizer.md)
 * [compiler/validator](modules/compiler_validator.md)
-
----
-

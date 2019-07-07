@@ -1,64 +1,56 @@
-[indicative-compiler](../README.md) > [compiler/validator](../modules/compiler_validator.md) > [Executor](../classes/compiler_validator.executor.md)
+> **[indicative-compiler](../README.md)**
+
+[Globals](../README.md) / [compiler/validator](../modules/compiler_validator.md) / [Executor](compiler_validator.executor.md) /
 
 # Class: Executor
 
-Executor is meant to execute the compiled functions with runtime data.
+Executor is meant to execute the compiled functions with runtime
+data.
 
 ## Hierarchy
 
-**Executor**
+* **Executor**
 
-## Index
+### Index
 
-### Constructors
+#### Constructors
 
 * [constructor](compiler_validator.executor.md#constructor)
 
-### Methods
+#### Methods
 
 * [exec](compiler_validator.executor.md#exec)
 
----
-
 ## Constructors
-
-<a id="constructor"></a>
 
 ###  constructor
 
-⊕ **new Executor**(_fns: *([ValidationsRunner](compiler_validator.validationsrunner.md) \| [ArrayWrapper](compiler_validator.arraywrapper.md))[]*): [Executor](compiler_validator.executor.md)
+\+ **new Executor**(`_fns`: [ValidationsRunner](compiler_validator.validationsrunner.md) | [ArrayWrapper](compiler_validator.arraywrapper.md)[]): *[Executor](compiler_validator.executor.md)*
 
 **Parameters:**
 
-| Name | Type |
-| ------ | ------ |
-| _fns | ([ValidationsRunner](compiler_validator.validationsrunner.md) \| [ArrayWrapper](compiler_validator.arraywrapper.md))[] |
+Name | Type |
+------ | ------ |
+`_fns` | [ValidationsRunner](compiler_validator.validationsrunner.md) \| [ArrayWrapper](compiler_validator.arraywrapper.md)[] |
 
-**Returns:** [Executor](compiler_validator.executor.md)
-
-___
+**Returns:** *[Executor](compiler_validator.executor.md)*
 
 ## Methods
 
-<a id="exec"></a>
-
 ###  exec
 
-▸ **exec**(data: *`any`*, Formatter: *`object`*, config: *`unknown`*, bail: *`boolean`*, removeAdditional: *`boolean`*): `Promise`<`any`>
+▸ **exec**(`data`: any, `Formatter`: object, `config`: unknown, `bail`: boolean, `removeAdditional`: boolean): *`Promise<any>`*
 
 Executes the compiled functions in sequence.
 
 **Parameters:**
 
-| Name | Type |
-| ------ | ------ |
-| data | `any` |
-| Formatter | `object` |
-| config | `unknown` |
-| bail | `boolean` |
-| removeAdditional | `boolean` |
+Name | Type |
+------ | ------ |
+`data` | any |
+`Formatter` | object |
+`config` | unknown |
+`bail` | boolean |
+`removeAdditional` | boolean |
 
-**Returns:** `Promise`<`any`>
-
-___
-
+**Returns:** *`Promise<any>`*

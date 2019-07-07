@@ -1,50 +1,46 @@
-[indicative-compiler](../README.md) > [compiler/main](../modules/compiler_main.md) > [ErrorFormatterContract](../interfaces/compiler_main.errorformattercontract.md)
+> **[indicative-compiler](../README.md)**
 
-# Interface: ErrorFormatterContract
+[Globals](../README.md) / [compiler/main](../modules/compiler_main.md) / [ErrorFormatterContract](compiler_main.errorformattercontract.md) /
+
+# Interface: ErrorFormatterContract <**T**>
 
 The error formatter to format error messages
 
 ## Type parameters
-#### T :  `any`
+
+▪ **T**: *any*
+
 ## Hierarchy
 
-**ErrorFormatterContract**
+* **ErrorFormatterContract**
 
-## Index
+### Index
 
-### Methods
+#### Methods
 
 * [addError](compiler_main.errorformattercontract.md#adderror)
 * [toJSON](compiler_main.errorformattercontract.md#tojson)
 
----
-
 ## Methods
-
-<a id="adderror"></a>
 
 ###  addError
 
-▸ **addError**(error: *`string` \| `Error`*, field: *`string`*, rule: *`ParsedRule`*): `void`
+▸ **addError**(`error`: string | `Error`, `field`: string, `rule`: `ParsedRule`): *void*
 
 **Parameters:**
 
-| Name | Type |
-| ------ | ------ |
-| error | `string` \| `Error` |
-| field | `string` |
-| rule | `ParsedRule` |
+Name | Type |
+------ | ------ |
+`error` | string \| `Error` |
+`field` | string |
+`rule` | `ParsedRule` |
 
-**Returns:** `void`
+**Returns:** *void*
 
 ___
-<a id="tojson"></a>
 
 ###  toJSON
 
-▸ **toJSON**(): `T`[] \| `null`
+▸ **toJSON**(): *`T`[] | null*
 
-**Returns:** `T`[] \| `null`
-
-___
-
+**Returns:** *`T`[] | null*
