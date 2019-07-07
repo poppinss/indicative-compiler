@@ -67,6 +67,6 @@ export class Collector implements CollectorContract {
     /**
      * Report error to the formatter
      */
-    this.formatter.addError(message, pointer, rule)
+    this.formatter.addError(message, pointer, rule.name, rule.args)
   }
 }

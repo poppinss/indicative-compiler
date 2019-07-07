@@ -8,14 +8,13 @@
 */
 
 import { ErrorFormatterContract } from '../src/contracts'
-import { ParsedRule } from 'indicative-parser'
 
 export class ErrorFormatter implements ErrorFormatterContract {
   private _errors: { field: string, message: string, validation: string }[] = []
 
-  public addError (error: string | Error, field: string, rule: ParsedRule) {
+  public addError (error: string | Error, field: string, rule: string) {
     const message = error instanceof Error ? error.message : error
-    this._errors.push({ field, message, validation: rule.name })
+    this._errors.push({ field, message, validation: rule })
   }
 
   public toJSON () {
