@@ -25,7 +25,7 @@ The error formatter to format error messages
 
 ###  addError
 
-▸ **addError**(`error`: string | `Error`, `field`: string, `rule`: `ParsedRule`): *void*
+▸ **addError**(`error`: string | `Error`, `field`: string, `ruleName`: string, `args`: `Array`): *void*
 
 **Parameters:**
 
@@ -33,7 +33,8 @@ Name | Type |
 ------ | ------ |
 `error` | string \| `Error` |
 `field` | string |
-`rule` | `ParsedRule` |
+`ruleName` | string |
+`args` | `Array` |
 
 **Returns:** *void*
 
