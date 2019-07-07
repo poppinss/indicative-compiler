@@ -31,25 +31,25 @@
   "homepage": "https://github.com/poppinss/indicative-compiler#readme",
   "devDependencies": {
     "@adonisjs/mrm-preset": "^2.0.3",
-    "@types/node": "^12.0.4",
+    "@types/node": "^12.0.12",
     "clone-deep": "^4.0.1",
     "commitizen": "^3.1.1",
     "cz-conventional-changelog": "^2.1.0",
     "del-cli": "^2.0.0",
     "doctoc": "^1.4.0",
-    "husky": "^2.3.0",
-    "indicative-utils": "^1.0.1",
+    "husky": "^3.0.0",
+    "indicative-utils": "^1.0.2",
     "japa": "^2.0.10",
     "mrm": "^1.2.2",
-    "np": "^5.0.2",
+    "np": "^5.0.3",
     "require-all": "^3.0.0",
-    "ts-node": "^8.2.0",
-    "tslint": "^5.17.0",
+    "ts-node": "^8.3.0",
+    "tslint": "^5.18.0",
     "tslint-eslint-rules": "^5.4.0",
     "typedoc": "^0.14.2",
     "typedoc-plugin-external-module-name": "^2.1.0",
-    "typedoc-plugin-markdown": "^1.2.1",
-    "typescript": "^3.5.1"
+    "typedoc-plugin-markdown": "^2.0.8",
+    "typescript": "^3.5.2"
   },
   "nyc": {
     "exclude": [
@@ -81,7 +81,7 @@
     "anyBranch": false
   },
   "dependencies": {
-    "indicative-parser": "^1.0.0",
+    "indicative-parser": "^1.0.1",
     "isobject": "^4.0.0",
     "lodash.get": "^4.4.2",
     "lodash.memoize": "^4.1.2",
