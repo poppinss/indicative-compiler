@@ -37,7 +37,7 @@
   "homepage": "https://github.com/poppinss/indicative-compiler#readme",
   "devDependencies": {
     "@adonisjs/mrm-preset": "^2.0.3",
-    "@types/node": "^12.0.12",
+    "@types/node": "^12.6.1",
     "clone-deep": "^4.0.1",
     "commitizen": "^3.1.1",
     "cz-conventional-changelog": "^2.1.0",
@@ -55,7 +55,7 @@
     "typedoc": "^0.14.2",
     "typedoc-plugin-external-module-name": "^2.1.0",
     "typedoc-plugin-markdown": "^2.0.8",
-    "typescript": "^3.5.2"
+    "typescript": "^3.5.3"
   },
   "nyc": {
     "exclude": [
