@@ -2,13 +2,9 @@
 
 [Globals](../README.md) / [compiler/main](../modules/compiler_main.md) / [ErrorFormatterContract](compiler_main.errorformattercontract.md) /
 
-# Interface: ErrorFormatterContract <**T**>
+# Interface: ErrorFormatterContract
 
 The error formatter to format error messages
-
-## Type parameters
-
-▪ **T**: *any*
 
 ## Hierarchy
 
@@ -42,6 +38,6 @@ ___
 
 ###  toJSON
 
-▸ **toJSON**(): *`T`[] | null*
+▸ **toJSON**(): *any*
 
-**Returns:** *`T`[] | null*
+**Returns:** *any*
