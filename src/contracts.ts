@@ -94,14 +94,14 @@ export type SanitizationDefination = {
 /**
  * The error formatter to format error messages
  */
-export interface ErrorFormatterContract<T extends any = any> {
+export interface ErrorFormatterContract {
   addError (
     error: string | Error,
     field: string,
     ruleName: ParsedRule['name'],
     args: ParsedRule['args'],
   ): void
-  toJSON (): T[] | null
+  toJSON (): any
 }
 
 /**
