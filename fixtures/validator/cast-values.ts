@@ -60,7 +60,7 @@ export function input () {
   return { schema, messages, data, validations, casts: true }
 }
 
-export function assertions (assert: Assert, data: any, errorMessages: any[]) {
+export function assertions (assert: Assert, data: any, errorMessages: any[] | null) {
   assert.deepEqual(Object.keys(data), ['age', 'created_at', 'users', 'lucky_numbers'])
 
   assert.deepEqual(data.age, 22)
@@ -73,5 +73,5 @@ export function assertions (assert: Assert, data: any, errorMessages: any[]) {
   assert.deepEqual(Object.keys(data.users[0]), ['profiles', 'is_admin'])
   assert.deepEqual(data.users[0].is_admin, true)
   assert.deepEqual(data.users[0].profiles, [{ age: 22 }, { age: 22 }])
-  assert.deepEqual(errorMessages, [])
+  assert.isNull(errorMessages)
 }

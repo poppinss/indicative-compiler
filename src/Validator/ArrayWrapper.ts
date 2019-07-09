@@ -80,16 +80,19 @@ export class ArrayWrapper {
     config: unknown,
     bail: boolean,
   ) {
-    let passed: boolean = true
+    let hasFailures = false
 
     for (let validator of this._childValidators) {
-      passed = validator.exec(data, collector, config, bail)
-      if (bail && !passed) {
-        break
+      const passed = validator.exec(data, collector, config, bail)
+      if (!passed) {
+        hasFailures = true
+        if (bail) {
+          break
+        }
       }
     }
 
-    return passed
+    return !hasFailures
   }
 
   /**
@@ -101,21 +104,26 @@ export class ArrayWrapper {
     config: unknown,
     bail: boolean,
   ) {
-    let passed: boolean = true
+    let hasFailures = false
 
     for (let validator of this._childValidators) {
+      let passed = true
+
       if (validator.async) {
         passed = await validator.execAsync(data, collector, config, bail)
       } else {
         passed = validator.exec(data, collector, config, bail)
       }
 
-      if (bail && !passed) {
-        break
+      if (!passed) {
+        hasFailures = true
+        if (bail) {
+          break
+        }
       }
     }
 
-    return passed
+    return !hasFailures
   }
 
   /**
@@ -141,8 +149,8 @@ export class ArrayWrapper {
       return this._executeValidations(dataCopy, collector, config, bail)
     }
 
-    let passed: boolean = true
     let index = 0
+    let hasFailures = false
 
     /**
      * Loop over all the entire array and execute validations
@@ -151,15 +159,20 @@ export class ArrayWrapper {
     for (let item of dataCopy.parentArray!) {
       dataCopy.tip = item
       dataCopy.currentIndex = index
+      let passed = true
 
       passed = this._executeValidations(dataCopy, collector, config, bail)
-      if (bail && !passed) {
-        break
+      if (!passed) {
+        hasFailures = true
+        if (bail) {
+          break
+        }
       }
+
       index++
     }
 
-    return passed
+    return !hasFailures
   }
 
   /**
@@ -186,8 +199,8 @@ export class ArrayWrapper {
       return this._executeAsyncValidations(dataCopy, collector, config, bail)
     }
 
-    let passed: boolean = true
     let index = 0
+    let hasFailures = false
 
     /**
      * Loop over all the entire array and execute validations
@@ -197,13 +210,16 @@ export class ArrayWrapper {
       dataCopy.tip = item
       dataCopy.currentIndex = index
 
-      passed = await this._executeAsyncValidations(dataCopy, collector, config, bail)
-      if (bail && !passed) {
-        break
+      const passed = await this._executeAsyncValidations(dataCopy, collector, config, bail)
+      if (!passed) {
+        hasFailures = true
+        if (bail) {
+          break
+        }
       }
       index++
     }
 
-    return passed
+    return !hasFailures
   }
 }

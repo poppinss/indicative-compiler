@@ -182,13 +182,14 @@ export class ValidationsRunner {
       return true
     }
 
-    let passed: boolean = true
+    let hasFailures = false
 
     /**
      * Sequentially loop over all the validations. We break the loop, when `bail=true`.
      */
     for (let validation of this._validations) {
       let exception: Error | null = null
+      let passed: boolean = true
 
       /**
        * Wrapping the validation function for unexpected errors.
@@ -201,6 +202,7 @@ export class ValidationsRunner {
       }
 
       if (!passed) {
+        hasFailures = true
         this._reportErrorToCollector(dataCopy.pointer, validation.rule, collector, exception)
         if (bail) {
           break
@@ -208,8 +210,8 @@ export class ValidationsRunner {
       }
     }
 
-    this._reportValueToCollector(passed, dataCopy, collector)
-    return passed
+    this._reportValueToCollector(!hasFailures, dataCopy, collector)
+    return !hasFailures
   }
 
   /**
@@ -233,13 +235,14 @@ export class ValidationsRunner {
       return true
     }
 
-    let passed: boolean = true
+    let hasFailures = false
 
     /**
      * Sequentially loop over all the validations. We break the loop, when `bail=true`.
      */
     for (let validation of this._validations) {
       let exception: Error | null = null
+      let passed: boolean = true
 
       try {
         if (validation.async) {
@@ -253,14 +256,16 @@ export class ValidationsRunner {
       }
 
       if (!passed) {
+        hasFailures = true
         this._reportErrorToCollector(dataCopy.pointer, validation.rule, collector, exception)
+
         if (bail) {
           break
         }
       }
     }
 
-    this._reportValueToCollector(passed, dataCopy, collector)
-    return passed
+    this._reportValueToCollector(!hasFailures, dataCopy, collector)
+    return !hasFailures
   }
 }

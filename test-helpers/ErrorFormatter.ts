@@ -18,6 +18,6 @@ export class ErrorFormatter implements ErrorFormatterContract {
   }
 
   public toJSON () {
-    return this._errors
+    return this._errors.length ? this._errors : null
   }
 }

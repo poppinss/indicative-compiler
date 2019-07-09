@@ -177,4 +177,43 @@ test.group('Executor', () => {
     const freshData = await executor.exec(data, ErrorFormatter, {}, false, false)
     assert.deepEqual(freshData, { username: 'virk', age: 22 })
   })
+
+  test('return errors when partial validations fails with bail=false', async (assert) => {
+    assert.plan(1)
+
+    const schema = {
+      username: 'required',
+      age: 'min',
+    }
+
+    const validations = {
+      required: {
+        async: false,
+        validate () {
+          return false
+        },
+      },
+      min: {
+        async: false,
+        validate () {
+          return true
+        },
+      },
+    }
+
+    const compiler = new Compiler(schema, {}, validations)
+    const executor = new Executor(compiler.compile())
+
+    try {
+      await executor.exec({}, ErrorFormatter, {}, false, false)
+    } catch (errors) {
+      assert.deepEqual(errors, [
+        {
+          field: 'username',
+          message: 'required validation failed on username',
+          validation: 'required',
+        },
+      ])
+    }
+  })
 })

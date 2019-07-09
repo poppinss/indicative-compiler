@@ -38,10 +38,11 @@ export function input () {
   return { schema, messages, data, validations }
 }
 
-export function assertions (assert: Assert, data: any, errorMessages: any[]) {
+export function assertions (assert: Assert, data: any, errorMessages: any[] | null) {
   assert.deepEqual(data, {
     users: [{ username: 'virk' }, { username: 'nikk' }],
     accepted: true,
   })
-  assert.deepEqual(errorMessages, [])
+
+  assert.isNull(errorMessages)
 }

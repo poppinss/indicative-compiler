@@ -46,9 +46,9 @@ export class Executor {
      */
     const collector = new Collector(new Formatter(), removeAdditional)
 
-    let passed: boolean = true
-
     for (let fn of this._fns) {
+      let passed: boolean = false
+
       if (fn.async) {
         passed = await fn.execAsync(root, collector, config, bail)
       } else {
@@ -60,16 +60,18 @@ export class Executor {
       }
     }
 
+    const errors = collector.getErrors()
+
     /**
      * If passed, return the data
      */
-    if (passed) {
+    if (!errors) {
       return removeAdditional ? collector.getData() : data
     }
 
     /**
      * Otherwise return errors
      */
-    throw collector.getErrors()
+    throw errors
   }
 }
