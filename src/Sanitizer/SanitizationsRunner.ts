@@ -11,8 +11,8 @@
  * file that was distributed with this source code.
  */
 
-import * as getValue from 'lodash.get'
-import * as isObject from 'isobject'
+import getValue from 'lodash.get'
+import isObject from 'isobject'
 import { ParsedRule } from 'indicative-parser'
 import { SanitizationDefination, SanitizeFunction, SanitizationDataRoot } from '../contracts'
 

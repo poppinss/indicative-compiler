@@ -11,7 +11,7 @@
  * file that was distributed with this source code.
  */
 
-import * as setValue from 'lodash.set'
+import setValue from 'lodash.set'
 import { ParsedRule, Message } from 'indicative-parser'
 import { CollectorContract, ErrorFormatterContract } from '../contracts'
 

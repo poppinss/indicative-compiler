@@ -12,8 +12,8 @@
  */
 
 import { ParsedRule, ParsedRulesMessages } from 'indicative-parser'
-import * as getValue from 'lodash.get'
-import * as isObject from 'isobject'
+import getValue from 'lodash.get'
+import isObject from 'isobject'
 
 import {
   ValidationDataRoot,

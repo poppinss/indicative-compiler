@@ -7,7 +7,7 @@
  * file that was distributed with this source code.
  */
 
-import * as test from 'japa'
+import test from 'japa'
 import { Executor } from '../src/Validator/Executor'
 import { Compiler } from '../src/Validator/Compiler'
 import { ErrorFormatter } from '../test-helpers/ErrorFormatter'

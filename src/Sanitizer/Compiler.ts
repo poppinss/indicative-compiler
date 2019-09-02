@@ -17,9 +17,9 @@ import {
   ParsedSchema,
 } from 'indicative-parser'
 
+import { TreeWalker } from '../TreeWalker'
 import { ArrayWrapper } from './ArrayWrapper'
 import { SanitizationsRunner } from './SanitizationsRunner'
-import { TreeWalker } from '../TreeWalker'
 import { SanitizationDefination } from '../contracts'
 
 /**

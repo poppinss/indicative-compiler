@@ -11,7 +11,7 @@
  * file that was distributed with this source code.
  */
 
-import * as getValue from 'lodash.get'
+import getValue from 'lodash.get'
 import { SanitizationDataRoot } from '../contracts'
 import { SanitizationsRunner } from './SanitizationsRunner'
 

@@ -7,12 +7,12 @@
 * file that was distributed with this source code.
 */
 
-import * as test from 'japa'
+import test from 'japa'
 import { join } from 'path'
 import { Compiler } from '../src/Validator/Compiler'
 import { Collector } from '../src/Validator/Collector'
 import { ErrorFormatter } from '../test-helpers/ErrorFormatter'
-import * as cloneDeep from 'clone-deep'
+import cloneDeep from 'clone-deep'
 
 const fixtureModules = require('require-all')({
   dirname: join(__dirname, '../fixtures/validator'),
