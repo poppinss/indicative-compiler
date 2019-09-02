@@ -1,6 +1,6 @@
-> **[indicative-compiler](../README.md)**
+**[indicative-compiler](../README.md)**
 
-[Globals](../README.md) / [compiler/main](../modules/compiler_main.md) / [TreeWalker](compiler_main.treewalker.md) /
+[Globals](../README.md) › [compiler/main](../modules/compiler_main.md) › [TreeWalker](compiler_main.treewalker.md)
 
 # Class: TreeWalker <**T, U**>
 
@@ -40,13 +40,13 @@ new TreeWalker(consumerFn, arrayWrapper).walk(parsedSchema)
 
 * **TreeWalker**
 
-### Index
+## Index
 
-#### Constructors
+### Constructors
 
 * [constructor](compiler_main.treewalker.md#constructor)
 
-#### Methods
+### Methods
 
 * [walk](compiler_main.treewalker.md#walk)
 
@@ -54,14 +54,14 @@ new TreeWalker(consumerFn, arrayWrapper).walk(parsedSchema)
 
 ###  constructor
 
-\+ **new TreeWalker**(`_consumerFn`: [ConsumerFn](../modules/compiler_main.md#consumerfn)‹*`T`*›, `_arrayWrapper`: [ArrayWrapper](../modules/compiler_main.md#arraywrapper)‹*`T`*, *`U`*›): *[TreeWalker](compiler_main.treewalker.md)*
+\+ **new TreeWalker**(`_consumerFn`: [ConsumerFn](../modules/compiler_main.md#consumerfn)‹T›, `_arrayWrapper`: [ArrayWrapper](../modules/compiler_main.md#arraywrapper)‹T, U›): *[TreeWalker](compiler_main.treewalker.md)*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`_consumerFn` | [ConsumerFn](../modules/compiler_main.md#consumerfn)‹*`T`*› |
-`_arrayWrapper` | [ArrayWrapper](../modules/compiler_main.md#arraywrapper)‹*`T`*, *`U`*› |
+`_consumerFn` | [ConsumerFn](../modules/compiler_main.md#consumerfn)‹T› |
+`_arrayWrapper` | [ArrayWrapper](../modules/compiler_main.md#arraywrapper)‹T, U› |
 
 **Returns:** *[TreeWalker](compiler_main.treewalker.md)*
 
@@ -69,7 +69,7 @@ Name | Type |
 
 ###  walk
 
-▸ **walk**(`schema`: `ParsedSchema`, `dotPath`: string[], `arrayPath`: string[]): *`T` | `U`[]*
+▸ **walk**(`schema`: ParsedSchema, `dotPath`: string[], `arrayPath`: string[]): *T | U[]*
 
 Walks the schema tree and invokes the `consumerFn` for each node. The output
 of the consumer is collected and returned back as an array.
@@ -78,8 +78,8 @@ of the consumer is collected and returned back as an array.
 
 Name | Type | Default |
 ------ | ------ | ------ |
-`schema` | `ParsedSchema` | - |
+`schema` | ParsedSchema | - |
 `dotPath` | string[] |  [] |
 `arrayPath` | string[] |  [] |
 
-**Returns:** *`T` | `U`[]*
+**Returns:** *T | U[]*

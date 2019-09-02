@@ -1,6 +1,6 @@
-> **[indicative-compiler](../README.md)**
+**[indicative-compiler](../README.md)**
 
-[Globals](../README.md) / [compiler/sanitizer](../modules/compiler_sanitizer.md) / [SanitizationsRunner](compiler_sanitizer.sanitizationsrunner.md) /
+[Globals](../README.md) › [compiler/sanitizer](../modules/compiler_sanitizer.md) › [SanitizationsRunner](compiler_sanitizer.sanitizationsrunner.md)
 
 # Class: SanitizationsRunner
 
@@ -10,13 +10,13 @@ Runs an array of sanitizations on a given field.
 
 * **SanitizationsRunner**
 
-### Index
+## Index
 
-#### Constructors
+### Constructors
 
 * [constructor](compiler_sanitizer.sanitizationsrunner.md#constructor)
 
-#### Methods
+### Methods
 
 * [exec](compiler_sanitizer.sanitizationsrunner.md#exec)
 
@@ -24,7 +24,7 @@ Runs an array of sanitizations on a given field.
 
 ###  constructor
 
-\+ **new SanitizationsRunner**(`_field`: string, `_dotPath`: string[], `rules`: `ParsedRule`[], `sanitizations`: object): *[SanitizationsRunner](compiler_sanitizer.sanitizationsrunner.md)*
+\+ **new SanitizationsRunner**(`_field`: string, `_dotPath`: string[], `rules`: ParsedRule[], `sanitizations`: object): *[SanitizationsRunner](compiler_sanitizer.sanitizationsrunner.md)*
 
 **Parameters:**
 
@@ -32,7 +32,7 @@ Name | Type |
 ------ | ------ |
 `_field` | string |
 `_dotPath` | string[] |
-`rules` | `ParsedRule`[] |
+`rules` | ParsedRule[] |
 `sanitizations` | object |
 
 **Returns:** *[SanitizationsRunner](compiler_sanitizer.sanitizationsrunner.md)*

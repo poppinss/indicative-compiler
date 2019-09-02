@@ -1,6 +1,6 @@
-> **[indicative-compiler](../README.md)**
+**[indicative-compiler](../README.md)**
 
-[Globals](../README.md) / [compiler/main](../modules/compiler_main.md) / [CollectorContract](compiler_main.collectorcontract.md) /
+[Globals](../README.md) › [compiler/main](../modules/compiler_main.md) › [CollectorContract](compiler_main.collectorcontract.md)
 
 # Interface: CollectorContract
 
@@ -15,14 +15,14 @@ properties and errors.
 
 * [Collector](../classes/compiler_validator.collector.md)
 
-### Index
+## Index
 
-#### Properties
+### Properties
 
 * [formatter](compiler_main.collectorcontract.md#formatter)
 * [hasErrors](compiler_main.collectorcontract.md#haserrors)
 
-#### Methods
+### Methods
 
 * [getData](compiler_main.collectorcontract.md#getdata)
 * [getErrors](compiler_main.collectorcontract.md#geterrors)
@@ -53,23 +53,23 @@ ___
 
 ###  getErrors
 
-▸ **getErrors**(): *`ReturnType<toJSON>`*
+▸ **getErrors**(): *ReturnType‹[toJSON](compiler_main.errorformattercontract.md#tojson)›*
 
-**Returns:** *`ReturnType<toJSON>`*
+**Returns:** *ReturnType‹[toJSON](compiler_main.errorformattercontract.md#tojson)›*
 
 ___
 
 ###  setError
 
-▸ **setError**(`pointer`: string, `rule`: `ParsedRule`, `message`: `Message` | `Error`): *void*
+▸ **setError**(`pointer`: string, `rule`: ParsedRule, `message`: Message | Error): *void*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
 `pointer` | string |
-`rule` | `ParsedRule` |
-`message` | `Message` \| `Error` |
+`rule` | ParsedRule |
+`message` | Message \| Error |
 
 **Returns:** *void*
 

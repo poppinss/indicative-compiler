@@ -1,21 +1,21 @@
-> **[indicative-compiler](../README.md)**
+**[indicative-compiler](../README.md)**
 
-[Globals](../README.md) / [compiler/main](compiler_main.md) /
+[Globals](../README.md) › [compiler/main](compiler_main.md)
 
 # External module: compiler/main
 
-### Index
+## Index
 
-#### Classes
+### Classes
 
 * [TreeWalker](../classes/compiler_main.treewalker.md)
 
-#### Interfaces
+### Interfaces
 
 * [CollectorContract](../interfaces/compiler_main.collectorcontract.md)
 * [ErrorFormatterContract](../interfaces/compiler_main.errorformattercontract.md)
 
-#### Type aliases
+### Type aliases
 
 * [ArrayWrapper](compiler_main.md#arraywrapper)
 * [ConsumerFn](compiler_main.md#consumerfn)
@@ -37,7 +37,7 @@ or indexed array
 
 #### Type declaration:
 
-▸ (`index`: string, `field`: string, `children`: `T` | `U`[], `dotPath`: string[]): *`U`*
+▸ (`index`: string, `field`: string, `children`: T | U[], `dotPath`: string[]): *U*
 
 **Parameters:**
 
@@ -45,7 +45,7 @@ Name | Type |
 ------ | ------ |
 `index` | string |
 `field` | string |
-`children` | `T` \| `U`[] |
+`children` | T \| U[] |
 `dotPath` | string[] |
 
 ___
@@ -58,7 +58,7 @@ Tree node consumer called by the [TreeWalker](../classes/compiler_main.treewalke
 
 #### Type declaration:
 
-▸ (`field`: string, `type`: "literal" | "object" | "array", `rules`: `ParsedRule`[], `dotPath`: string[], `pointer`: string): *`T`*
+▸ (`field`: string, `type`: "literal" | "object" | "array", `rules`: ParsedRule[], `dotPath`: string[], `pointer`: string): *T*
 
 **Parameters:**
 
@@ -66,7 +66,7 @@ Name | Type |
 ------ | ------ |
 `field` | string |
 `type` | "literal" \| "object" \| "array" |
-`rules` | `ParsedRule`[] |
+`rules` | ParsedRule[] |
 `dotPath` | string[] |
 `pointer` | string |
 
@@ -74,7 +74,7 @@ ___
 
 ###  SanitizationDataRoot
 
-Ƭ **SanitizationDataRoot**: *`Pick<ValidationDataRoot, Exclude<keyof ValidationDataRoot, "pointer" | "arrayPointer">>`*
+Ƭ **SanitizationDataRoot**: *Pick‹[ValidationDataRoot](compiler_main.md#validationdataroot), Exclude‹keyof ValidationDataRoot, "pointer" | "arrayPointer"››*
 
 Shape of sanitizer data root.
 
@@ -119,7 +119,7 @@ Shape of validation function
 
 #### Type declaration:
 
-▸ (`data`: [ValidationDataRoot](compiler_main.md#validationdataroot), `field`: string, `args`: any[], `config`: unknown): *boolean | `Promise<boolean>`*
+▸ (`data`: [ValidationDataRoot](compiler_main.md#validationdataroot), `field`: string, `args`: any[], `config`: unknown): *boolean | Promise‹boolean›*
 
 **Parameters:**
 

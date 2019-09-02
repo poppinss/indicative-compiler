@@ -1,6 +1,6 @@
-> **[indicative-compiler](../README.md)**
+**[indicative-compiler](../README.md)**
 
-[Globals](../README.md) / [compiler/main](../modules/compiler_main.md) / [ErrorFormatterContract](compiler_main.errorformattercontract.md) /
+[Globals](../README.md) › [compiler/main](../modules/compiler_main.md) › [ErrorFormatterContract](compiler_main.errorformattercontract.md)
 
 # Interface: ErrorFormatterContract
 
@@ -10,9 +10,9 @@ The error formatter to format error messages
 
 * **ErrorFormatterContract**
 
-### Index
+## Index
 
-#### Methods
+### Methods
 
 * [addError](compiler_main.errorformattercontract.md#adderror)
 * [toJSON](compiler_main.errorformattercontract.md#tojson)
@@ -21,16 +21,16 @@ The error formatter to format error messages
 
 ###  addError
 
-▸ **addError**(`error`: string | `Error`, `field`: string, `ruleName`: string, `args`: `Array`): *void*
+▸ **addError**(`error`: string | Error, `field`: string, `ruleName`: string, `args`: Array): *void*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`error` | string \| `Error` |
+`error` | string \| Error |
 `field` | string |
 `ruleName` | string |
-`args` | `Array` |
+`args` | Array |
 
 **Returns:** *void*
 

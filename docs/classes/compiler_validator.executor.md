@@ -1,6 +1,6 @@
-> **[indicative-compiler](../README.md)**
+**[indicative-compiler](../README.md)**
 
-[Globals](../README.md) / [compiler/validator](../modules/compiler_validator.md) / [Executor](compiler_validator.executor.md) /
+[Globals](../README.md) › [compiler/validator](../modules/compiler_validator.md) › [Executor](compiler_validator.executor.md)
 
 # Class: Executor
 
@@ -11,13 +11,13 @@ data.
 
 * **Executor**
 
-### Index
+## Index
 
-#### Constructors
+### Constructors
 
 * [constructor](compiler_validator.executor.md#constructor)
 
-#### Methods
+### Methods
 
 * [exec](compiler_validator.executor.md#exec)
 
@@ -39,7 +39,7 @@ Name | Type |
 
 ###  exec
 
-▸ **exec**(`data`: any, `Formatter`: object, `config`: unknown, `bail`: boolean, `removeAdditional`: boolean): *`Promise<any>`*
+▸ **exec**(`data`: any, `Formatter`: object, `config`: unknown, `bail`: boolean, `removeAdditional`: boolean): *Promise‹any›*
 
 Executes the compiled functions in sequence.
 
@@ -53,4 +53,4 @@ Name | Type |
 `bail` | boolean |
 `removeAdditional` | boolean |
 
-**Returns:** *`Promise<any>`*
+**Returns:** *Promise‹any›*

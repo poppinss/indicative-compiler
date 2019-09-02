@@ -1,6 +1,6 @@
-> **[indicative-compiler](../README.md)**
+**[indicative-compiler](../README.md)**
 
-[Globals](../README.md) / [compiler/sanitizer](../modules/compiler_sanitizer.md) / [Executor](compiler_sanitizer.executor.md) /
+[Globals](../README.md) › [compiler/sanitizer](../modules/compiler_sanitizer.md) › [Executor](compiler_sanitizer.executor.md)
 
 # Class: Executor
 
@@ -11,13 +11,13 @@ data.
 
 * **Executor**
 
-### Index
+## Index
 
-#### Constructors
+### Constructors
 
 * [constructor](compiler_sanitizer.executor.md#constructor)
 
-#### Methods
+### Methods
 
 * [exec](compiler_sanitizer.executor.md#exec)
 

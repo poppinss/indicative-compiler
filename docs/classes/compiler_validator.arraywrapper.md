@@ -1,6 +1,6 @@
-> **[indicative-compiler](../README.md)**
+**[indicative-compiler](../README.md)**
 
-[Globals](../README.md) / [compiler/validator](../modules/compiler_validator.md) / [ArrayWrapper](compiler_validator.arraywrapper.md) /
+[Globals](../README.md) › [compiler/validator](../modules/compiler_validator.md) › [ArrayWrapper](compiler_validator.arraywrapper.md)
 
 # Class: ArrayWrapper
 
@@ -11,17 +11,17 @@ an array at runtime.
 
 * **ArrayWrapper**
 
-### Index
+## Index
 
-#### Constructors
+### Constructors
 
 * [constructor](compiler_validator.arraywrapper.md#constructor)
 
-#### Properties
+### Properties
 
 * [async](compiler_validator.arraywrapper.md#async)
 
-#### Methods
+### Methods
 
 * [exec](compiler_validator.arraywrapper.md#exec)
 * [execAsync](compiler_validator.arraywrapper.md#execasync)
@@ -75,7 +75,7 @@ ___
 
 ###  execAsync
 
-▸ **execAsync**(`data`: [ValidationDataRoot](../modules/compiler_main.md#validationdataroot), `collector`: [CollectorContract](../interfaces/compiler_main.collectorcontract.md), `config`: unknown, `bail`: boolean): *`Promise<boolean>`*
+▸ **execAsync**(`data`: [ValidationDataRoot](../modules/compiler_main.md#validationdataroot), `collector`: [CollectorContract](../interfaces/compiler_main.collectorcontract.md), `config`: unknown, `bail`: boolean): *Promise‹boolean›*
 
 Execute series of async validations for values inside an array. Same
 as [ArrayWrapper.exec](compiler_validator.arraywrapper.md#exec) but async.
@@ -89,4 +89,4 @@ Name | Type | Default |
 `config` | unknown | - |
 `bail` | boolean | false |
 
-**Returns:** *`Promise<boolean>`*
+**Returns:** *Promise‹boolean›*

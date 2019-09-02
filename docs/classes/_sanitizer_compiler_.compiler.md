@@ -1,6 +1,6 @@
-> **[indicative-compiler](../README.md)**
+**[indicative-compiler](../README.md)**
 
-[Globals](../README.md) / [compiler/sanitizer](../modules/compiler_sanitizer.md) / [Compiler](compiler_sanitizer.compiler.md) /
+[Globals](../README.md) › ["Sanitizer/Compiler"](../modules/_sanitizer_compiler_.md) › [Compiler](_sanitizer_compiler_.compiler.md)
 
 # Class: Compiler
 
@@ -11,30 +11,30 @@ functions highly optimized for speed.
 
 * **Compiler**
 
-### Index
+## Index
 
-#### Constructors
+### Constructors
 
-* [constructor](compiler_sanitizer.compiler.md#constructor)
+* [constructor](_sanitizer_compiler_.compiler.md#constructor)
 
-#### Methods
+### Methods
 
-* [compile](compiler_sanitizer.compiler.md#compile)
+* [compile](_sanitizer_compiler_.compiler.md#compile)
 
 ## Constructors
 
 ###  constructor
 
-\+ **new Compiler**(`schema`: `Schema`, `_sanitizations`: object): *[Compiler](compiler_sanitizer.compiler.md)*
+\+ **new Compiler**(`schema`: Schema, `_sanitizations`: object): *[Compiler](_sanitizer_compiler_.compiler.md)*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`schema` | `Schema` |
+`schema` | Schema |
 `_sanitizations` | object |
 
-**Returns:** *[Compiler](compiler_sanitizer.compiler.md)*
+**Returns:** *[Compiler](_sanitizer_compiler_.compiler.md)*
 
 ## Methods
 

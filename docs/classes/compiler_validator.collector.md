@@ -1,6 +1,6 @@
-> **[indicative-compiler](../README.md)**
+**[indicative-compiler](../README.md)**
 
-[Globals](../README.md) / [compiler/validator](../modules/compiler_validator.md) / [Collector](compiler_validator.collector.md) /
+[Globals](../README.md) › [compiler/validator](../modules/compiler_validator.md) › [Collector](compiler_validator.collector.md)
 
 # Class: Collector
 
@@ -15,19 +15,19 @@ data (only when `generateTree = true`).
 
 * [CollectorContract](../interfaces/compiler_main.collectorcontract.md)
 
-### Index
+## Index
 
-#### Constructors
+### Constructors
 
 * [constructor](compiler_validator.collector.md#constructor)
 
-#### Properties
+### Properties
 
 * [formatter](compiler_validator.collector.md#formatter)
 * [hasErrors](compiler_validator.collector.md#haserrors)
 * [tree](compiler_validator.collector.md#tree)
 
-#### Methods
+### Methods
 
 * [getData](compiler_validator.collector.md#getdata)
 * [getErrors](compiler_validator.collector.md#geterrors)
@@ -99,7 +99,7 @@ ___
 
 ###  setError
 
-▸ **setError**(`pointer`: string, `rule`: `ParsedRule`, `message?`: `Message` | `Error`): *void*
+▸ **setError**(`pointer`: string, `rule`: ParsedRule, `message?`: Message | Error): *void*
 
 *Implementation of [CollectorContract](../interfaces/compiler_main.collectorcontract.md)*
 
@@ -111,8 +111,8 @@ message is undefined, it will create a generic message.
 Name | Type |
 ------ | ------ |
 `pointer` | string |
-`rule` | `ParsedRule` |
-`message?` | `Message` \| `Error` |
+`rule` | ParsedRule |
+`message?` | Message \| Error |
 
 **Returns:** *void*
 

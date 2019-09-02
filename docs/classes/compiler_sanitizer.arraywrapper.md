@@ -1,6 +1,6 @@
-> **[indicative-compiler](../README.md)**
+**[indicative-compiler](../README.md)**
 
-[Globals](../README.md) / [compiler/sanitizer](../modules/compiler_sanitizer.md) / [ArrayWrapper](compiler_sanitizer.arraywrapper.md) /
+[Globals](../README.md) › [compiler/sanitizer](../modules/compiler_sanitizer.md) › [ArrayWrapper](compiler_sanitizer.arraywrapper.md)
 
 # Class: ArrayWrapper
 
@@ -11,13 +11,13 @@ them based upon the length of an data array at runtime.
 
 * **ArrayWrapper**
 
-### Index
+## Index
 
-#### Constructors
+### Constructors
 
 * [constructor](compiler_sanitizer.arraywrapper.md#constructor)
 
-#### Methods
+### Methods
 
 * [exec](compiler_sanitizer.arraywrapper.md#exec)
 

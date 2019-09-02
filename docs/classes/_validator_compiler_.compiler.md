@@ -1,6 +1,6 @@
-> **[indicative-compiler](../README.md)**
+**[indicative-compiler](../README.md)**
 
-[Globals](../README.md) / [compiler/validator](../modules/compiler_validator.md) / [Compiler](compiler_validator.compiler.md) /
+[Globals](../README.md) › ["Validator/Compiler"](../modules/_validator_compiler_.md) › [Compiler](_validator_compiler_.compiler.md)
 
 # Class: Compiler
 
@@ -11,31 +11,31 @@ functions highly optimized for speed.
 
 * **Compiler**
 
-### Index
+## Index
 
-#### Constructors
+### Constructors
 
-* [constructor](compiler_validator.compiler.md#constructor)
+* [constructor](_validator_compiler_.compiler.md#constructor)
 
-#### Methods
+### Methods
 
-* [compile](compiler_validator.compiler.md#compile)
+* [compile](_validator_compiler_.compiler.md#compile)
 
 ## Constructors
 
 ###  constructor
 
-\+ **new Compiler**(`schema`: `Schema`, `messages`: `Messages`, `_validations`: object): *[Compiler](compiler_validator.compiler.md)*
+\+ **new Compiler**(`schema`: Schema, `messages`: Messages, `_validations`: object): *[Compiler](_validator_compiler_.compiler.md)*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`schema` | `Schema` |
-`messages` | `Messages` |
+`schema` | Schema |
+`messages` | Messages |
 `_validations` | object |
 
-**Returns:** *[Compiler](compiler_validator.compiler.md)*
+**Returns:** *[Compiler](_validator_compiler_.compiler.md)*
 
 ## Methods
 
