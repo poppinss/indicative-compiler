@@ -118,7 +118,7 @@ export class TreeWalker<T extends any = any, U extends any = any> {
 
       if (node.each[index].rules.length) {
         const pointer = basePath.concat(index).join('.')
-        child.push(this._consumerFn('::tip::', 'literal', node.each[index].rules, dotPath, pointer))
+        child.push(this._consumerFn('::tip::', 'literal', node.each[index].rules, [], pointer))
       }
 
       child = child.concat(this.walk(node.each[index].children, [], basePath.concat(index)))

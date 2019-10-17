@@ -362,4 +362,56 @@ test.group('Tree walker', () => {
       },
     ])
   })
+
+  test('walk over nested array indexed and wildcard tip', (assert) => {
+    const schema = {
+      'users.profiles': 'required',
+      'users.profiles.0': 'required',
+      'users.profiles.*': 'required',
+    }
+
+    const stack = new TreeWalker((field, type, rules, dotPath, pointer) => {
+      return { field, type, rules, dotPath, pointer }
+    }, (index, field, children, dotPath) => {
+      return { index, field, children, dotPath }
+    }).walk(rulesParser(schema))
+
+    assert.deepEqual(stack, [
+      {
+        field: 'profiles',
+        type: 'array',
+        rules: [{ name: 'required', args: [] }],
+        dotPath: ['users'],
+        pointer: 'users.profiles',
+      },
+      {
+        index: '0',
+        field: 'profiles',
+        dotPath: ['users'],
+        children: [
+          {
+            field: '::tip::',
+            type: 'literal',
+            rules: [{ name: 'required', args: [] }],
+            dotPath: [],
+            pointer: 'users.profiles.0',
+          },
+        ],
+      },
+      {
+        index: '*',
+        field: 'profiles',
+        dotPath: ['users'],
+        children: [
+          {
+            field: '::tip::',
+            type: 'literal',
+            rules: [{ name: 'required', args: [] }],
+            dotPath: [],
+            pointer: 'users.profiles.*',
+          },
+        ],
+      },
+    ])
+  })
 })

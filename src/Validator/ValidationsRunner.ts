@@ -118,9 +118,14 @@ export class ValidationsRunner {
     /**
      * Prefix array pointer and current index, when this field is part
      * of an array.
+     * Also do not append the pointer when pointer is `::tip::`
      */
     const pointer = data.arrayPointer ?
-      `${data.arrayPointer}.${data.currentIndex}.${this._pointer}`
+      (
+        this._pointer === '::tip::'
+        ? `${data.arrayPointer}.${data.currentIndex}`
+        : `${data.arrayPointer}.${data.currentIndex}.${this._pointer}`
+      )
       : this._pointer
 
     /**

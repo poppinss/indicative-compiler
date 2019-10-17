@@ -37,7 +37,8 @@ export class ArrayWrapper {
     private _index: string,
     private _childValidators: (ValidationsRunner | ArrayWrapper)[],
     private _dotPath: string[],
-  ) {}
+  ) {
+  }
 
   /**
    * Returns data copy to the passed to all the children of the
