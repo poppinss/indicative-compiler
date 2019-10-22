@@ -11,6 +11,7 @@
  * file that was distributed with this source code.
  */
 
+import { pope } from 'pope'
 import setValue from 'lodash.set'
 import { ParsedRule, Message } from 'indicative-parser'
 import { CollectorContract, ErrorFormatterContract } from '../contracts'
@@ -60,6 +61,14 @@ export class Collector implements CollectorContract {
    */
   public setError (pointer: string, rule: ParsedRule, message?: Message | Error) {
     this.hasErrors = true
+
+    if (message && typeof (message) === 'string') {
+      message = pope(message, {
+        field: pointer,
+        args: rule.args,
+        validation: rule.name,
+      })
+    }
 
     message = message || `${rule.name} validation failed on ${pointer}`
     message = typeof (message) === 'function' ? message(pointer, rule.name, rule.args) : message
