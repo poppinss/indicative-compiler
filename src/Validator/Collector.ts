@@ -14,7 +14,7 @@
 import { pope } from 'pope'
 import setValue from 'lodash.set'
 import { ParsedRule, Message } from 'indicative-parser'
-import { CollectorContract, ErrorFormatterContract } from '../contracts'
+import { CollectorContract, ErrorFormatterContract, ErrorCollectorFn } from '../contracts'
 
 /**
  * Collector collects all the errors and creates a copy of validated
@@ -24,7 +24,11 @@ export class Collector implements CollectorContract {
   public tree: any = {}
   public hasErrors: boolean = false
 
-  constructor (public formatter: ErrorFormatterContract, private _generateTree: boolean) {
+  constructor (
+    public formatter: ErrorFormatterContract,
+    private _generateTree: boolean,
+    private _customErrorCollector?: ErrorCollectorFn,
+  ) {
   }
 
   /**
@@ -74,8 +78,16 @@ export class Collector implements CollectorContract {
     message = typeof (message) === 'function' ? message(pointer, rule.name, rule.args) : message
 
     /**
-     * Report error to the formatter
+     * When custom error collector is defined, then we let it handle then
+     * error, otherwise we report it to the formatter ourselves
      */
-    this.formatter.addError(message, pointer, rule.name, rule.args)
+    if (typeof (this._customErrorCollector) === 'function') {
+      this._customErrorCollector(this.formatter, message, pointer, rule.name, rule.args)
+    } else {
+      /**
+       * Report error to the formatter
+       */
+      this.formatter.addError(message, pointer, rule.name, rule.args)
+    }
   }
 }

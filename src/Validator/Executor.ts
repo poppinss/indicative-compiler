@@ -14,7 +14,7 @@
 import { Collector } from './Collector'
 import { ArrayWrapper } from './ArrayWrapper'
 import { ValidationsRunner } from './ValidationsRunner'
-import { ErrorFormatterContract } from '../contracts'
+import { ErrorFormatterContract, ErrorCollectorFn } from '../contracts'
 
 /**
  * Executor is meant to execute the compiled functions with runtime
@@ -33,6 +33,7 @@ export class Executor {
     config: unknown,
     bail: boolean,
     removeAdditional: boolean,
+    customErrorCollector?: ErrorCollectorFn,
   ) {
     /**
      * Creating a root data node. The `tip` and `pointer` will be copied
@@ -44,7 +45,7 @@ export class Executor {
      * Collector to collect errors and a fresh data object with only
      * validated data (relies on removeAdditional though)
      */
-    const collector = new Collector(new Formatter(), removeAdditional)
+    const collector = new Collector(new Formatter(), removeAdditional, customErrorCollector)
 
     for (let fn of this._fns) {
       let passed: boolean = false

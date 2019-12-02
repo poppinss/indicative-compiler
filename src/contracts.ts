@@ -116,3 +116,15 @@ export interface CollectorContract {
   setValue (pointer: string, value: any): void
   setError (pointer: string, rule: ParsedRule, message: Message | Error): void
 }
+
+/**
+ * A custom error collector that works as a bridge between the validator
+ * and the formatter.
+ */
+export type ErrorCollectorFn = (
+  formatter: ErrorFormatterContract,
+  message: string | Error,
+  field: string,
+  rule: ParsedRule['name'],
+  args: ParsedRule['args'],
+) => void

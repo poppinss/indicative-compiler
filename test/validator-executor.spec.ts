@@ -216,4 +216,44 @@ test.group('Executor', () => {
       ])
     }
   })
+
+  test('invoke custom error collector when defined', async (assert) => {
+    assert.plan(1)
+
+    const schema = {
+      username: 'required',
+      age: 'required',
+    }
+
+    const validations = {
+      required: {
+        async: false,
+        validate () {
+          return false
+        },
+      },
+    }
+
+    const compiler = new Compiler(schema, {}, validations)
+    const executor = new Executor(compiler.compile())
+
+    try {
+      await executor.exec({}, ErrorFormatter, {}, false, false, (formatter, _m, field, rule, args) => {
+        formatter.addError('Validation failure', field, rule, args)
+      })
+    } catch (errors) {
+      assert.deepEqual(errors, [
+        {
+          field: 'username',
+          message: 'Validation failure',
+          validation: 'required',
+        },
+        {
+          field: 'age',
+          message: 'Validation failure',
+          validation: 'required',
+        },
+      ])
+    }
+  })
 })
