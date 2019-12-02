@@ -36,26 +36,26 @@
   },
   "homepage": "https://github.com/poppinss/indicative-compiler#readme",
   "devDependencies": {
-    "@adonisjs/mrm-preset": "^2.1.0",
-    "@types/node": "^12.7.3",
+    "@adonisjs/mrm-preset": "^2.2.2",
+    "@types/node": "^12.12.14",
     "clone-deep": "^4.0.1",
     "commitizen": "^4.0.3",
     "cz-conventional-changelog": "^3.0.2",
-    "del-cli": "^2.0.0",
+    "del-cli": "^3.0.0",
     "doctoc": "^1.4.0",
-    "husky": "^3.0.5",
+    "husky": "^3.1.0",
     "indicative-utils": "^7.0.1",
-    "japa": "^3.0.0",
-    "mrm": "^1.2.2",
-    "np": "^5.0.3",
+    "japa": "^3.0.1",
+    "mrm": "^2.0.0",
+    "np": "^5.2.1",
     "require-all": "^3.0.0",
-    "ts-node": "^8.3.0",
-    "tslint": "^5.19.0",
+    "ts-node": "^8.5.4",
+    "tslint": "^5.20.1",
     "tslint-eslint-rules": "^5.4.0",
-    "typedoc": "^0.15.0",
+    "typedoc": "^0.15.3",
     "typedoc-plugin-external-module-name": "^2.1.0",
-    "typedoc-plugin-markdown": "^2.1.7",
-    "typescript": "^3.6.2"
+    "typedoc-plugin-markdown": "^2.2.11",
+    "typescript": "^3.7.2"
   },
   "nyc": {
     "exclude": [
@@ -81,7 +81,7 @@
     "anyBranch": false
   },
   "dependencies": {
-    "indicative-parser": "^7.0.2",
+    "indicative-parser": "^7.0.3",
     "isobject": "^4.0.0",
     "lodash.get": "^4.4.2",
     "lodash.memoize": "^4.1.2",
