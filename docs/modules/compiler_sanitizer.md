@@ -1,6 +1,4 @@
-**[indicative-compiler](../README.md)**
-
-[Globals](../README.md) › [compiler/sanitizer](compiler_sanitizer.md)
+[indicative-compiler](../README.md) › [compiler/sanitizer](compiler_sanitizer.md)
 
 # External module: compiler/sanitizer
 

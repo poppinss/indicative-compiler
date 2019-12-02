@@ -1,6 +1,4 @@
-**[indicative-compiler](../README.md)**
-
-[Globals](../README.md) › ["Validator/Compiler"](../modules/_validator_compiler_.md) › [Compiler](_validator_compiler_.compiler.md)
+[indicative-compiler](../README.md) › ["Validator/Compiler"](../modules/_validator_compiler_.md) › [Compiler](_validator_compiler_.compiler.md)
 
 # Class: Compiler
 
@@ -41,8 +39,8 @@ Name | Type |
 
 ###  compile
 
-▸ **compile**(): *[ValidationsRunner](compiler_validator.validationsrunner.md) | [ArrayWrapper](compiler_validator.arraywrapper.md)[]*
+▸ **compile**(): *[ValidationsRunner](compiler_validator.validationsrunner.md)‹› | [ArrayWrapper](compiler_validator.arraywrapper.md)‹›[]*
 
 Compiles the schema to an array of functions
 
-**Returns:** *[ValidationsRunner](compiler_validator.validationsrunner.md) | [ArrayWrapper](compiler_validator.arraywrapper.md)[]*
+**Returns:** *[ValidationsRunner](compiler_validator.validationsrunner.md)‹› | [ArrayWrapper](compiler_validator.arraywrapper.md)‹›[]*

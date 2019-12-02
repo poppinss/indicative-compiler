@@ -1,6 +1,4 @@
-**[indicative-compiler](../README.md)**
-
-[Globals](../README.md) › [compiler/validator](../modules/compiler_validator.md) › [Executor](compiler_validator.executor.md)
+[indicative-compiler](../README.md) › [compiler/validator](../modules/compiler_validator.md) › [Executor](compiler_validator.executor.md)
 
 # Class: Executor
 
@@ -25,13 +23,13 @@ data.
 
 ###  constructor
 
-\+ **new Executor**(`_fns`: [ValidationsRunner](compiler_validator.validationsrunner.md) | [ArrayWrapper](compiler_validator.arraywrapper.md)[]): *[Executor](compiler_validator.executor.md)*
+\+ **new Executor**(`_fns`: [ValidationsRunner](compiler_validator.validationsrunner.md)‹› | [ArrayWrapper](compiler_validator.arraywrapper.md)‹›[]): *[Executor](compiler_validator.executor.md)*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`_fns` | [ValidationsRunner](compiler_validator.validationsrunner.md) \| [ArrayWrapper](compiler_validator.arraywrapper.md)[] |
+`_fns` | [ValidationsRunner](compiler_validator.validationsrunner.md)‹› &#124; [ArrayWrapper](compiler_validator.arraywrapper.md)‹›[] |
 
 **Returns:** *[Executor](compiler_validator.executor.md)*
 
@@ -39,7 +37,7 @@ Name | Type |
 
 ###  exec
 
-▸ **exec**(`data`: any, `Formatter`: object, `config`: unknown, `bail`: boolean, `removeAdditional`: boolean): *Promise‹any›*
+▸ **exec**(`data`: any, `Formatter`: object, `config`: unknown, `bail`: boolean, `removeAdditional`: boolean, `customErrorCollector?`: [ErrorCollectorFn](../modules/compiler_main.md#errorcollectorfn)): *Promise‹any›*
 
 Executes the compiled functions in sequence.
 
@@ -52,5 +50,6 @@ Name | Type |
 `config` | unknown |
 `bail` | boolean |
 `removeAdditional` | boolean |
+`customErrorCollector?` | [ErrorCollectorFn](../modules/compiler_main.md#errorcollectorfn) |
 
 **Returns:** *Promise‹any›*

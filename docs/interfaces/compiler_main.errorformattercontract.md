@@ -1,6 +1,4 @@
-**[indicative-compiler](../README.md)**
-
-[Globals](../README.md) › [compiler/main](../modules/compiler_main.md) › [ErrorFormatterContract](compiler_main.errorformattercontract.md)
+[indicative-compiler](../README.md) › [compiler/main](../modules/compiler_main.md) › [ErrorFormatterContract](compiler_main.errorformattercontract.md)
 
 # Interface: ErrorFormatterContract
 
@@ -27,7 +25,7 @@ The error formatter to format error messages
 
 Name | Type |
 ------ | ------ |
-`error` | string \| Error |
+`error` | string &#124; Error |
 `field` | string |
 `ruleName` | string |
 `args` | Array |

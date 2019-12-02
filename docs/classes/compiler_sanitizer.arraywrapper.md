@@ -1,6 +1,4 @@
-**[indicative-compiler](../README.md)**
-
-[Globals](../README.md) › [compiler/sanitizer](../modules/compiler_sanitizer.md) › [ArrayWrapper](compiler_sanitizer.arraywrapper.md)
+[indicative-compiler](../README.md) › [compiler/sanitizer](../modules/compiler_sanitizer.md) › [ArrayWrapper](compiler_sanitizer.arraywrapper.md)
 
 # Class: ArrayWrapper
 
@@ -25,7 +23,7 @@ them based upon the length of an data array at runtime.
 
 ###  constructor
 
-\+ **new ArrayWrapper**(`_field`: string, `_index`: string, `_childSanitizations`: [SanitizationsRunner](compiler_sanitizer.sanitizationsrunner.md) | [ArrayWrapper](compiler_sanitizer.arraywrapper.md)[], `_dotPath`: string[]): *[ArrayWrapper](compiler_sanitizer.arraywrapper.md)*
+\+ **new ArrayWrapper**(`_field`: string, `_index`: string, `_childSanitizations`: [SanitizationsRunner](compiler_sanitizer.sanitizationsrunner.md)‹› | [ArrayWrapper](compiler_sanitizer.arraywrapper.md)‹›[], `_dotPath`: string[]): *[ArrayWrapper](compiler_sanitizer.arraywrapper.md)*
 
 **Parameters:**
 
@@ -33,7 +31,7 @@ Name | Type |
 ------ | ------ |
 `_field` | string |
 `_index` | string |
-`_childSanitizations` | [SanitizationsRunner](compiler_sanitizer.sanitizationsrunner.md) \| [ArrayWrapper](compiler_sanitizer.arraywrapper.md)[] |
+`_childSanitizations` | [SanitizationsRunner](compiler_sanitizer.sanitizationsrunner.md)‹› &#124; [ArrayWrapper](compiler_sanitizer.arraywrapper.md)‹›[] |
 `_dotPath` | string[] |
 
 **Returns:** *[ArrayWrapper](compiler_sanitizer.arraywrapper.md)*

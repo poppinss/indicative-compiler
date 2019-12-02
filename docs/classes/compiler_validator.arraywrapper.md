@@ -1,6 +1,4 @@
-**[indicative-compiler](../README.md)**
-
-[Globals](../README.md) › [compiler/validator](../modules/compiler_validator.md) › [ArrayWrapper](compiler_validator.arraywrapper.md)
+[indicative-compiler](../README.md) › [compiler/validator](../modules/compiler_validator.md) › [ArrayWrapper](compiler_validator.arraywrapper.md)
 
 # Class: ArrayWrapper
 
@@ -30,7 +28,7 @@ an array at runtime.
 
 ###  constructor
 
-\+ **new ArrayWrapper**(`_field`: string, `_index`: string, `_childValidators`: [ValidationsRunner](compiler_validator.validationsrunner.md) | [ArrayWrapper](compiler_validator.arraywrapper.md)[], `_dotPath`: string[]): *[ArrayWrapper](compiler_validator.arraywrapper.md)*
+\+ **new ArrayWrapper**(`_field`: string, `_index`: string, `_childValidators`: [ValidationsRunner](compiler_validator.validationsrunner.md)‹› | [ArrayWrapper](compiler_validator.arraywrapper.md)‹›[], `_dotPath`: string[]): *[ArrayWrapper](compiler_validator.arraywrapper.md)*
 
 **Parameters:**
 
@@ -38,7 +36,7 @@ Name | Type |
 ------ | ------ |
 `_field` | string |
 `_index` | string |
-`_childValidators` | [ValidationsRunner](compiler_validator.validationsrunner.md) \| [ArrayWrapper](compiler_validator.arraywrapper.md)[] |
+`_childValidators` | [ValidationsRunner](compiler_validator.validationsrunner.md)‹› &#124; [ArrayWrapper](compiler_validator.arraywrapper.md)‹›[] |
 `_dotPath` | string[] |
 
 **Returns:** *[ArrayWrapper](compiler_validator.arraywrapper.md)*

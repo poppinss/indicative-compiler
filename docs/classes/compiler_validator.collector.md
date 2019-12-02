@@ -1,6 +1,4 @@
-**[indicative-compiler](../README.md)**
-
-[Globals](../README.md) › [compiler/validator](../modules/compiler_validator.md) › [Collector](compiler_validator.collector.md)
+[indicative-compiler](../README.md) › [compiler/validator](../modules/compiler_validator.md) › [Collector](compiler_validator.collector.md)
 
 # Class: Collector
 
@@ -38,7 +36,7 @@ data (only when `generateTree = true`).
 
 ###  constructor
 
-\+ **new Collector**(`formatter`: [ErrorFormatterContract](../interfaces/compiler_main.errorformattercontract.md), `_generateTree`: boolean): *[Collector](compiler_validator.collector.md)*
+\+ **new Collector**(`formatter`: [ErrorFormatterContract](../interfaces/compiler_main.errorformattercontract.md), `_generateTree`: boolean, `_customErrorCollector?`: [ErrorCollectorFn](../modules/compiler_main.md#errorcollectorfn)): *[Collector](compiler_validator.collector.md)*
 
 **Parameters:**
 
@@ -46,6 +44,7 @@ Name | Type |
 ------ | ------ |
 `formatter` | [ErrorFormatterContract](../interfaces/compiler_main.errorformattercontract.md) |
 `_generateTree` | boolean |
+`_customErrorCollector?` | [ErrorCollectorFn](../modules/compiler_main.md#errorcollectorfn) |
 
 **Returns:** *[Collector](compiler_validator.collector.md)*
 
@@ -112,7 +111,7 @@ Name | Type |
 ------ | ------ |
 `pointer` | string |
 `rule` | ParsedRule |
-`message?` | Message \| Error |
+`message?` | Message &#124; Error |
 
 **Returns:** *void*
 

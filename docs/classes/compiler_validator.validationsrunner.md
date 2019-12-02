@@ -1,6 +1,4 @@
-**[indicative-compiler](../README.md)**
-
-[Globals](../README.md) › [compiler/validator](../modules/compiler_validator.md) › [ValidationsRunner](compiler_validator.validationsrunner.md)
+[indicative-compiler](../README.md) › [compiler/validator](../modules/compiler_validator.md) › [ValidationsRunner](compiler_validator.validationsrunner.md)
 
 # Class: ValidationsRunner
 
@@ -37,7 +35,7 @@ computed nodes generated via [TreeWalker](compiler_main.treewalker.md).
 Name | Type |
 ------ | ------ |
 `_field` | string |
-`_type` | "literal" \| "object" \| "array" |
+`_type` | "literal" &#124; "object" &#124; "array" |
 `_dotPath` | string[] |
 `rules` | ParsedRule[] |
 `validations` | object |

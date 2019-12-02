@@ -1,6 +1,4 @@
-**[indicative-compiler](../README.md)**
-
-[Globals](../README.md) › [compiler/main](compiler_main.md)
+[indicative-compiler](../README.md) › [compiler/main](compiler_main.md)
 
 # External module: compiler/main
 
@@ -19,6 +17,7 @@
 
 * [ArrayWrapper](compiler_main.md#arraywrapper)
 * [ConsumerFn](compiler_main.md#consumerfn)
+* [ErrorCollectorFn](compiler_main.md#errorcollectorfn)
 * [SanitizationDataRoot](compiler_main.md#sanitizationdataroot)
 * [SanitizationDefination](compiler_main.md#sanitizationdefination)
 * [SanitizeFunction](compiler_main.md#sanitizefunction)
@@ -45,7 +44,7 @@ Name | Type |
 ------ | ------ |
 `index` | string |
 `field` | string |
-`children` | T \| U[] |
+`children` | T &#124; U[] |
 `dotPath` | string[] |
 
 ___
@@ -65,10 +64,33 @@ Tree node consumer called by the [TreeWalker](../classes/compiler_main.treewalke
 Name | Type |
 ------ | ------ |
 `field` | string |
-`type` | "literal" \| "object" \| "array" |
+`type` | "literal" &#124; "object" &#124; "array" |
 `rules` | ParsedRule[] |
 `dotPath` | string[] |
 `pointer` | string |
+
+___
+
+###  ErrorCollectorFn
+
+Ƭ **ErrorCollectorFn**: *function*
+
+A custom error collector that works as a bridge between the validator
+and the formatter.
+
+#### Type declaration:
+
+▸ (`formatter`: [ErrorFormatterContract](../interfaces/compiler_main.errorformattercontract.md), `message`: string | Error, `field`: string, `rule`: string, `args`: Array): *void*
+
+**Parameters:**
+
+Name | Type |
+------ | ------ |
+`formatter` | [ErrorFormatterContract](../interfaces/compiler_main.errorformattercontract.md) |
+`message` | string &#124; Error |
+`field` | string |
+`rule` | string |
+`args` | Array |
 
 ___
 

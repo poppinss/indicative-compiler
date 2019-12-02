@@ -1,6 +1,4 @@
-**[indicative-compiler](../README.md)**
-
-[Globals](../README.md) › [compiler/main](../modules/compiler_main.md) › [CollectorContract](compiler_main.collectorcontract.md)
+[indicative-compiler](../README.md) › [compiler/main](../modules/compiler_main.md) › [CollectorContract](compiler_main.collectorcontract.md)
 
 # Interface: CollectorContract
 
@@ -69,7 +67,7 @@ Name | Type |
 ------ | ------ |
 `pointer` | string |
 `rule` | ParsedRule |
-`message` | Message \| Error |
+`message` | Message &#124; Error |
 
 **Returns:** *void*
 

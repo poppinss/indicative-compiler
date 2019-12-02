@@ -1,6 +1,4 @@
-**[indicative-compiler](../README.md)**
-
-[Globals](../README.md) › [compiler/sanitizer](../modules/compiler_sanitizer.md) › [SanitizationsRunner](compiler_sanitizer.sanitizationsrunner.md)
+[indicative-compiler](../README.md) › [compiler/sanitizer](../modules/compiler_sanitizer.md) › [SanitizationsRunner](compiler_sanitizer.sanitizationsrunner.md)
 
 # Class: SanitizationsRunner
 

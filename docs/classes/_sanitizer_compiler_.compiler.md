@@ -1,6 +1,4 @@
-**[indicative-compiler](../README.md)**
-
-[Globals](../README.md) › ["Sanitizer/Compiler"](../modules/_sanitizer_compiler_.md) › [Compiler](_sanitizer_compiler_.compiler.md)
+[indicative-compiler](../README.md) › ["Sanitizer/Compiler"](../modules/_sanitizer_compiler_.md) › [Compiler](_sanitizer_compiler_.compiler.md)
 
 # Class: Compiler
 
@@ -40,8 +38,8 @@ Name | Type |
 
 ###  compile
 
-▸ **compile**(): *[SanitizationsRunner](compiler_sanitizer.sanitizationsrunner.md) | [ArrayWrapper](compiler_sanitizer.arraywrapper.md)[]*
+▸ **compile**(): *[SanitizationsRunner](compiler_sanitizer.sanitizationsrunner.md)‹› | [ArrayWrapper](compiler_sanitizer.arraywrapper.md)‹›[]*
 
 Compiles the schema to an array of functions
 
-**Returns:** *[SanitizationsRunner](compiler_sanitizer.sanitizationsrunner.md) | [ArrayWrapper](compiler_sanitizer.arraywrapper.md)[]*
+**Returns:** *[SanitizationsRunner](compiler_sanitizer.sanitizationsrunner.md)‹› | [ArrayWrapper](compiler_sanitizer.arraywrapper.md)‹›[]*

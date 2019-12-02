@@ -1,6 +1,6 @@
-**[indicative-compiler](README.md)**
+[indicative-compiler](README.md)
 
-[Globals](README.md)
+# indicative-compiler
 
 ## Index
 

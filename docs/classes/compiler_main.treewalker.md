@@ -1,6 +1,4 @@
-**[indicative-compiler](../README.md)**
-
-[Globals](../README.md) › [compiler/main](../modules/compiler_main.md) › [TreeWalker](compiler_main.treewalker.md)
+[indicative-compiler](../README.md) › [compiler/main](../modules/compiler_main.md) › [TreeWalker](compiler_main.treewalker.md)
 
 # Class: TreeWalker <**T, U**>
 

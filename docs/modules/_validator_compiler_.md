@@ -1,6 +1,4 @@
-**[indicative-compiler](../README.md)**
-
-[Globals](../README.md) › ["Validator/Compiler"](_validator_compiler_.md)
+[indicative-compiler](../README.md) › ["Validator/Compiler"](_validator_compiler_.md)
 
 # External module: "Validator/Compiler"
 
