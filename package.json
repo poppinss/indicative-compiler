@@ -1,6 +1,6 @@
 {
   "name": "indicative-compiler",
-  "version": "7.0.5",
+  "version": "7.1.0",
   "description": "Indicative compiler to compile parsed schema into highly optimized functions",
   "main": "build/index.js",
   "files": [
