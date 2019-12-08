@@ -15,9 +15,11 @@ import {
   Schema,
   Messages,
   rulesParser,
+  TypedSchema,
   ParsedSchema,
   ParsedMessages,
   messagesParser,
+  ParsedTypedSchema,
 } from 'indicative-parser'
 
 import { TreeWalker } from '../TreeWalker'
@@ -34,7 +36,7 @@ export class Compiler {
   private _parsedMessages: ParsedMessages
 
   constructor (
-    schema: Schema,
+    schema: Schema | ParsedTypedSchema<TypedSchema>,
     messages: Messages,
     private _validations: { [key: string]: ValidationDefination },
   ) {

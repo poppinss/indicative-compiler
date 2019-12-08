@@ -8,6 +8,7 @@
  */
 
 import test from 'japa'
+import { t } from 'indicative-parser'
 import { Executor } from '../src/Validator/Executor'
 import { Compiler } from '../src/Validator/Compiler'
 import { ErrorFormatter } from '../test-helpers/ErrorFormatter'
@@ -251,6 +252,66 @@ test.group('Executor', () => {
           field: 'age',
           message: 'Validation failure',
           validation: 'required',
+        },
+      ])
+    }
+  })
+
+  test('validate using pre-parsed schema', async (assert) => {
+    assert.plan(1)
+
+    const schema = t.schema({
+      username: t.string(),
+      age: t.number(),
+    })
+
+    const validations = {
+      required: {
+        async: false,
+        validate (): boolean {
+          return false
+        },
+      },
+      string: {
+        async: false,
+        validate (): boolean {
+          return false
+        },
+      },
+      number: {
+        async: false,
+        validate (): boolean {
+          return false
+        },
+      },
+    }
+
+    const compiler = new Compiler(schema, {}, validations)
+    const executor = new Executor(compiler.compile())
+
+    try {
+      await executor.exec({}, ErrorFormatter, {}, false, false)
+    } catch (errors) {
+      assert.deepEqual(errors, [
+        {
+          field: 'username',
+          message: 'required validation failed on username',
+          validation: 'required',
+        },
+        {
+          field: 'username',
+          message: 'string validation failed on username',
+          validation: 'string',
+        },
+        {
+          field: 'age',
+          message: 'required validation failed on age',
+          validation: 'required',
+        },
+        {
+          field: 'age',
+          message: 'number validation failed on age',
+          validation: 'number',
         },
       ])
     }
