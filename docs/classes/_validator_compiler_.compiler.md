@@ -23,13 +23,13 @@ functions highly optimized for speed.
 
 ###  constructor
 
-\+ **new Compiler**(`schema`: Schema, `messages`: Messages, `_validations`: object): *[Compiler](_validator_compiler_.compiler.md)*
+\+ **new Compiler**(`schema`: Schema | ParsedTypedSchema‹TypedSchema›, `messages`: Messages, `_validations`: object): *[Compiler](_validator_compiler_.compiler.md)*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`schema` | Schema |
+`schema` | Schema &#124; ParsedTypedSchema‹TypedSchema› |
 `messages` | Messages |
 `_validations` | object |
 

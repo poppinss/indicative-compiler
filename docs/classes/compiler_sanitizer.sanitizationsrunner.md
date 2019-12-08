@@ -39,7 +39,7 @@ Name | Type |
 
 ###  exec
 
-▸ **exec**(`data`: [SanitizationDataRoot](../modules/compiler_main.md#sanitizationdataroot), `config`: unknown): *undefined | true*
+▸ **exec**(`data`: [SanitizationDataRoot](../modules/compiler_main.md#sanitizationdataroot), `config`: unknown): *void*
 
 Execute all sanitization in series for a given filed
 
@@ -50,4 +50,4 @@ Name | Type |
 `data` | [SanitizationDataRoot](../modules/compiler_main.md#sanitizationdataroot) |
 `config` | unknown |
 
-**Returns:** *undefined | true*
+**Returns:** *void*

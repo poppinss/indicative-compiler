@@ -14,7 +14,12 @@ runtime, we need a parent function (aka wrapper), that can execute
 the child validations as per the length of the array.
 
 ```js
-function consumerFn (field: string, rules: ParsedRule[], dotPath: string[], pointer: string) {
+function consumerFn (
+  field: string,
+  rules: ParsedRule[],
+  dotPath: string[],
+  pointer: string,
+) {
 }
 
 function arrayWrapper (
@@ -69,8 +74,9 @@ Name | Type |
 
 ▸ **walk**(`schema`: ParsedSchema, `dotPath`: string[], `arrayPath`: string[]): *T | U[]*
 
-Walks the schema tree and invokes the `consumerFn` for each node. The output
-of the consumer is collected and returned back as an array.
+Walks the schema tree and invokes the `consumerFn` for each node.
+The output of the consumer is collected and returned back as an
+array.
 
 **Parameters:**
 

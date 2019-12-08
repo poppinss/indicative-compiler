@@ -96,7 +96,7 @@ ___
 
 ###  SanitizationDataRoot
 
-Ƭ **SanitizationDataRoot**: *Pick‹[ValidationDataRoot](compiler_main.md#validationdataroot), Exclude‹keyof ValidationDataRoot, "pointer" | "arrayPointer"››*
+Ƭ **SanitizationDataRoot**: *Omit‹[ValidationDataRoot](compiler_main.md#validationdataroot), "pointer" | "arrayPointer"›*
 
 Shape of sanitizer data root.
 
@@ -106,7 +106,7 @@ ___
 
 Ƭ **SanitizationDefination**: *object*
 
-Shape of sanitization defination
+Shape of sanitization definition
 
 #### Type declaration:
 

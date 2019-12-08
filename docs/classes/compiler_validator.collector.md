@@ -102,8 +102,9 @@ ___
 
 *Implementation of [CollectorContract](../interfaces/compiler_main.collectorcontract.md)*
 
-Passes error to the error formatter for a given field and rule. Also when the
-message is undefined, it will create a generic message.
+Passes error to the error formatter for a given field and rule.
+Also when the message is undefined, it will create a generic
+message.
 
 **Parameters:**
 

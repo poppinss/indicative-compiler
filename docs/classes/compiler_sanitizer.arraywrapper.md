@@ -40,7 +40,7 @@ Name | Type |
 
 ###  exec
 
-▸ **exec**(`data`: [SanitizationDataRoot](../modules/compiler_main.md#sanitizationdataroot), `config`: unknown): *true | void*
+▸ **exec**(`data`: [SanitizationDataRoot](../modules/compiler_main.md#sanitizationdataroot), `config`: unknown): *void*
 
 Execute series of validations for values inside an array
 
@@ -51,4 +51,4 @@ Name | Type |
 `data` | [SanitizationDataRoot](../modules/compiler_main.md#sanitizationdataroot) |
 `config` | unknown |
 
-**Returns:** *true | void*
+**Returns:** *void*
