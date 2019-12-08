@@ -27,7 +27,12 @@ import { ConsumerFn, ArrayWrapper } from './contracts'
  * the child validations as per the length of the array.
  *
  * ```js
- * function consumerFn (field: string, rules: ParsedRule[], dotPath: string[], pointer: string) {
+ * function consumerFn (
+ *   field: string,
+ *   rules: ParsedRule[],
+ *   dotPath: string[],
+ *   pointer: string,
+ * ) {
  * }
  *
  * function arrayWrapper (
@@ -59,7 +64,8 @@ export class TreeWalker<T extends any = any, U extends any = any> {
   }
 
   /**
-   * Process the object node inside the parsed. All children are parsed recursively
+   * Process the object node inside the parsed. All children are parsed
+   * recursively
    */
   private _processObjectNode (
     field: string,
@@ -86,8 +92,8 @@ export class TreeWalker<T extends any = any, U extends any = any> {
   }
 
   /**
-   * Process the array node of the schema tree. This method will call the `arrayWrapper`
-   * function and passes all array children to it.
+   * Process the array node of the schema tree. This method will call
+   * the `arrayWrapper` function and passes all array children to it.
    */
   private _processArrayNode (
     field: string,
@@ -109,9 +115,9 @@ export class TreeWalker<T extends any = any, U extends any = any> {
     }
 
     /**
-     * Processing children for each index. The index of the tree can be a wildcard
-     * `*`, which means we rely on runtime data to know the actual length of
-     * the array.
+     * Processing children for each index. The index of the tree can be a
+     * wildcard `*`, which means we rely on runtime data to know the
+     * actual length of the array.
      */
     Object.keys(node.each).forEach((index) => {
       let child: (T | U)[] = []
@@ -129,8 +135,9 @@ export class TreeWalker<T extends any = any, U extends any = any> {
   }
 
   /**
-   * Walks the schema tree and invokes the `consumerFn` for each node. The output
-   * of the consumer is collected and returned back as an array.
+   * Walks the schema tree and invokes the `consumerFn` for each node.
+   * The output of the consumer is collected and returned back as an
+   * array.
    */
   public walk (schema: ParsedSchema, dotPath: string[] = [], arrayPath: string[] = []): (T | U)[] {
     return Object.keys(schema).reduce((result: (T | U)[], field) => {

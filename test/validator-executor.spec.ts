@@ -24,7 +24,7 @@ test.group('Executor', () => {
     const validations = {
       required: {
         async: false,
-        validate () {
+        validate (): boolean {
           return false
         },
       },
@@ -62,7 +62,7 @@ test.group('Executor', () => {
     const validations = {
       required: {
         async: false,
-        validate () {
+        validate (): boolean {
           return false
         },
       },
@@ -95,15 +95,14 @@ test.group('Executor', () => {
     const validations = {
       required: {
         async: false,
-        validate () {
+        validate (): boolean {
           return false
         },
       },
       alpha: {
         async: false,
-        validate () {
+        validate (): boolean {
           throw new Error('Not expected to be called')
-          return false
         },
       },
     }
@@ -134,7 +133,7 @@ test.group('Executor', () => {
     const validations = {
       required: {
         async: false,
-        validate () {
+        validate (): boolean {
           return true
         },
       },
@@ -161,7 +160,7 @@ test.group('Executor', () => {
     const validations = {
       required: {
         async: false,
-        validate () {
+        validate (): boolean {
           return true
         },
       },
@@ -189,13 +188,13 @@ test.group('Executor', () => {
     const validations = {
       required: {
         async: false,
-        validate () {
+        validate (): boolean {
           return false
         },
       },
       min: {
         async: false,
-        validate () {
+        validate (): boolean {
           return true
         },
       },
@@ -228,7 +227,7 @@ test.group('Executor', () => {
     const validations = {
       required: {
         async: false,
-        validate () {
+        validate (): boolean {
           return false
         },
       },

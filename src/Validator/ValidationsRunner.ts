@@ -11,9 +11,9 @@
  * file that was distributed with this source code.
  */
 
-import { ParsedRule, ParsedRulesMessages } from 'indicative-parser'
-import getValue from 'lodash.get'
 import isObject from 'isobject'
+import getValue from 'lodash.get'
+import { ParsedRule, ParsedRulesMessages } from 'indicative-parser'
 
 import {
   ValidationDataRoot,
@@ -66,7 +66,7 @@ export class ValidationsRunner {
   private _computeValidations (
     validations: { [key: string]: ValidationDefination },
     rules: ParsedRule[],
-  ) {
+  ): void {
     this._validations = rules.map((rule) => {
       const validation = validations[rule.name]
 
@@ -94,9 +94,9 @@ export class ValidationsRunner {
       }
 
       /**
-       * Set the flag to `true` when one or more validations are `async`. This tells
-       * the consumer of [[ValidationsRunner]] class to make use of `execAsync` over
-       * `exec`. All done for performance.
+       * Set the flag to `true` when one or more validations are `async`.
+       * This tells the consumer of [[ValidationsRunner]] class to make
+       * use of `execAsync` over `exec`. All done for performance.
        */
       if (validation.async) {
         this.async = true
@@ -123,8 +123,8 @@ export class ValidationsRunner {
     const pointer = data.arrayPointer ?
       (
         this._pointer === '::tip::'
-        ? `${data.arrayPointer}.${data.currentIndex}`
-        : `${data.arrayPointer}.${data.currentIndex}.${this._pointer}`
+          ? `${data.arrayPointer}.${data.currentIndex}`
+          : `${data.arrayPointer}.${data.currentIndex}.${this._pointer}`
       )
       : this._pointer
 
@@ -145,7 +145,7 @@ export class ValidationsRunner {
     passed: boolean,
     data: ValidationDataRoot,
     collector: CollectorContract,
-  ) {
+  ): void {
     if (!passed || this._type !== 'literal') {
       return
     }
@@ -161,7 +161,7 @@ export class ValidationsRunner {
     rule: ParsedRule,
     collector: CollectorContract,
     exception: Error | null,
-  ) {
+  ): void {
     const message = exception || this._fieldMessages[rule.name] || this._genericMessages[rule.name]
     collector.setError(pointer, rule, message)
   }
@@ -190,7 +190,8 @@ export class ValidationsRunner {
     let hasFailures = false
 
     /**
-     * Sequentially loop over all the validations. We break the loop, when `bail=true`.
+     * Sequentially loop over all the validations.
+     * We break the loop, when `bail=true`.
      */
     for (let validation of this._validations) {
       let exception: Error | null = null
@@ -243,7 +244,8 @@ export class ValidationsRunner {
     let hasFailures = false
 
     /**
-     * Sequentially loop over all the validations. We break the loop, when `bail=true`.
+     * Sequentially loop over all the validations.
+     * We break the loop, when `bail=true`.
      */
     for (let validation of this._validations) {
       let exception: Error | null = null

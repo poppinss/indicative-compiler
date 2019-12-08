@@ -34,7 +34,7 @@ export class Executor {
     bail: boolean,
     removeAdditional: boolean,
     customErrorCollector?: ErrorCollectorFn,
-  ) {
+  ): Promise<any> {
     /**
      * Creating a root data node. The `tip` and `pointer` will be copied
      * and mutated down the road

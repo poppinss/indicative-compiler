@@ -80,7 +80,7 @@ export class ArrayWrapper {
     collector: CollectorContract,
     config: unknown,
     bail: boolean,
-  ) {
+  ): boolean {
     let hasFailures = false
 
     for (let validator of this._childValidators) {
@@ -104,7 +104,7 @@ export class ArrayWrapper {
     collector: CollectorContract,
     config: unknown,
     bail: boolean,
-  ) {
+  ): Promise<boolean> {
     let hasFailures = false
 
     for (let validator of this._childValidators) {

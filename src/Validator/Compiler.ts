@@ -13,17 +13,17 @@
 
 import {
   Schema,
-  rulesParser,
-  messagesParser,
   Messages,
+  rulesParser,
   ParsedSchema,
   ParsedMessages,
+  messagesParser,
 } from 'indicative-parser'
 
-import { ArrayWrapper } from './ArrayWrapper'
-import { ValidationsRunner } from './ValidationsRunner'
 import { TreeWalker } from '../TreeWalker'
+import { ArrayWrapper } from './ArrayWrapper'
 import { ValidationDefination } from '../contracts'
+import { ValidationsRunner } from './ValidationsRunner'
 
 /**
  * Compiles rules and messages schema to an array of top level
@@ -45,7 +45,7 @@ export class Compiler {
   /**
    * Compiles the schema to an array of functions
    */
-  public compile () {
+  public compile (): (ValidationsRunner | ArrayWrapper)[] {
     return new TreeWalker<ValidationsRunner, ArrayWrapper>(
       /**
        * Consume each node inside the tree

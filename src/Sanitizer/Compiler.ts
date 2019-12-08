@@ -39,7 +39,7 @@ export class Compiler {
   /**
    * Compiles the schema to an array of functions
    */
-  public compile () {
+  public compile (): (SanitizationsRunner | ArrayWrapper)[] {
     return new TreeWalker<SanitizationsRunner, ArrayWrapper>(
       /**
        * Consume each node inside the tree

@@ -13,7 +13,7 @@ import { Compiler } from '../src/Sanitizer/Compiler'
 import { patchValue, getValue } from 'indicative-utils'
 
 test.group('Sanitizer Executor', () => {
-  test('run sanitizations and mutate data', async (assert) => {
+  test('run sanitizations and mutate data', (assert) => {
     assert.plan(1)
 
     const schema = {
@@ -23,7 +23,7 @@ test.group('Sanitizer Executor', () => {
 
     const sanitizations = {
       escape: {
-        sanitize (data, field) {
+        sanitize (data, field): void {
           patchValue(data, field, `${getValue(data, field)}-escaped`)
         },
       },

@@ -12,12 +12,12 @@ import { ErrorFormatterContract } from '../src/contracts'
 export class ErrorFormatter implements ErrorFormatterContract {
   private _errors: { field: string, message: string, validation: string }[] = []
 
-  public addError (error: string | Error, field: string, rule: string) {
+  public addError (error: string | Error, field: string, rule: string): void {
     const message = error instanceof Error ? error.message : error
     this._errors.push({ field, message, validation: rule })
   }
 
-  public toJSON () {
+  public toJSON (): null | { field: string, message: string, validation: string }[] {
     return this._errors.length ? this._errors : null
   }
 }

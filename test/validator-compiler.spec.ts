@@ -9,15 +9,17 @@
 
 import test from 'japa'
 import { join } from 'path'
+import cloneDeep from 'clone-deep'
+
 import { Compiler } from '../src/Validator/Compiler'
 import { Collector } from '../src/Validator/Collector'
 import { ErrorFormatter } from '../test-helpers/ErrorFormatter'
-import cloneDeep from 'clone-deep'
 
 const fixtureModules = require('require-all')({
   dirname: join(__dirname, '../fixtures/validator'),
   filter: /(.+)\.ts$/,
 })
+
 const fixtures = Object.keys(fixtureModules).reduce((result: any[], modPath) => {
   result.push({ module: fixtureModules[modPath], modPath })
   return result

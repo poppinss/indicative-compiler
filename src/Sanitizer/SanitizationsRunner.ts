@@ -37,7 +37,7 @@ export class SanitizationsRunner {
   private _computeSanitizations (
     sanitizations: { [key: string]: SanitizationDefination },
     rules: ParsedRule[],
-  ) {
+  ): void {
     this._sanitizations = rules.map((rule) => {
       const sanitization = sanitizations[rule.name]
 
@@ -88,7 +88,7 @@ export class SanitizationsRunner {
   /**
    * Execute all sanitization in series for a given filed
    */
-  public exec (data: SanitizationDataRoot, config: unknown) {
+  public exec (data: SanitizationDataRoot, config: unknown): void {
     const dataCopy = this._getDataCopy(data)
 
     /**
@@ -97,7 +97,7 @@ export class SanitizationsRunner {
      * seperately.
      */
     if (!(isObject as any)(dataCopy.tip)) {
-      return true
+      return
     }
 
     this._sanitizations.forEach((sanitization) => {

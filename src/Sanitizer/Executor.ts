@@ -25,7 +25,7 @@ export class Executor {
   /**
    * Executes the compiled functions in sequence.
    */
-  public exec (data: any, config: unknown) {
+  public exec (data: any, config: unknown): any {
     /**
      * Creating a root data node. The `tip` and `pointer` will be copied
      * and mutated down the road

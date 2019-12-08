@@ -36,7 +36,7 @@ export class Collector implements CollectorContract {
    * when `value === undefined` or the validation chain has
    * one or more errors.
    */
-  public setValue (pointer: string, value: any) {
+  public setValue (pointer: string, value: any): void {
     if (!this._generateTree || value === undefined || this.hasErrors) {
       return
     }
@@ -48,7 +48,7 @@ export class Collector implements CollectorContract {
   /**
    * Returns the collected data
    */
-  public getData () {
+  public getData (): any {
     return this.tree
   }
 
@@ -60,10 +60,11 @@ export class Collector implements CollectorContract {
   }
 
   /**
-   * Passes error to the error formatter for a given field and rule. Also when the
-   * message is undefined, it will create a generic message.
+   * Passes error to the error formatter for a given field and rule.
+   * Also when the message is undefined, it will create a generic
+   * message.
    */
-  public setError (pointer: string, rule: ParsedRule, message?: Message | Error) {
+  public setError (pointer: string, rule: ParsedRule, message?: Message | Error): void {
     this.hasErrors = true
 
     if (message && typeof (message) === 'string') {

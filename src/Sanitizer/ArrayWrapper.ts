@@ -61,17 +61,17 @@ export class ArrayWrapper {
   /**
    * Executes all sanitizations for a given index value inside the array.
    */
-  private _executeSanitizations (data: SanitizationDataRoot, config: unknown) {
+  private _executeSanitizations (data: SanitizationDataRoot, config: unknown): void {
     this._childSanitizations.forEach((sanitization) => sanitization.exec(data, config))
   }
 
   /**
    * Execute series of validations for values inside an array
    */
-  public exec (data: SanitizationDataRoot, config: unknown) {
+  public exec (data: SanitizationDataRoot, config: unknown): void {
     const dataCopy = this._getDataCopy(data)
     if (!dataCopy) {
-      return true
+      return
     }
 
     /**

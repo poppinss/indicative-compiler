@@ -69,9 +69,7 @@ export type ValidationDefination = {
 /**
  * Shape of sanitizer data root.
  */
-export type SanitizationDataRoot = Pick<
-  ValidationDataRoot, Exclude<keyof ValidationDataRoot, 'pointer' | 'arrayPointer'>
->
+export type SanitizationDataRoot = Omit<ValidationDataRoot, 'pointer' | 'arrayPointer'>
 
 /**
  * Shape of sanitization function.
@@ -84,7 +82,7 @@ export type SanitizeFunction = (
 ) => void
 
 /**
- * Shape of sanitization defination
+ * Shape of sanitization definition
  */
 export type SanitizationDefination = {
   compile?: (args: any[]) => any[],
