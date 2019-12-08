@@ -44,9 +44,9 @@
     "del-cli": "^3.0.0",
     "doctoc": "^1.4.0",
     "eslint": "^6.7.2",
-    "eslint-plugin-adonis": "^1.0.1",
+    "eslint-plugin-adonis": "^1.0.2",
     "husky": "^3.1.0",
-    "indicative-utils": "^7.0.1",
+    "indicative-utils": "^7.0.3",
     "japa": "^3.0.1",
     "mrm": "^2.0.0",
     "np": "^5.2.1",
@@ -54,8 +54,8 @@
     "ts-node": "^8.5.4",
     "typedoc": "^0.15.3",
     "typedoc-plugin-external-module-name": "^2.1.0",
-    "typedoc-plugin-markdown": "^2.2.11",
-    "typescript": "^3.7.2"
+    "typedoc-plugin-markdown": "^2.2.14",
+    "typescript": "^3.7.3"
   },
   "nyc": {
     "exclude": [
@@ -81,7 +81,7 @@
     "anyBranch": false
   },
   "dependencies": {
-    "indicative-parser": "^7.0.3",
+    "indicative-parser": "^7.1.0",
     "isobject": "^4.0.0",
     "lodash.get": "^4.4.2",
     "lodash.memoize": "^4.1.2",
