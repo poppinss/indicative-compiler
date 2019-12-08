@@ -12,7 +12,7 @@
  */
 
 import { ParsedSchema, SchemaNodeLiteral, SchemaNodeObject, SchemaNodeArray } from 'indicative-parser'
-import { ConsumerFn, ArrayWrapper } from './contracts'
+import { ConsumerFn, ArrayWrapper } from '../Contracts'
 
 /**
  * Tree walker is an agnostic implementation to walk over the parsed schema

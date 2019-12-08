@@ -14,7 +14,7 @@
 import getValue from 'lodash.get'
 import isObject from 'isobject'
 import { ParsedRule } from 'indicative-parser'
-import { SanitizationDefination, SanitizeFunction, SanitizationDataRoot } from '../contracts'
+import { SanitizationDefination, SanitizeFunction, SanitizationDataRoot } from '../Contracts'
 
 /**
  * Runs an array of sanitizations on a given field.

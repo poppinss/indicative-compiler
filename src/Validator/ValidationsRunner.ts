@@ -20,7 +20,7 @@ import {
   ValidateFunction,
   ValidationDefination,
   CollectorContract,
-} from '../contracts'
+} from '../Contracts'
 
 /**
  * Runs a series of validations on a given field. This class is feeded with the

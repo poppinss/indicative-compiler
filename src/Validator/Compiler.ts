@@ -24,7 +24,7 @@ import {
 
 import { TreeWalker } from '../TreeWalker'
 import { ArrayWrapper } from './ArrayWrapper'
-import { ValidationDefination } from '../contracts'
+import { ValidationDefination } from '../Contracts'
 import { ValidationsRunner } from './ValidationsRunner'
 
 /**

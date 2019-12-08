@@ -12,7 +12,7 @@
  */
 
 import getValue from 'lodash.get'
-import { SanitizationDataRoot } from '../contracts'
+import { SanitizationDataRoot } from '../Contracts'
 import { SanitizationsRunner } from './SanitizationsRunner'
 
 /**

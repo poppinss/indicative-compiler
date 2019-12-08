@@ -20,7 +20,7 @@ import {
 import { TreeWalker } from '../TreeWalker'
 import { ArrayWrapper } from './ArrayWrapper'
 import { SanitizationsRunner } from './SanitizationsRunner'
-import { SanitizationDefination } from '../contracts'
+import { SanitizationDefination } from '../Contracts'
 
 /**
  * Compiles rules and messages schema to an array of top level

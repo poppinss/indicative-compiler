@@ -14,7 +14,7 @@
 import { Collector } from './Collector'
 import { ArrayWrapper } from './ArrayWrapper'
 import { ValidationsRunner } from './ValidationsRunner'
-import { ErrorFormatterContract, ErrorCollectorFn } from '../contracts'
+import { ErrorFormatterContract, ErrorCollectorFn } from '../Contracts'
 
 /**
  * Executor is meant to execute the compiled functions with runtime

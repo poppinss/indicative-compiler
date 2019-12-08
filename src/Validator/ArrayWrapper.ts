@@ -13,7 +13,7 @@
 
 import getValue from 'lodash.get'
 
-import { ValidationDataRoot, CollectorContract } from '../contracts'
+import { ValidationDataRoot, CollectorContract } from '../Contracts'
 import { ValidationsRunner } from './ValidationsRunner'
 
 /**

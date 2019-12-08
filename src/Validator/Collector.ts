@@ -14,7 +14,7 @@
 import { pope } from 'pope'
 import setValue from 'lodash.set'
 import { ParsedRule, Message } from 'indicative-parser'
-import { CollectorContract, ErrorFormatterContract, ErrorCollectorFn } from '../contracts'
+import { CollectorContract, ErrorFormatterContract, ErrorCollectorFn } from '../Contracts'
 
 /**
  * Collector collects all the errors and creates a copy of validated

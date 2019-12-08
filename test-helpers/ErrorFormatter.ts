@@ -7,7 +7,7 @@
 * file that was distributed with this source code.
 */
 
-import { ErrorFormatterContract } from '../src/contracts'
+import { ErrorFormatterContract } from '../src/Contracts'
 
 export class ErrorFormatter implements ErrorFormatterContract {
   private _errors: { field: string, message: string, validation: string }[] = []
