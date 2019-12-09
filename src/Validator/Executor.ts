@@ -21,7 +21,7 @@ import { ErrorFormatterContract, ErrorCollectorFn } from '../Contracts'
  * data.
  */
 export class Executor {
-  constructor (private _fns: (ArrayWrapper | ValidationsRunner)[]) {
+  constructor (private fns: (ArrayWrapper | ValidationsRunner)[]) {
   }
 
   /**
@@ -47,7 +47,7 @@ export class Executor {
      */
     const collector = new Collector(new Formatter(), removeAdditional, customErrorCollector)
 
-    for (let fn of this._fns) {
+    for (let fn of this.fns) {
       let passed: boolean = false
 
       if (fn.async) {

@@ -11,29 +11,25 @@
 * file that was distributed with this source code.
 */
 
-import {
-  Schema,
-  rulesParser,
-  ParsedSchema,
-} from 'indicative-parser'
+import { Schema, rulesParser, ParsedSchema } from 'indicative-parser'
 
 import { TreeWalker } from '../TreeWalker'
 import { ArrayWrapper } from './ArrayWrapper'
-import { SanitizationsRunner } from './SanitizationsRunner'
 import { SanitizationDefination } from '../Contracts'
+import { SanitizationsRunner } from './SanitizationsRunner'
 
 /**
  * Compiles rules and messages schema to an array of top level
  * functions highly optimized for speed.
  */
 export class Compiler {
-  private _parsedSchema: ParsedSchema
+  private parsedSchema: ParsedSchema
 
   constructor (
     schema: Schema,
-    private _sanitizations: { [key: string]: SanitizationDefination },
+    private sanitizations: { [key: string]: SanitizationDefination },
   ) {
-    this._parsedSchema = rulesParser(schema)
+    this.parsedSchema = rulesParser(schema)
   }
 
   /**
@@ -44,8 +40,8 @@ export class Compiler {
       /**
        * Consume each node inside the tree
        */
-      (field, _type, rules, dotPath) => {
-        return new SanitizationsRunner(field, dotPath, rules, this._sanitizations)
+      (field, _, rules, dotPath) => {
+        return new SanitizationsRunner(field, dotPath, rules, this.sanitizations)
       },
 
       /**
@@ -54,6 +50,6 @@ export class Compiler {
       (index, field, children, dotPath) => {
         return new ArrayWrapper(field, index, children, dotPath)
       },
-    ).walk(this._parsedSchema)
+    ).walk(this.parsedSchema)
   }
 }

@@ -13,8 +13,8 @@
 
 import getValue from 'lodash.get'
 
-import { ValidationDataRoot, CollectorContract } from '../Contracts'
 import { ValidationsRunner } from './ValidationsRunner'
+import { ValidationDataRoot, CollectorContract } from '../Contracts'
 
 /**
  * Wraps the [[ValidationsRunner]] and executes them based upon the length of
@@ -24,19 +24,19 @@ export class ArrayWrapper {
   /**
    * The pointer to read the value of the field inside the data tip
    */
-  private _pointer: string = this._dotPath.concat(this._field).join('.')
+  private pointer: string = this.dotPath.concat(this.field).join('.')
 
   /**
    * A boolean to know if any of the children inside the wrapper
    * has async validators.
    */
-  public async: boolean = !!this._childValidators.find((validator) => validator.async)
+  public async: boolean = !!this.childrenValidators.find((validator) => validator.async)
 
   constructor (
-    private _field: string,
-    private _index: string,
-    private _childValidators: (ValidationsRunner | ArrayWrapper)[],
-    private _dotPath: string[],
+    private field: string,
+    private index: string,
+    private childrenValidators: (ValidationsRunner | ArrayWrapper)[],
+    private dotPath: string[],
   ) {
   }
 
@@ -44,8 +44,8 @@ export class ArrayWrapper {
    * Returns data copy to the passed to all the children of the
    * array.
    */
-  private _getDataCopy (data: ValidationDataRoot): null | ValidationDataRoot {
-    const value = getValue(data.tip, this._pointer)
+  private getDataCopy (data: ValidationDataRoot): null | ValidationDataRoot {
+    const value = getValue(data.tip, this.pointer)
 
     /**
      * Ensure value is array, otherwise mark the validation as passed.
@@ -65,17 +65,17 @@ export class ArrayWrapper {
       pointer: '',
       tip: null,
       parentArray: value,
-      currentIndex: this._index === '*' ? 0 : Number(this._index),
+      currentIndex: this.index === '*' ? 0 : Number(this.index),
       arrayPointer: data.arrayPointer
-        ? `${data.arrayPointer}.${data.currentIndex}.${this._pointer}`
-        : this._pointer,
+        ? `${data.arrayPointer}.${data.currentIndex}.${this.pointer}`
+        : this.pointer,
     }
   }
 
   /**
    * Executes all validations for a given index value inside the array.
    */
-  private _executeValidations (
+  private executeValidations (
     data: ValidationDataRoot,
     collector: CollectorContract,
     config: unknown,
@@ -83,7 +83,7 @@ export class ArrayWrapper {
   ): boolean {
     let hasFailures = false
 
-    for (let validator of this._childValidators) {
+    for (let validator of this.childrenValidators) {
       const passed = validator.exec(data, collector, config, bail)
       if (!passed) {
         hasFailures = true
@@ -97,9 +97,9 @@ export class ArrayWrapper {
   }
 
   /**
-   * Same as [[ArrayWrapper._executeValidations]] but async.
+   * Same as [[ArrayWrapper.executeValidations]] but async.
    */
-  private async _executeAsyncValidations (
+  private async executeAsyncValidations (
     data: ValidationDataRoot,
     collector: CollectorContract,
     config: unknown,
@@ -107,7 +107,7 @@ export class ArrayWrapper {
   ): Promise<boolean> {
     let hasFailures = false
 
-    for (let validator of this._childValidators) {
+    for (let validator of this.childrenValidators) {
       let passed = true
 
       if (validator.async) {
@@ -136,7 +136,7 @@ export class ArrayWrapper {
     config: unknown,
     bail: boolean = false,
   ): boolean {
-    const dataCopy = this._getDataCopy(data)
+    const dataCopy = this.getDataCopy(data)
     if (!dataCopy) {
       return true
     }
@@ -145,9 +145,9 @@ export class ArrayWrapper {
      * If index is a not a wildcard, then we run validations
      * just for the given index.
      */
-    if (this._index !== '*') {
+    if (this.index !== '*') {
       dataCopy.tip = dataCopy.parentArray![dataCopy.currentIndex!]
-      return this._executeValidations(dataCopy, collector, config, bail)
+      return this.executeValidations(dataCopy, collector, config, bail)
     }
 
     let index = 0
@@ -162,7 +162,7 @@ export class ArrayWrapper {
       dataCopy.currentIndex = index
       let passed = true
 
-      passed = this._executeValidations(dataCopy, collector, config, bail)
+      passed = this.executeValidations(dataCopy, collector, config, bail)
       if (!passed) {
         hasFailures = true
         if (bail) {
@@ -186,7 +186,7 @@ export class ArrayWrapper {
     config: unknown,
     bail: boolean = false,
   ): Promise<boolean> {
-    const dataCopy = this._getDataCopy(data)
+    const dataCopy = this.getDataCopy(data)
     if (!dataCopy) {
       return true
     }
@@ -195,9 +195,9 @@ export class ArrayWrapper {
      * If index is a not a wildcard, then we run validations
      * just for the given index.
      */
-    if (this._index !== '*') {
+    if (this.index !== '*') {
       dataCopy.tip = dataCopy.parentArray![dataCopy.currentIndex!]
-      return this._executeAsyncValidations(dataCopy, collector, config, bail)
+      return this.executeAsyncValidations(dataCopy, collector, config, bail)
     }
 
     let index = 0
@@ -211,7 +211,7 @@ export class ArrayWrapper {
       dataCopy.tip = item
       dataCopy.currentIndex = index
 
-      const passed = await this._executeAsyncValidations(dataCopy, collector, config, bail)
+      const passed = await this.executeAsyncValidations(dataCopy, collector, config, bail)
       if (!passed) {
         hasFailures = true
         if (bail) {

@@ -23,20 +23,20 @@ export class ArrayWrapper {
   /**
    * The pointer to read the value of the field inside the data tip
    */
-  private _pointer: string = this._dotPath.concat(this._field).join('.')
+  private pointer: string = this.dotPath.concat(this.field).join('.')
 
   constructor (
-    private _field: string,
-    private _index: string,
-    private _childSanitizations: (SanitizationsRunner | ArrayWrapper)[],
-    private _dotPath: string[],
+    private field: string,
+    private index: string,
+    private childSanitizations: (SanitizationsRunner | ArrayWrapper)[],
+    private dotPath: string[],
   ) {}
 
   /**
    * Returns data copy to the passed to all the children of the array.
    */
-  private _getDataCopy (data: SanitizationDataRoot): null | SanitizationDataRoot {
-    const value = getValue(data.tip, this._pointer)
+  private getDataCopy (data: SanitizationDataRoot): null | SanitizationDataRoot {
+    const value = getValue(data.tip, this.pointer)
 
     /**
      * Ensure value is array, otherwise skip the sanitization process.
@@ -54,22 +54,22 @@ export class ArrayWrapper {
       original: data.original,
       tip: null,
       parentArray: value,
-      currentIndex: this._index === '*' ? 0 : Number(this._index),
+      currentIndex: this.index === '*' ? 0 : Number(this.index),
     }
   }
 
   /**
    * Executes all sanitizations for a given index value inside the array.
    */
-  private _executeSanitizations (data: SanitizationDataRoot, config: unknown): void {
-    this._childSanitizations.forEach((sanitization) => sanitization.exec(data, config))
+  private executeSanitizations (data: SanitizationDataRoot, config: unknown): void {
+    this.childSanitizations.forEach((sanitization) => sanitization.exec(data, config))
   }
 
   /**
-   * Execute series of validations for values inside an array
+   * Execute series of sanitizations for values inside an array
    */
   public exec (data: SanitizationDataRoot, config: unknown): void {
-    const dataCopy = this._getDataCopy(data)
+    const dataCopy = this.getDataCopy(data)
     if (!dataCopy) {
       return
     }
@@ -78,9 +78,9 @@ export class ArrayWrapper {
      * If index is a not a wildcard, then we run validations
      * just for the given index.
      */
-    if (this._index !== '*') {
+    if (this.index !== '*') {
       dataCopy.tip = dataCopy.parentArray![dataCopy.currentIndex!]
-      return this._executeSanitizations(dataCopy, config)
+      return this.executeSanitizations(dataCopy, config)
     }
 
     /**
@@ -90,7 +90,7 @@ export class ArrayWrapper {
     dataCopy.parentArray!.forEach((item, index) => {
       dataCopy.tip = item
       dataCopy.currentIndex = index
-      this._executeSanitizations(dataCopy, config)
+      this.executeSanitizations(dataCopy, config)
     })
   }
 }

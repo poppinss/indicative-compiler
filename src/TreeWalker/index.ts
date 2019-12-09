@@ -47,27 +47,27 @@ import { ConsumerFn, ArrayWrapper } from '../Contracts'
  * ```
  */
 export class TreeWalker<T extends any = any, U extends any = any> {
-  constructor (private _consumerFn: ConsumerFn<T>, private _arrayWrapper: ArrayWrapper<T, U>) {
+  constructor (private consumerFn: ConsumerFn<T>, private arrayWrapper: ArrayWrapper<T, U>) {
   }
 
   /**
    * Processes the literal node inside schema tree
    */
-  private _processLiteralNode (
+  private processLiteralNode (
     field: string,
     node: SchemaNodeLiteral,
     dotPath: string[],
     arrayPath: string[],
   ): T {
     const pointer = arrayPath.concat(dotPath).concat(field).join('.')
-    return this._consumerFn(field, node.type, node.rules, dotPath, pointer)
+    return this.consumerFn(field, node.type, node.rules, dotPath, pointer)
   }
 
   /**
    * Process the object node inside the parsed. All children are parsed
    * recursively
    */
-  private _processObjectNode (
+  private processObjectNode (
     field: string,
     node: SchemaNodeObject,
     dotPath: string[],
@@ -81,7 +81,7 @@ export class TreeWalker<T extends any = any, U extends any = any> {
      */
     if (node.rules.length) {
       const pointer = arrayPath.concat(dotPath).concat(field).join('.')
-      output.push(this._consumerFn(field, node.type, node.rules, dotPath, pointer))
+      output.push(this.consumerFn(field, node.type, node.rules, dotPath, pointer))
     }
 
     /**
@@ -95,7 +95,7 @@ export class TreeWalker<T extends any = any, U extends any = any> {
    * Process the array node of the schema tree. This method will call
    * the `arrayWrapper` function and passes all array children to it.
    */
-  private _processArrayNode (
+  private processArrayNode (
     field: string,
     node: SchemaNodeArray,
     dotPath: string[],
@@ -111,7 +111,7 @@ export class TreeWalker<T extends any = any, U extends any = any> {
      */
     if (node.rules.length) {
       const pointer = basePath.join('.')
-      output.push(this._consumerFn(field, node.type, node.rules, dotPath, pointer))
+      output.push(this.consumerFn(field, node.type, node.rules, dotPath, pointer))
     }
 
     /**
@@ -124,11 +124,11 @@ export class TreeWalker<T extends any = any, U extends any = any> {
 
       if (node.each[index].rules.length) {
         const pointer = basePath.concat(index).join('.')
-        child.push(this._consumerFn('::tip::', 'literal', node.each[index].rules, [], pointer))
+        child.push(this.consumerFn('::tip::', 'literal', node.each[index].rules, [], pointer))
       }
 
       child = child.concat(this.walk(node.each[index].children, [], basePath.concat(index)))
-      output = output.concat(this._arrayWrapper(index, field, child, dotPath))
+      output = output.concat(this.arrayWrapper(index, field, child, dotPath))
     })
 
     return output
@@ -143,15 +143,15 @@ export class TreeWalker<T extends any = any, U extends any = any> {
     return Object.keys(schema).reduce((result: (T | U)[], field) => {
       const node = schema[field]
       if (node.type === 'literal') {
-        result = result.concat(this._processLiteralNode(field, node, dotPath, arrayPath))
+        result = result.concat(this.processLiteralNode(field, node, dotPath, arrayPath))
       }
 
       if (node.type === 'object') {
-        result = result.concat(this._processObjectNode(field, node, dotPath, arrayPath))
+        result = result.concat(this.processObjectNode(field, node, dotPath, arrayPath))
       }
 
       if (node.type === 'array') {
-        result = result.concat(this._processArrayNode(field, node, dotPath, arrayPath))
+        result = result.concat(this.processArrayNode(field, node, dotPath, arrayPath))
       }
 
       return result

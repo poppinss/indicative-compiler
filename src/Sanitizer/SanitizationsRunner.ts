@@ -11,8 +11,8 @@
  * file that was distributed with this source code.
  */
 
-import getValue from 'lodash.get'
 import isObject from 'isobject'
+import getValue from 'lodash.get'
 import { ParsedRule } from 'indicative-parser'
 import { SanitizationDefination, SanitizeFunction, SanitizationDataRoot } from '../Contracts'
 
@@ -20,25 +20,25 @@ import { SanitizationDefination, SanitizeFunction, SanitizationDataRoot } from '
  * Runs an array of sanitizations on a given field.
  */
 export class SanitizationsRunner {
-  private _sanitizations: { rule: ParsedRule, fn: SanitizeFunction }[] = []
+  private sanitizations: { rule: ParsedRule, fn: SanitizeFunction }[] = []
 
   constructor (
-    private _field: string,
-    private _dotPath: string[],
+    private field: string,
+    private dotPath: string[],
     rules: ParsedRule[],
     sanitizations: { [key: string]: SanitizationDefination },
   ) {
-    this._computeSanitizations(sanitizations, rules)
+    this.computeSanitizations(sanitizations, rules)
   }
 
   /**
    * Pull sanitizations for the list defined rules.
    */
-  private _computeSanitizations (
+  private computeSanitizations (
     sanitizations: { [key: string]: SanitizationDefination },
     rules: ParsedRule[],
   ): void {
-    this._sanitizations = rules.map((rule) => {
+    this.sanitizations = rules.map((rule) => {
       const sanitization = sanitizations[rule.name]
 
       /**
@@ -74,14 +74,14 @@ export class SanitizationsRunner {
    * are mutated so that the sanitization function receives the closest
    * object from the pointer, resulting in performant code.
    */
-  private _getDataCopy (data: SanitizationDataRoot): SanitizationDataRoot {
-    const tip = this._dotPath.length ? getValue(data.tip, this._dotPath) : data.tip
+  private getDataCopy (data: SanitizationDataRoot): SanitizationDataRoot {
+    const tip = this.dotPath.length ? getValue(data.tip, this.dotPath) : data.tip
 
     /**
      * Updating the tip and pointer
      */
     return Object.assign({}, data, {
-      tip: this._field === '::tip::' ? { [this._field]: tip } : tip,
+      tip: this.field === '::tip::' ? { [this.field]: tip } : tip,
     })
   }
 
@@ -89,7 +89,7 @@ export class SanitizationsRunner {
    * Execute all sanitization in series for a given filed
    */
   public exec (data: SanitizationDataRoot, config: unknown): void {
-    const dataCopy = this._getDataCopy(data)
+    const dataCopy = this.getDataCopy(data)
 
     /**
      * Skip validations when the parent value of this field is not
@@ -100,8 +100,8 @@ export class SanitizationsRunner {
       return
     }
 
-    this._sanitizations.forEach((sanitization) => {
-      sanitization.fn(dataCopy, this._field, sanitization.rule.args, config)
+    this.sanitizations.forEach((sanitization) => {
+      sanitization.fn(dataCopy, this.field, sanitization.rule.args, config)
     })
   }
 }

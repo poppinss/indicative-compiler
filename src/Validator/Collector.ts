@@ -26,8 +26,8 @@ export class Collector implements CollectorContract {
 
   constructor (
     public formatter: ErrorFormatterContract,
-    private _generateTree: boolean,
-    private _customErrorCollector?: ErrorCollectorFn,
+    private generateTree: boolean,
+    private customErrorCollector?: ErrorCollectorFn,
   ) {
   }
 
@@ -37,7 +37,7 @@ export class Collector implements CollectorContract {
    * one or more errors.
    */
   public setValue (pointer: string, value: any): void {
-    if (!this._generateTree || value === undefined || this.hasErrors) {
+    if (!this.generateTree || value === undefined || this.hasErrors) {
       return
     }
 
@@ -82,8 +82,8 @@ export class Collector implements CollectorContract {
      * When custom error collector is defined, then we let it handle then
      * error, otherwise we report it to the formatter ourselves
      */
-    if (typeof (this._customErrorCollector) === 'function') {
-      this._customErrorCollector(this.formatter, message, pointer, rule.name, rule.args)
+    if (typeof (this.customErrorCollector) === 'function') {
+      this.customErrorCollector(this.formatter, message, pointer, rule.name, rule.args)
     } else {
       /**
        * Report error to the formatter

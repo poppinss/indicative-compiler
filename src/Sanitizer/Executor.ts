@@ -19,7 +19,7 @@ import { SanitizationsRunner } from './SanitizationsRunner'
  * data.
  */
 export class Executor {
-  constructor (private _fns: (ArrayWrapper | SanitizationsRunner)[]) {
+  constructor (private fns: (ArrayWrapper | SanitizationsRunner)[]) {
   }
 
   /**
@@ -31,7 +31,7 @@ export class Executor {
      * and mutated down the road
      */
     const root = { tip: data, original: data }
-    this._fns.forEach((fn) => fn.exec(root, config))
+    this.fns.forEach((fn) => fn.exec(root, config))
 
     return data
   }

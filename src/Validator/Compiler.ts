@@ -32,16 +32,16 @@ import { ValidationsRunner } from './ValidationsRunner'
  * functions highly optimized for speed.
  */
 export class Compiler {
-  private _parsedSchema: ParsedSchema
-  private _parsedMessages: ParsedMessages
+  private parsedSchema: ParsedSchema
+  private parsedMessages: ParsedMessages
 
   constructor (
     schema: Schema | ParsedTypedSchema<TypedSchema>,
     messages: Messages,
-    private _validations: { [key: string]: ValidationDefination },
+    private validations: { [key: string]: ValidationDefination },
   ) {
-    this._parsedSchema = rulesParser(schema)
-    this._parsedMessages = messagesParser(messages)
+    this.parsedSchema = rulesParser(schema)
+    this.parsedMessages = messagesParser(messages)
   }
 
   /**
@@ -53,9 +53,9 @@ export class Compiler {
        * Consume each node inside the tree
        */
       (field, type, rules, dotPath, pointer) => {
-        const messages = this._parsedMessages.fields[pointer] || {}
-        const genericMessage = this._parsedMessages.rules
-        return new ValidationsRunner(field, type, dotPath, rules, this._validations, messages, genericMessage)
+        const messages = this.parsedMessages.fields[pointer] || {}
+        const genericMessage = this.parsedMessages.rules
+        return new ValidationsRunner(field, type, dotPath, rules, this.validations, messages, genericMessage)
       },
 
       /**
@@ -64,6 +64,6 @@ export class Compiler {
       (index, field, children, dotPath) => {
         return new ArrayWrapper(field, index, children, dotPath)
       },
-    ).walk(this._parsedSchema)
+    ).walk(this.parsedSchema)
   }
 }
