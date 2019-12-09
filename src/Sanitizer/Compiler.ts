@@ -15,7 +15,7 @@ import { Schema, rulesParser, ParsedSchema } from 'indicative-parser'
 
 import { TreeWalker } from '../TreeWalker'
 import { ArrayWrapper } from './ArrayWrapper'
-import { SanitizationDefination } from '../Contracts'
+import { SanitizationDefinition } from '../Contracts'
 import { SanitizationsRunner } from './SanitizationsRunner'
 
 /**
@@ -27,7 +27,7 @@ export class Compiler {
 
   constructor (
     schema: Schema,
-    private sanitizations: { [key: string]: SanitizationDefination },
+    private sanitizations: { [key: string]: SanitizationDefinition },
   ) {
     this.parsedSchema = rulesParser(schema)
   }

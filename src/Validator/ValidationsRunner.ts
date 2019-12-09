@@ -16,10 +16,10 @@ import getValue from 'lodash.get'
 import { ParsedRule, ParsedRulesMessages } from 'indicative-parser'
 
 import {
-  ValidationDataRoot,
   ValidateFunction,
-  ValidationDefination,
   CollectorContract,
+  ValidationDataRoot,
+  ValidationDefinition,
 } from '../Contracts'
 
 /**
@@ -52,7 +52,7 @@ export class ValidationsRunner {
     private type: 'literal' | 'object' | 'array',
     private dotPath: string[],
     rules: ParsedRule[],
-    validations: { [key: string]: ValidationDefination },
+    validations: { [key: string]: ValidationDefinition },
     private fieldMessages: ParsedRulesMessages,
     private genericMessages: ParsedRulesMessages,
   ) {
@@ -64,7 +64,7 @@ export class ValidationsRunner {
    * the defined rules.
    */
   private computeValidations (
-    validations: { [key: string]: ValidationDefination },
+    validations: { [key: string]: ValidationDefinition },
     rules: ParsedRule[],
   ): void {
     this.validations = rules.map((rule) => {

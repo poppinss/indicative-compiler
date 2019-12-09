@@ -24,7 +24,7 @@ import {
 
 import { TreeWalker } from '../TreeWalker'
 import { ArrayWrapper } from './ArrayWrapper'
-import { ValidationDefination } from '../Contracts'
+import { ValidationDefinition } from '../Contracts'
 import { ValidationsRunner } from './ValidationsRunner'
 
 /**
@@ -38,7 +38,7 @@ export class Compiler {
   constructor (
     schema: Schema | ParsedTypedSchema<TypedSchema>,
     messages: Messages,
-    private validations: { [key: string]: ValidationDefination },
+    private validations: { [key: string]: ValidationDefinition },
   ) {
     this.parsedSchema = rulesParser(schema)
     this.parsedMessages = messagesParser(messages)

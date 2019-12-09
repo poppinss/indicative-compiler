@@ -60,11 +60,12 @@ export type ValidateFunction = (
 /**
  * Shape of validation defination
  */
-export type ValidationDefination = {
+export type ValidationDefinition = {
   async: boolean,
   compile?: (args: any[]) => any[],
   validate: ValidateFunction,
 }
+export type ValidationDefination = ValidationDefinition
 
 /**
  * Shape of sanitizer data root.
@@ -84,10 +85,11 @@ export type SanitizeFunction = (
 /**
  * Shape of sanitization definition
  */
-export type SanitizationDefination = {
+export type SanitizationDefinition = {
   compile?: (args: any[]) => any[],
   sanitize: SanitizeFunction,
 }
+export type SanitizationDefination = SanitizationDefinition
 
 /**
  * The error formatter to format error messages

@@ -18,9 +18,12 @@ export { Compiler as SanitizerCompiler } from './src/Sanitizer/Compiler'
 export { Executor as SanitizerExecutor } from './src/Sanitizer/Executor'
 
 export {
-  ValidationDefination,
   ValidateFunction,
   SanitizeFunction,
+  ErrorCollectorFn,
+  ValidationDefination,
+  ValidationDefinition,
   SanitizationDefination,
+  SanitizationDefinition,
   ErrorFormatterContract,
 } from './src/Contracts'

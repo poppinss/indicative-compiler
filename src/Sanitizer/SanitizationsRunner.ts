@@ -14,7 +14,7 @@
 import isObject from 'isobject'
 import getValue from 'lodash.get'
 import { ParsedRule } from 'indicative-parser'
-import { SanitizationDefination, SanitizeFunction, SanitizationDataRoot } from '../Contracts'
+import { SanitizationDefinition, SanitizeFunction, SanitizationDataRoot } from '../Contracts'
 
 /**
  * Runs an array of sanitizations on a given field.
@@ -26,7 +26,7 @@ export class SanitizationsRunner {
     private field: string,
     private dotPath: string[],
     rules: ParsedRule[],
-    sanitizations: { [key: string]: SanitizationDefination },
+    sanitizations: { [key: string]: SanitizationDefinition },
   ) {
     this.computeSanitizations(sanitizations, rules)
   }
@@ -35,7 +35,7 @@ export class SanitizationsRunner {
    * Pull sanitizations for the list defined rules.
    */
   private computeSanitizations (
-    sanitizations: { [key: string]: SanitizationDefination },
+    sanitizations: { [key: string]: SanitizationDefinition },
     rules: ParsedRule[],
   ): void {
     this.sanitizations = rules.map((rule) => {
