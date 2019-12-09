@@ -57,14 +57,14 @@ new TreeWalker(consumerFn, arrayWrapper).walk(parsedSchema)
 
 ###  constructor
 
-\+ **new TreeWalker**(`_consumerFn`: [ConsumerFn](../modules/compiler_main.md#consumerfn)‹T›, `_arrayWrapper`: [ArrayWrapper](../modules/compiler_main.md#arraywrapper)‹T, U›): *[TreeWalker](compiler_main.treewalker.md)*
+\+ **new TreeWalker**(`consumerFn`: [ConsumerFn](../modules/compiler_main.md#consumerfn)‹T›, `arrayWrapper`: [ArrayWrapper](../modules/compiler_main.md#arraywrapper)‹T, U›): *[TreeWalker](compiler_main.treewalker.md)*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`_consumerFn` | [ConsumerFn](../modules/compiler_main.md#consumerfn)‹T› |
-`_arrayWrapper` | [ArrayWrapper](../modules/compiler_main.md#arraywrapper)‹T, U› |
+`consumerFn` | [ConsumerFn](../modules/compiler_main.md#consumerfn)‹T› |
+`arrayWrapper` | [ArrayWrapper](../modules/compiler_main.md#arraywrapper)‹T, U› |
 
 **Returns:** *[TreeWalker](compiler_main.treewalker.md)*
 

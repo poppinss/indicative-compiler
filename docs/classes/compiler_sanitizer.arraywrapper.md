@@ -23,16 +23,16 @@ them based upon the length of an data array at runtime.
 
 ###  constructor
 
-\+ **new ArrayWrapper**(`_field`: string, `_index`: string, `_childSanitizations`: [SanitizationsRunner](compiler_sanitizer.sanitizationsrunner.md)‹› | [ArrayWrapper](compiler_sanitizer.arraywrapper.md)‹›[], `_dotPath`: string[]): *[ArrayWrapper](compiler_sanitizer.arraywrapper.md)*
+\+ **new ArrayWrapper**(`field`: string, `index`: string, `childSanitizations`: [SanitizationsRunner](compiler_sanitizer.sanitizationsrunner.md)‹› | [ArrayWrapper](compiler_sanitizer.arraywrapper.md)‹›[], `dotPath`: string[]): *[ArrayWrapper](compiler_sanitizer.arraywrapper.md)*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`_field` | string |
-`_index` | string |
-`_childSanitizations` | [SanitizationsRunner](compiler_sanitizer.sanitizationsrunner.md)‹› &#124; [ArrayWrapper](compiler_sanitizer.arraywrapper.md)‹›[] |
-`_dotPath` | string[] |
+`field` | string |
+`index` | string |
+`childSanitizations` | [SanitizationsRunner](compiler_sanitizer.sanitizationsrunner.md)‹› &#124; [ArrayWrapper](compiler_sanitizer.arraywrapper.md)‹›[] |
+`dotPath` | string[] |
 
 **Returns:** *[ArrayWrapper](compiler_sanitizer.arraywrapper.md)*
 
@@ -42,7 +42,7 @@ Name | Type |
 
 ▸ **exec**(`data`: [SanitizationDataRoot](../modules/compiler_main.md#sanitizationdataroot), `config`: unknown): *void*
 
-Execute series of validations for values inside an array
+Execute series of sanitizations for values inside an array
 
 **Parameters:**
 

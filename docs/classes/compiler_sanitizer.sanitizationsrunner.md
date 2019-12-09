@@ -22,14 +22,14 @@ Runs an array of sanitizations on a given field.
 
 ###  constructor
 
-\+ **new SanitizationsRunner**(`_field`: string, `_dotPath`: string[], `rules`: ParsedRule[], `sanitizations`: object): *[SanitizationsRunner](compiler_sanitizer.sanitizationsrunner.md)*
+\+ **new SanitizationsRunner**(`field`: string, `dotPath`: string[], `rules`: ParsedRule[], `sanitizations`: object): *[SanitizationsRunner](compiler_sanitizer.sanitizationsrunner.md)*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`_field` | string |
-`_dotPath` | string[] |
+`field` | string |
+`dotPath` | string[] |
 `rules` | ParsedRule[] |
 `sanitizations` | object |
 

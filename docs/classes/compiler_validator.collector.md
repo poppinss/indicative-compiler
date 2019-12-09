@@ -36,15 +36,15 @@ data (only when `generateTree = true`).
 
 ###  constructor
 
-\+ **new Collector**(`formatter`: [ErrorFormatterContract](../interfaces/compiler_main.errorformattercontract.md), `_generateTree`: boolean, `_customErrorCollector?`: [ErrorCollectorFn](../modules/compiler_main.md#errorcollectorfn)): *[Collector](compiler_validator.collector.md)*
+\+ **new Collector**(`formatter`: [ErrorFormatterContract](../interfaces/compiler_main.errorformattercontract.md), `generateTree`: boolean, `customErrorCollector?`: [ErrorCollectorFn](../modules/compiler_main.md#errorcollectorfn)): *[Collector](compiler_validator.collector.md)*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
 `formatter` | [ErrorFormatterContract](../interfaces/compiler_main.errorformattercontract.md) |
-`_generateTree` | boolean |
-`_customErrorCollector?` | [ErrorCollectorFn](../modules/compiler_main.md#errorcollectorfn) |
+`generateTree` | boolean |
+`customErrorCollector?` | [ErrorCollectorFn](../modules/compiler_main.md#errorcollectorfn) |
 
 **Returns:** *[Collector](compiler_validator.collector.md)*
 

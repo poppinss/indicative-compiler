@@ -23,13 +23,13 @@ data.
 
 ###  constructor
 
-\+ **new Executor**(`_fns`: [ValidationsRunner](compiler_validator.validationsrunner.md)‹› | [ArrayWrapper](compiler_validator.arraywrapper.md)‹›[]): *[Executor](compiler_validator.executor.md)*
+\+ **new Executor**(`fns`: [ValidationsRunner](compiler_validator.validationsrunner.md)‹› | [ArrayWrapper](compiler_validator.arraywrapper.md)‹›[]): *[Executor](compiler_validator.executor.md)*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`_fns` | [ValidationsRunner](compiler_validator.validationsrunner.md)‹› &#124; [ArrayWrapper](compiler_validator.arraywrapper.md)‹›[] |
+`fns` | [ValidationsRunner](compiler_validator.validationsrunner.md)‹› &#124; [ArrayWrapper](compiler_validator.arraywrapper.md)‹›[] |
 
 **Returns:** *[Executor](compiler_validator.executor.md)*
 

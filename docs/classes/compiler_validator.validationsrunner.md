@@ -28,19 +28,19 @@ computed nodes generated via [TreeWalker](compiler_main.treewalker.md).
 
 ###  constructor
 
-\+ **new ValidationsRunner**(`_field`: string, `_type`: "literal" | "object" | "array", `_dotPath`: string[], `rules`: ParsedRule[], `validations`: object, `_fieldMessages`: ParsedRulesMessages, `_genericMessages`: ParsedRulesMessages): *[ValidationsRunner](compiler_validator.validationsrunner.md)*
+\+ **new ValidationsRunner**(`field`: string, `type`: "literal" | "object" | "array", `dotPath`: string[], `rules`: ParsedRule[], `validations`: object, `fieldMessages`: ParsedRulesMessages, `genericMessages`: ParsedRulesMessages): *[ValidationsRunner](compiler_validator.validationsrunner.md)*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`_field` | string |
-`_type` | "literal" &#124; "object" &#124; "array" |
-`_dotPath` | string[] |
+`field` | string |
+`type` | "literal" &#124; "object" &#124; "array" |
+`dotPath` | string[] |
 `rules` | ParsedRule[] |
 `validations` | object |
-`_fieldMessages` | ParsedRulesMessages |
-`_genericMessages` | ParsedRulesMessages |
+`fieldMessages` | ParsedRulesMessages |
+`genericMessages` | ParsedRulesMessages |
 
 **Returns:** *[ValidationsRunner](compiler_validator.validationsrunner.md)*
 
@@ -50,7 +50,7 @@ Name | Type |
 
 • **async**: *boolean* = false
 
-We toggle this flag then creating the `_validations` object
+We toggle this flag then creating the `validations` object
 
 ## Methods
 

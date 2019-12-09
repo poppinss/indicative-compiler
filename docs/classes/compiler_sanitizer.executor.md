@@ -23,13 +23,13 @@ data.
 
 ###  constructor
 
-\+ **new Executor**(`_fns`: [SanitizationsRunner](compiler_sanitizer.sanitizationsrunner.md)‹› | [ArrayWrapper](compiler_sanitizer.arraywrapper.md)‹›[]): *[Executor](compiler_sanitizer.executor.md)*
+\+ **new Executor**(`fns`: [SanitizationsRunner](compiler_sanitizer.sanitizationsrunner.md)‹› | [ArrayWrapper](compiler_sanitizer.arraywrapper.md)‹›[]): *[Executor](compiler_sanitizer.executor.md)*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`_fns` | [SanitizationsRunner](compiler_sanitizer.sanitizationsrunner.md)‹› &#124; [ArrayWrapper](compiler_sanitizer.arraywrapper.md)‹›[] |
+`fns` | [SanitizationsRunner](compiler_sanitizer.sanitizationsrunner.md)‹› &#124; [ArrayWrapper](compiler_sanitizer.arraywrapper.md)‹›[] |
 
 **Returns:** *[Executor](compiler_sanitizer.executor.md)*
 

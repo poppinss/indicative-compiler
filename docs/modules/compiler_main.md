@@ -20,10 +20,12 @@
 * [ErrorCollectorFn](compiler_main.md#errorcollectorfn)
 * [SanitizationDataRoot](compiler_main.md#sanitizationdataroot)
 * [SanitizationDefination](compiler_main.md#sanitizationdefination)
+* [SanitizationDefinition](compiler_main.md#sanitizationdefinition)
 * [SanitizeFunction](compiler_main.md#sanitizefunction)
 * [ValidateFunction](compiler_main.md#validatefunction)
 * [ValidationDataRoot](compiler_main.md#validationdataroot)
 * [ValidationDefination](compiler_main.md#validationdefination)
+* [ValidationDefinition](compiler_main.md#validationdefinition)
 
 ## Type aliases
 
@@ -104,7 +106,13 @@ ___
 
 ###  SanitizationDefination
 
-Ƭ **SanitizationDefination**: *object*
+Ƭ **SanitizationDefination**: *[SanitizationDefinition](compiler_main.md#sanitizationdefinition)*
+
+___
+
+###  SanitizationDefinition
+
+Ƭ **SanitizationDefinition**: *object*
 
 Shape of sanitization definition
 
@@ -166,7 +174,13 @@ ___
 
 ###  ValidationDefination
 
-Ƭ **ValidationDefination**: *object*
+Ƭ **ValidationDefination**: *[ValidationDefinition](compiler_main.md#validationdefinition)*
+
+___
+
+###  ValidationDefinition
+
+Ƭ **ValidationDefinition**: *object*
 
 Shape of validation defination
 

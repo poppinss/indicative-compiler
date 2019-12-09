@@ -28,16 +28,16 @@ an array at runtime.
 
 ###  constructor
 
-\+ **new ArrayWrapper**(`_field`: string, `_index`: string, `_childValidators`: [ValidationsRunner](compiler_validator.validationsrunner.md)‹› | [ArrayWrapper](compiler_validator.arraywrapper.md)‹›[], `_dotPath`: string[]): *[ArrayWrapper](compiler_validator.arraywrapper.md)*
+\+ **new ArrayWrapper**(`field`: string, `index`: string, `childrenValidators`: [ValidationsRunner](compiler_validator.validationsrunner.md)‹› | [ArrayWrapper](compiler_validator.arraywrapper.md)‹›[], `dotPath`: string[]): *[ArrayWrapper](compiler_validator.arraywrapper.md)*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
-`_field` | string |
-`_index` | string |
-`_childValidators` | [ValidationsRunner](compiler_validator.validationsrunner.md)‹› &#124; [ArrayWrapper](compiler_validator.arraywrapper.md)‹›[] |
-`_dotPath` | string[] |
+`field` | string |
+`index` | string |
+`childrenValidators` | [ValidationsRunner](compiler_validator.validationsrunner.md)‹› &#124; [ArrayWrapper](compiler_validator.arraywrapper.md)‹›[] |
+`dotPath` | string[] |
 
 **Returns:** *[ArrayWrapper](compiler_validator.arraywrapper.md)*
 
@@ -45,7 +45,7 @@ Name | Type |
 
 ###  async
 
-• **async**: *boolean* =  !!this._childValidators.find((validator) => validator.async)
+• **async**: *boolean* =  !!this.childrenValidators.find((validator) => validator.async)
 
 A boolean to know if any of the children inside the wrapper
 has async validators.

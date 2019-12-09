@@ -23,14 +23,14 @@ functions highly optimized for speed.
 
 ###  constructor
 
-\+ **new Compiler**(`schema`: Schema, `_sanitizations`: object): *[Compiler](_sanitizer_compiler_.compiler.md)*
+\+ **new Compiler**(`schema`: Schema, `sanitizations`: object): *[Compiler](_sanitizer_compiler_.compiler.md)*
 
 **Parameters:**
 
 Name | Type |
 ------ | ------ |
 `schema` | Schema |
-`_sanitizations` | object |
+`sanitizations` | object |
 
 **Returns:** *[Compiler](_sanitizer_compiler_.compiler.md)*
 
