@@ -23,4 +23,4 @@ export {
   SanitizeFunction,
   SanitizationDefination,
   ErrorFormatterContract,
-} from './src/contracts'
+} from './src/Contracts'
