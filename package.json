@@ -37,7 +37,7 @@
   "homepage": "https://github.com/poppinss/indicative-compiler#readme",
   "devDependencies": {
     "@adonisjs/mrm-preset": "^2.2.2",
-    "@types/node": "^12.12.14",
+    "@types/node": "^12.12.16",
     "clone-deep": "^4.0.1",
     "commitizen": "^4.0.3",
     "cz-conventional-changelog": "^3.0.2",
