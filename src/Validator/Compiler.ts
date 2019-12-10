@@ -32,8 +32,8 @@ import { ValidationsRunner } from './ValidationsRunner'
  * functions highly optimized for speed.
  */
 export class Compiler {
-  private parsedSchema: ParsedSchema
-  private parsedMessages: ParsedMessages
+  public parsedSchema: ParsedSchema
+  public parsedMessages: ParsedMessages
 
   constructor (
     schema: Schema | ParsedTypedSchema<TypedSchema>,
