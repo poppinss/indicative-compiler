@@ -15,6 +15,11 @@ functions highly optimized for speed.
 
 * [constructor](_validator_compiler_.compiler.md#constructor)
 
+### Properties
+
+* [parsedMessages](_validator_compiler_.compiler.md#parsedmessages)
+* [parsedSchema](_validator_compiler_.compiler.md#parsedschema)
+
 ### Methods
 
 * [compile](_validator_compiler_.compiler.md#compile)
@@ -34,6 +39,18 @@ Name | Type |
 `validations` | object |
 
 **Returns:** *[Compiler](_validator_compiler_.compiler.md)*
+
+## Properties
+
+###  parsedMessages
+
+• **parsedMessages**: *ParsedMessages*
+
+___
+
+###  parsedSchema
+
+• **parsedSchema**: *ParsedSchema*
 
 ## Methods
 
