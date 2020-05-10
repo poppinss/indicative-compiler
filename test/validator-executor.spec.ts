@@ -217,6 +217,70 @@ test.group('Executor', () => {
     }
   })
 
+  test(`
+  return errors (only first failure) when a validation fails
+  on a field with bail=false and bailOnEachField=true`, async (assert) => {
+    assert.plan(1)
+
+    const schema = {
+      email: 'required|email|ends_with:.com',
+      age: 'required|number|above:4',
+    }
+
+    const validations = {
+      required: {
+        async: false,
+        validate (): boolean {
+          return true
+        },
+      },
+      email: {
+        async: false,
+        validate (): boolean {
+          return false
+        },
+      },
+      endsWith: {
+        async: false,
+        validate (): boolean {
+          return false
+        },
+      },
+      number: {
+        async: false,
+        validate (): boolean {
+          return false
+        },
+      },
+      above: {
+        async: false,
+        validate (): boolean {
+          return false
+        },
+      },
+    }
+
+    const compiler = new Compiler(schema, {}, validations)
+    const executor = new Executor(compiler.compile())
+
+    try {
+      await executor.exec({}, ErrorFormatter, {}, false, false, undefined, true)
+    } catch (errors) {
+      assert.deepEqual(errors, [
+        {
+          field: 'email',
+          message: 'email validation failed on email',
+          validation: 'email',
+        },
+        {
+          field: 'age',
+          message: 'number validation failed on age',
+          validation: 'number',
+        },
+      ])
+    }
+  })
+
   test('invoke custom error collector when defined', async (assert) => {
     assert.plan(1)
 

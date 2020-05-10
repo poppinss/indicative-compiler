@@ -34,6 +34,7 @@ export class Executor {
     bail: boolean,
     removeAdditional: boolean,
     customErrorCollector?: ErrorCollectorFn,
+    bailOnEachField: boolean = false
   ): Promise<any> {
     /**
      * Creating a root data node. The `tip` and `pointer` will be copied
@@ -51,9 +52,9 @@ export class Executor {
       let passed: boolean = false
 
       if (fn.async) {
-        passed = await fn.execAsync(root, collector, config, bail)
+        passed = await fn.execAsync(root, collector, config, bail, bailOnEachField)
       } else {
-        passed = fn.exec(root, collector, config, bail)
+        passed = fn.exec(root, collector, config, bail, bailOnEachField)
       }
 
       if (!passed && bail) {

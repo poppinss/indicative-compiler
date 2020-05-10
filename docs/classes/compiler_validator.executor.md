@@ -37,7 +37,7 @@ Name | Type |
 
 ###  exec
 
-▸ **exec**(`data`: any, `Formatter`: object, `config`: unknown, `bail`: boolean, `removeAdditional`: boolean, `customErrorCollector?`: [ErrorCollectorFn](../modules/compiler_main.md#errorcollectorfn)): *Promise‹any›*
+▸ **exec**(`data`: any, `Formatter`: object, `config`: unknown, `bail`: boolean, `removeAdditional`: boolean, `customErrorCollector?`: [ErrorCollectorFn](../modules/compiler_main.md#errorcollectorfn), `bailOnEachField`: boolean = false): *Promise‹any›*
 
 Executes the compiled functions in sequence.
 
@@ -51,5 +51,6 @@ Name | Type |
 `bail` | boolean |
 `removeAdditional` | boolean |
 `customErrorCollector?` | [ErrorCollectorFn](../modules/compiler_main.md#errorcollectorfn) |
+`bailOnEachField` | boolean |
 
 **Returns:** *Promise‹any›*
