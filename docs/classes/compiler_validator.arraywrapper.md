@@ -54,7 +54,7 @@ has async validators.
 
 ###  exec
 
-▸ **exec**(`data`: [ValidationDataRoot](../modules/compiler_main.md#validationdataroot), `collector`: [CollectorContract](../interfaces/compiler_main.collectorcontract.md), `config`: unknown, `bail`: boolean): *boolean*
+▸ **exec**(`data`: [ValidationDataRoot](../modules/compiler_main.md#validationdataroot), `collector`: [CollectorContract](../interfaces/compiler_main.collectorcontract.md), `config`: unknown, `bail`: boolean, `bailOnEachField?`: boolean): *boolean*
 
 Execute series of validations for values inside an array
 
@@ -66,6 +66,7 @@ Name | Type | Default |
 `collector` | [CollectorContract](../interfaces/compiler_main.collectorcontract.md) | - |
 `config` | unknown | - |
 `bail` | boolean | false |
+`bailOnEachField` | boolean | - |
 
 **Returns:** *boolean*
 
@@ -73,7 +74,7 @@ ___
 
 ###  execAsync
 
-▸ **execAsync**(`data`: [ValidationDataRoot](../modules/compiler_main.md#validationdataroot), `collector`: [CollectorContract](../interfaces/compiler_main.collectorcontract.md), `config`: unknown, `bail`: boolean): *Promise‹boolean›*
+▸ **execAsync**(`data`: [ValidationDataRoot](../modules/compiler_main.md#validationdataroot), `collector`: [CollectorContract](../interfaces/compiler_main.collectorcontract.md), `config`: unknown, `bail`: boolean, `bailOnEachField?`: boolean): *Promise‹boolean›*
 
 Execute series of async validations for values inside an array. Same
 as [ArrayWrapper.exec](compiler_validator.arraywrapper.md#exec) but async.
@@ -86,5 +87,6 @@ Name | Type | Default |
 `collector` | [CollectorContract](../interfaces/compiler_main.collectorcontract.md) | - |
 `config` | unknown | - |
 `bail` | boolean | false |
+`bailOnEachField` | boolean | - |
 
 **Returns:** *Promise‹boolean›*

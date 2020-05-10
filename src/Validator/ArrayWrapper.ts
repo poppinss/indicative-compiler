@@ -80,11 +80,12 @@ export class ArrayWrapper {
     collector: CollectorContract,
     config: unknown,
     bail: boolean,
+    bailOnEachField?: boolean
   ): boolean {
     let hasFailures = false
 
     for (let validator of this.childrenValidators) {
-      const passed = validator.exec(data, collector, config, bail)
+      const passed = validator.exec(data, collector, config, bail, bailOnEachField)
       if (!passed) {
         hasFailures = true
         if (bail) {
@@ -104,6 +105,7 @@ export class ArrayWrapper {
     collector: CollectorContract,
     config: unknown,
     bail: boolean,
+    bailOnEachField?: boolean
   ): Promise<boolean> {
     let hasFailures = false
 
@@ -111,14 +113,14 @@ export class ArrayWrapper {
       let passed = true
 
       if (validator.async) {
-        passed = await validator.execAsync(data, collector, config, bail)
+        passed = await validator.execAsync(data, collector, config, bail, bailOnEachField)
       } else {
-        passed = validator.exec(data, collector, config, bail)
+        passed = validator.exec(data, collector, config, bail, bailOnEachField)
       }
 
       if (!passed) {
         hasFailures = true
-        if (bail) {
+        if (bail && !bailOnEachField) {
           break
         }
       }
@@ -135,6 +137,7 @@ export class ArrayWrapper {
     collector: CollectorContract,
     config: unknown,
     bail: boolean = false,
+    bailOnEachField: boolean = false
   ): boolean {
     const dataCopy = this.getDataCopy(data)
     if (!dataCopy) {
@@ -147,7 +150,7 @@ export class ArrayWrapper {
      */
     if (this.index !== '*') {
       dataCopy.tip = dataCopy.parentArray![dataCopy.currentIndex!]
-      return this.executeValidations(dataCopy, collector, config, bail)
+      return this.executeValidations(dataCopy, collector, config, bail, bailOnEachField)
     }
 
     let index = 0
@@ -162,10 +165,10 @@ export class ArrayWrapper {
       dataCopy.currentIndex = index
       let passed = true
 
-      passed = this.executeValidations(dataCopy, collector, config, bail)
+      passed = this.executeValidations(dataCopy, collector, config, bail, bailOnEachField)
       if (!passed) {
         hasFailures = true
-        if (bail) {
+        if (bail || bailOnEachField) {
           break
         }
       }
@@ -185,6 +188,7 @@ export class ArrayWrapper {
     collector: CollectorContract,
     config: unknown,
     bail: boolean = false,
+    bailOnEachField: boolean = false,
   ): Promise<boolean> {
     const dataCopy = this.getDataCopy(data)
     if (!dataCopy) {
@@ -197,7 +201,7 @@ export class ArrayWrapper {
      */
     if (this.index !== '*') {
       dataCopy.tip = dataCopy.parentArray![dataCopy.currentIndex!]
-      return this.executeAsyncValidations(dataCopy, collector, config, bail)
+      return this.executeAsyncValidations(dataCopy, collector, config, bail, bailOnEachField)
     }
 
     let index = 0
@@ -211,10 +215,10 @@ export class ArrayWrapper {
       dataCopy.tip = item
       dataCopy.currentIndex = index
 
-      const passed = await this.executeAsyncValidations(dataCopy, collector, config, bail)
+      const passed = await this.executeAsyncValidations(dataCopy, collector, config, bail, bailOnEachField)
       if (!passed) {
         hasFailures = true
-        if (bail) {
+        if (bail || bailOnEachField) {
           break
         }
       }

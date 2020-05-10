@@ -56,7 +56,7 @@ We toggle this flag then creating the `validations` object
 
 ###  exec
 
-▸ **exec**(`data`: [ValidationDataRoot](../modules/compiler_main.md#validationdataroot), `collector`: [CollectorContract](../interfaces/compiler_main.collectorcontract.md), `config`: unknown, `bail`: boolean): *boolean*
+▸ **exec**(`data`: [ValidationDataRoot](../modules/compiler_main.md#validationdataroot), `collector`: [CollectorContract](../interfaces/compiler_main.collectorcontract.md), `config`: unknown, `bail`: boolean, `bailOnEachField`: boolean = false): *boolean*
 
 Executes all the validations on a given field synchronously. Run
 [ValidationsRunner.execAsync](compiler_validator.validationsrunner.md#execasync) if want to execute asynchronously.
@@ -69,6 +69,7 @@ Name | Type | Default |
 `collector` | [CollectorContract](../interfaces/compiler_main.collectorcontract.md) | - |
 `config` | unknown | - |
 `bail` | boolean | false |
+`bailOnEachField` | boolean | false |
 
 **Returns:** *boolean*
 
@@ -76,7 +77,7 @@ ___
 
 ###  execAsync
 
-▸ **execAsync**(`data`: [ValidationDataRoot](../modules/compiler_main.md#validationdataroot), `collector`: [CollectorContract](../interfaces/compiler_main.collectorcontract.md), `config`: unknown, `bail`: boolean): *Promise‹boolean›*
+▸ **execAsync**(`data`: [ValidationDataRoot](../modules/compiler_main.md#validationdataroot), `collector`: [CollectorContract](../interfaces/compiler_main.collectorcontract.md), `config`: unknown, `bail`: boolean, `bailOnEachField`: boolean = false): *Promise‹boolean›*
 
 Executes all the validations on a given field asynchronously. Run
 [ValidationsRunner.exec](compiler_validator.validationsrunner.md#exec) if want to execute synchronously.
@@ -89,5 +90,6 @@ Name | Type | Default |
 `collector` | [CollectorContract](../interfaces/compiler_main.collectorcontract.md) | - |
 `config` | unknown | - |
 `bail` | boolean | false |
+`bailOnEachField` | boolean | false |
 
 **Returns:** *Promise‹boolean›*

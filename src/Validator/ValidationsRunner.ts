@@ -175,6 +175,7 @@ export class ValidationsRunner {
     collector: CollectorContract,
     config: unknown,
     bail: boolean = false,
+    bailOnEachField: boolean = false,
   ): boolean {
     const dataCopy = this.getDataCopy(data)
 
@@ -210,7 +211,7 @@ export class ValidationsRunner {
       if (!passed) {
         hasFailures = true
         this.reportErrorToCollector(dataCopy.pointer, validation.rule, collector, exception)
-        if (bail) {
+        if (bail || bailOnEachField) {
           break
         }
       }
@@ -229,6 +230,7 @@ export class ValidationsRunner {
     collector: CollectorContract,
     config: unknown,
     bail: boolean = false,
+    bailOnEachField: boolean = false,
   ): Promise<boolean> {
     const dataCopy = this.getDataCopy(data)
 
@@ -266,7 +268,7 @@ export class ValidationsRunner {
         hasFailures = true
         this.reportErrorToCollector(dataCopy.pointer, validation.rule, collector, exception)
 
-        if (bail) {
+        if (bail || bailOnEachField) {
           break
         }
       }
